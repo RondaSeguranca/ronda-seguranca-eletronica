@@ -48,7 +48,6 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      position: relative;
     }
 
     header .logo {
@@ -263,93 +262,31 @@
     /* Ajustes para telas até 600px (celulares) */
     @media (max-width: 600px) {
       header {
-        justify-content: space-between; /* ajusta para logo + botão */
-        padding: 15px 15px;
-        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 15px;
+        flex-direction: column; /* empilha logo e menu */
+        padding: 15px 10px;
       }
       header .logo {
-        font-size: 1.8rem;
-        margin: 0;
+        font-size: 2rem;
+        margin-bottom: 10px;
       }
-      /* Esconde nav original no celular */
       nav {
-        display: none;
-        position: absolute;
-        top: 55px; /* abaixo do header */
-        right: 15px;
-        background: var(--amarelo);
-        border-radius: 8px;
-        box-shadow: 0 0 10px rgba(0,0,0,0.5);
-        width: 180px;
-        text-align: center;
         flex-direction: column;
-        padding: 10px 0;
-        z-index: 999;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
       }
       nav a {
-        display: block;
-        padding: 12px 0;
-        margin: 0 15px;
-        font-size: 1.1rem;
-        font-weight: 700;
-        color: #000000;
-        border-bottom: 1px solid #ccc;
-      }
-      nav a:last-child {
-        border-bottom: none;
-      }
-      nav a:hover {
-        background-color: var(--vermelho);
-        color: #fff;
-      }
-
-      /* Botão hambúrguer */
-      .menu-toggle {
-        display: block;
-        cursor: pointer;
-        width: 28px;
-        height: 24px;
-        position: relative;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-      .menu-toggle span {
-        background: #000000;
-        display: block;
-        position: absolute;
-        height: 3px;
+        padding: 10px 0;
         width: 100%;
-        border-radius: 2px;
-        opacity: 1;
-        left: 0;
-        transition: all 0.3s ease-in-out;
+        text-align: center;
+        font-size: 1.1rem;
       }
-      .menu-toggle span:nth-child(1) {
-        top: 0;
+      h1 {
+        font-size: 1.8rem;
       }
-      .menu-toggle span:nth-child(2) {
-        top: 10px;
-      }
-      .menu-toggle span:nth-child(3) {
-        top: 20px;
-      }
-
-      /* Quando o menu estiver ativo (aberto) */
-      .menu-toggle.active span:nth-child(1) {
-        transform: rotate(45deg);
-        top: 10px;
-      }
-      .menu-toggle.active span:nth-child(2) {
-        opacity: 0;
-      }
-      .menu-toggle.active span:nth-child(3) {
-        transform: rotate(-45deg);
-        top: 10px;
-      }
-
-      /* Logo centralizada ajustes */
+      /* Ajusta logo centralizada */
       .logo-centralizada img {
         max-width: 150px;
         width: 80%;
@@ -414,13 +351,7 @@
 
 <header>
   <div class="logo">RONDA</div>
-  <!-- Botão hamburger para celular -->
-  <div class="menu-toggle" id="menuToggle" aria-label="Menu de navegação" aria-expanded="false" role="button" tabindex="0">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-  <nav id="navMenu" aria-hidden="true">
+  <nav>
     <a href="#bemvindo">Bem-vindo</a>
     <a href="#sobre">Sobre</a>
     <a href="#servicos">Serviços</a>
@@ -435,8 +366,216 @@
 </div>
 
 <main>
-  <!-- Conteúdo continua igual -->
-  ...
+  <section id="bemvindo">
+    <h1>Bem-vindo à Ronda Segurança Eletrônica</h1>
+    <p>Protegendo você, sua família e seu patrimônio com confiança, tradição e tecnologia.</p>
+  </section>
+
+  <section id="sobre">
+    <h2>Sobre a Ronda Segurança Eletrônica</h2>
+    <p>A Ronda Segurança Eletrônica é uma empresa familiar com 30 anos de história, que começou com o sogro da atual dona e foi passando de geração em geração até chegar ao time dedicado de hoje.</p>
+    <p>Com uma equipe especializada e equipamentos de alta tecnologia, oferecemos serviços que vão desde monitoramento eletrônico até rondas presenciais, garantindo respostas rápidas e eficazes.</p>
+    <p>Nossa missão é proporcionar tranquilidade e confiança, com atendimento humanizado e soluções feitas sob medida para cada cliente.</p>
+    <p>Aqui, segurança é compromisso, responsabilidade e cuidado de verdade — do nosso time para o seu.</p>
+    <p><strong><em>Nós somos família, nós somos segurança, nós somos RONDA.</em></strong></p>
+  </section>
+
+  <section id="servicos">
+    <h2>Serviços</h2>
+
+    <button class="accordion">Monitoramento de Alarmes</button>
+    <div class="panel">
+      <p>Nosso sistema monitora continuamente seus alarmes, garantindo que qualquer sinal de alerta seja detectado imediatamente. Com atendimento rápido, acionamos as medidas necessárias para proteger você e seu patrimônio 24 horas por dia.</p>
+    </div>
+
+    <button class="accordion">Monitoramento de Imagens</button>
+    <div class="panel">
+      <p>Utilizamos tecnologia avançada para acompanhar as câmeras instaladas em sua propriedade em tempo real. Isso permite identificar situações suspeitas com agilidade e fornecer provas visuais para maior segurança e tranquilidade.</p>
+    </div>
+
+    <button class="accordion">Portaria e Zeladoria</button>
+    <div class="panel">
+      <p>Oferecemos serviços profissionais de portaria e zeladoria, garantindo controle de acesso eficiente e manutenção da ordem nas suas instalações. Nossa equipe é treinada para atuar com cordialidade e segurança, protegendo moradores, funcionários e visitantes.</p>
+    </div>
+
+    <button class="accordion">Instalação de Câmeras e Alarmes</button>
+    <div class="panel">
+      <p>Realizamos a instalação de equipamentos modernos e confiáveis, personalizados para as necessidades do seu imóvel. Nossa equipe especializada garante a configuração correta e a integração dos sistemas para máxima eficiência.</p>
+    </div>
+
+    <button class="accordion">Serviços de Proteção Presencial a Eventos Sociais, Festas e Segurança Escolar, e mais</button>
+    <div class="panel">
+      <p>Nossa equipe está preparada para oferecer proteção presencial em diversos tipos de serviços de segurança, atendendo eventos sociais, festas, ambientes escolares e muito mais. Seja qual for a sua necessidade, garantimos presença física constante, prevenção de riscos e resposta rápida para que você tenha tranquilidade em qualquer situação.</p>
+    </div>
+  </section>
+
+  <section id="planos">
+    <h2>Planos de Segurança</h2>
+
+    <button class="accordion">Plano Básico</button>
+    <div class="panel">
+      <p><strong>Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo, garantindo segurança eficiente e controle pelo cliente.</strong></p>
+      <p><u>Serviços incluídos:</u></p>
+      <ul>
+        <li>Monitoramento 24h via central</li>
+        <li>Atendimento emergencial</li>
+        <li>Suporte técnico remoto</li>
+        <li>Aplicativo para acompanhamento em tempo real</li>
+      </ul>
+      <p><u>Benefícios:</u></p>
+      <ul>
+        <li>Segurança garantida dia e noite</li>
+        <li>Viaturas de prontidão na sua região</li>
+        <li>Controle total na palma da mão</li>
+      </ul>
+      <p><strong>Valor:</strong> R$ 00,00/mês</p>
+      <p><em>Sua segurança não pode esperar. Escolha quem está sempre por perto.</em></p>
+    </div>
+
+    <button class="accordion">Plano Essencial</button>
+    <div class="panel">
+      <p><strong>Ideal para quem busca uma segurança completa com ótimo custo-benefício. Inclui monitoramento eletrônico e rondas periódicas para garantir proteção constante do seu imóvel.</strong></p>
+      <p><u>Serviços incluídos:</u></p>
+      <ul>
+        <li>Monitoramento 24h via central de controle</li>
+        <li>Atendimento emergencial rápido</li>
+        <li>Rondas presenciais com viatura, em horários pré-definidos</li>
+        <li>Suporte técnico remoto</li>
+        <li>Aplicativo para acompanhamento em tempo real</li>
+        <li>Central de alarmes opcional (+ R$00,00/mês)</li>
+      </ul>
+      <p><strong>Valor:</strong> R$ 00,00/mês</p>
+      <p><em>Sua casa protegida, sua mente em paz.</em></p>
+    </div>
+
+    <button class="accordion">Plano Premium</button>
+    <div class="panel">
+      <p><strong>Para quem deseja a máxima segurança com atendimento personalizado e cobertura completa, incluindo monitoramento eletrônico e rondas frequentes com viaturas.</strong></p>
+      <p><u>Serviços incluídos:</u></p>
+      <ul>
+        <li>Monitoramento 24h</li>
+        <li>Atendimento emergencial prioritário</li>
+        <li>Rondas frequentes com viatura</li>
+        <li>Suporte técnico presencial e remoto</li>
+        <li>Acompanhamento em tempo real via app</li>
+        <li>Relatórios mensais</li>
+        <li>Consultoria de segurança</li>
+        <li>Central de alarmes inclusa (monitoramento)</li>
+      </ul>
+      <p><strong>Valor:</strong> R$ 00,00/mês</p>
+      <p><em>A segurança que cuida do que é seu, mesmo quando você não está.</em></p>
+    </div>
+
+    <button class="accordion">Plano Periódico</button>
+    <div class="panel">
+      <p><strong>Proteção temporária e flexível para quem viaja, sai de férias ou precisa de segurança por períodos específicos, com ativação e desativação conforme sua necessidade.</strong></p>
+      <p><u>Serviços incluídos:</u></p>
+      <ul>
+        <li>Monitoramento 24h durante o período contratado</li>
+        <li>Atendimento emergencial prioritário</li>
+        <li>Rondas presenciais com viatura, com maior frequência e horários variados</li>
+        <li>Inspeção visual das instalações durante as rondas</li>
+        <li>Aviso imediato para o cliente sobre qualquer movimentação suspeita</li>
+        <li>Suporte técnico remoto e atendimento presencial emergencial, se necessário</li>
+        <li>Relatórios detalhados ao final do período contratado</li>
+        <li>Central de alarmes incluída</li>
+      </ul>
+      <p><strong>Valor:</strong> R$ 00,00 por dia (mínimo de 3 dias)</p>
+      <p><em>Monitoramos. Atuamos. Protegemos.</em></p>
+    </div>
+
+    <button class="accordion">Plano Eventos</button>
+    <div class="panel">
+      <p><strong>Segurança especializada para festas, eventos e escolas, com equipe treinada para controle de acesso e ronda preventiva, garantindo proteção eficiente para todos os envolvidos.</strong></p>
+      <p><u>Serviços incluídos:</u></p>
+      <ul>
+        <li>Equipe treinada para controle de acesso e ronda</li>
+        <li>Monitoramento 24h e atendimento rápido</li>
+        <li>Suporte dedicado e acompanhamento pelo app</li>
+      </ul>
+      <p><strong>Valor:</strong> R$ 00,00 (mensal, valor fixo, sem taxas extras)</p>
+      <p><em>Cuidamos do seu patrimônio, para que você cuide do que importa.</em></p>
+    </div>
+
+    <!-- === Planos Personalizados como Acordeon === -->
+    <button class="accordion">Planos Personalizados</button>
+    <div class="panel">
+      <p>Segurança feita sob medida para você! Escolha um dos pacotes básicos abaixo e, se desejar, adicione ou ajuste serviços conforme sua necessidade.</p>
+
+      <table class="plans-table" aria-describedby="planos-personalizados">
+        <thead>
+          <tr>
+            <th>Pacote</th>
+            <th>Serviços</th>
+            <th>Valor</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Pacote">1 - Monitoramento + Suporte Técnico</td>
+            <td data-label="Serviços">Monitoramento 24h via central, Atendimento emergencial, Suporte técnico remoto</td>
+            <td data-label="Valor">R$ 00,00</td>
+          </tr>
+          <tr>
+            <td data-label="Pacote">2 - Rondas + Monitoramento</td>
+            <td data-label="Serviços">Rondas presenciais com viatura, Monitoramento 24h via central, Aplicativo para acompanhamento</td>
+            <td data-label="Valor">R$ 00,00</td>
+          </tr>
+          <tr>
+            <td data-label="Pacote">3 - Rondas + Suporte Técnico</td>
+            <td data-label="Serviços">Rondas frequentes, Suporte técnico remoto e atendimento emergencial</td>
+            <td data-label="Valor">R$ 00,00</td>
+          </tr>
+          <tr>
+            <td data-label="Pacote">4 - Só Monitoramento</td>
+            <td data-label="Serviços">Monitoramento 24h via central, Atendimento emergencial, Suporte técnico agendável</td>
+            <td data-label="Valor">R$ 00,00</td>
+          </tr>
+          <tr>
+            <td data-label="Pacote">5 - Só Ronda</td>
+            <td data-label="Serviços">Rondas presenciais com viatura, Inspeção visual das instalações, Relatórios de rondas</td>
+            <td data-label="Valor">R$ 00,00</td>
+          </tr>
+          <tr>
+            <td data-label="Pacote">6 - Monitoramento de Alarmes (aviso)</td>
+            <td data-label="Serviços">Instalação da central (se necessário), Testes e manutenção básica, Suporte técnico agendável</td>
+            <td data-label="Valor">R$ 00,00</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p class="plans-note">Obs: Este pacote pode ser incluído junto com outros, tendo valor reduzido e somado ao total do plano escolhido.</p>
+
+      <p style="margin-top:15px; font-weight:700; color:#ddd;">
+        Quer algo diferente? Fale com a gente! Criamos um plano sob medida para você. Atendimento rápido e sem burocracia.
+      </p>
+    </div>
+    <!-- === fim Planos Personalizados === -->
+
+  </section>
+
+  <section id="contato">
+    <h2>Contato</h2>
+    <form id="formContato" action="#" method="POST">
+      <label for="nome">Nome completo</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <p style="text-align:center; color:#ccc; margin-top:14px;">
+      Ou entre em contato direto:
+      <br><strong>Email:</strong> <a href="mailto:contato@rondaseguranca.com.br">contato@rondaseguranca.com.br</a>
+      &nbsp;|&nbsp;
+      <strong>Telefone:</strong> <a href="tel:+550000000000">(00) 0000-0000</a>
+    </p>
+  </section>
 </main>
 
 <footer>
@@ -463,36 +602,6 @@
     e.preventDefault();
     alert('Mensagem enviada! Entraremos em contato em breve.');
     this.reset();
-  });
-
-  // Menu toggle script
-  const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  function toggleMenu() {
-    const isActive = menuToggle.classList.toggle('active');
-    navMenu.style.display = isActive ? 'flex' : 'none';
-    navMenu.setAttribute('aria-hidden', !isActive);
-    menuToggle.setAttribute('aria-expanded', isActive);
-  }
-
-  menuToggle.addEventListener('click', toggleMenu);
-  // Para acessibilidade no teclado (Enter e Espaço)
-  menuToggle.addEventListener('keydown', (e) => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      toggleMenu();
-    }
-  });
-
-  // Fecha menu ao clicar em link
-  navMenu.querySelectorAll('a').forEach(link => {
-    link.addEventListener('click', () => {
-      menuToggle.classList.remove('active');
-      navMenu.style.display = 'none';
-      navMenu.setAttribute('aria-hidden', 'true');
-      menuToggle.setAttribute('aria-expanded', 'false');
-    });
   });
 </script>
 
