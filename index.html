@@ -2,7 +2,8 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Meta tag viewport ajustada para responsividade -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ronda Segurança Eletrônica</title>
   <style>
     /* Reset básico */
@@ -85,6 +86,8 @@
       max-width: 200px;
       height: auto;
       user-select: none;
+      width: 90%; /* para ajustar no celular */
+      max-width: 200px;
     }
 
     main {
@@ -250,13 +253,97 @@
     }
 
     /* Responsividade */
+
+    /* Ajustes para telas entre 601px e 900px */
     @media (max-width: 900px) {
       main { padding: 0 12px; }
     }
+
+    /* Ajustes para telas até 600px (celulares) */
     @media (max-width: 600px) {
-      header { justify-content: center; gap: 20px; }
-      nav { gap: 10px; }
-      h1 { font-size: 2rem; }
+      header {
+        justify-content: center;
+        gap: 15px;
+        flex-direction: column; /* empilha logo e menu */
+        padding: 15px 10px;
+      }
+      header .logo {
+        font-size: 2rem;
+        margin-bottom: 10px;
+      }
+      nav {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+        align-items: center;
+      }
+      nav a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+      }
+      /* Ajusta logo centralizada */
+      .logo-centralizada img {
+        max-width: 150px;
+        width: 80%;
+      }
+      /* Ajusta o formulário para ocupar quase toda a largura */
+      #contato form {
+        max-width: 90%;
+      }
+      /* Ajuste geral de fontes para melhor visual no celular */
+      body {
+        font-size: 16px;
+      }
+      /* Accordion tamanho fonte e padding */
+      .accordion {
+        font-size: 1rem;
+        padding: 12px;
+      }
+      .panel {
+        font-size: 0.9rem;
+        padding: 0 12px 12px 12px;
+      }
+      /* Tabela: quebra em bloco para facilitar leitura no celular */
+      .plans-table, .plans-table thead, .plans-table tbody, .plans-table th, .plans-table td, .plans-table tr {
+        display: block;
+        width: 100%;
+      }
+      .plans-table thead tr {
+        display: none; /* Esconde cabeçalho da tabela */
+      }
+      .plans-table tbody tr {
+        margin-bottom: 20px;
+        border: 1px solid var(--amarelo);
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #111;
+      }
+      .plans-table tbody td {
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid #555;
+        text-align: left;
+        color: #ddd;
+      }
+      .plans-table tbody td:last-child {
+        border-bottom: 0;
+      }
+      .plans-table tbody td::before {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: 700;
+        color: var(--amarelo);
+        content: attr(data-label);
+      }
     }
   </style>
 </head>
@@ -425,34 +512,34 @@
         </thead>
         <tbody>
           <tr>
-            <td>1 - Monitoramento + Suporte Técnico</td>
-            <td>Monitoramento 24h via central, Atendimento emergencial, Suporte técnico remoto</td>
-            <td>R$ 00,00</td>
+            <td data-label="Pacote">1 - Monitoramento + Suporte Técnico</td>
+            <td data-label="Serviços">Monitoramento 24h via central, Atendimento emergencial, Suporte técnico remoto</td>
+            <td data-label="Valor">R$ 00,00</td>
           </tr>
           <tr>
-            <td>2 - Rondas + Monitoramento</td>
-            <td>Rondas presenciais com viatura, Monitoramento 24h via central, Aplicativo para acompanhamento</td>
-            <td>R$ 00,00</td>
+            <td data-label="Pacote">2 - Rondas + Monitoramento</td>
+            <td data-label="Serviços">Rondas presenciais com viatura, Monitoramento 24h via central, Aplicativo para acompanhamento</td>
+            <td data-label="Valor">R$ 00,00</td>
           </tr>
           <tr>
-            <td>3 - Rondas + Suporte Técnico</td>
-            <td>Rondas frequentes, Suporte técnico remoto e atendimento emergencial</td>
-            <td>R$ 00,00</td>
+            <td data-label="Pacote">3 - Rondas + Suporte Técnico</td>
+            <td data-label="Serviços">Rondas frequentes, Suporte técnico remoto e atendimento emergencial</td>
+            <td data-label="Valor">R$ 00,00</td>
           </tr>
           <tr>
-            <td>4 - Só Monitoramento</td>
-            <td>Monitoramento 24h via central, Atendimento emergencial, Suporte técnico agendável</td>
-            <td>R$ 00,00</td>
+            <td data-label="Pacote">4 - Só Monitoramento</td>
+            <td data-label="Serviços">Monitoramento 24h via central, Atendimento emergencial, Suporte técnico agendável</td>
+            <td data-label="Valor">R$ 00,00</td>
           </tr>
           <tr>
-            <td>5 - Só Ronda</td>
-            <td>Rondas presenciais com viatura, Inspeção visual das instalações, Relatórios de rondas</td>
-            <td>R$ 00,00</td>
+            <td data-label="Pacote">5 - Só Ronda</td>
+            <td data-label="Serviços">Rondas presenciais com viatura, Inspeção visual das instalações, Relatórios de rondas</td>
+            <td data-label="Valor">R$ 00,00</td>
           </tr>
           <tr>
-            <td>6 - Monitoramento de Alarmes (aviso)</td>
-            <td>Instalação da central (se necessário), Testes e manutenção básica, Suporte técnico agendável</td>
-            <td>R$ 00,00</td>
+            <td data-label="Pacote">6 - Monitoramento de Alarmes (aviso)</td>
+            <td data-label="Serviços">Instalação da central (se necessário), Testes e manutenção básica, Suporte técnico agendável</td>
+            <td data-label="Valor">R$ 00,00</td>
           </tr>
         </tbody>
       </table>
@@ -520,3 +607,5 @@
 
 </body>
 </html>
+
+
