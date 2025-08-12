@@ -2,8 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <!-- Meta tag viewport ajustada para responsividade -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ronda Segurança Eletrônica</title>
   <style>
     /* Reset básico */
@@ -28,8 +27,8 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: var(--fundo); /* fundo preto */
-      color: var(--texto); /* texto branco */
+      background: var(--fundo);
+      color: var(--texto);
       line-height: 1.6;
     }
 
@@ -41,13 +40,14 @@
 
     /* Cabeçalho */
     header {
-      background-color: var(--amarelo); /* amarelo */
-      color: #000000; /* texto preto */
+      background-color: var(--amarelo);
+      color: #000000;
       padding: 15px 20px;
       display: flex;
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
+      position: relative; /* para posicionar o menu mobile */
     }
 
     header .logo {
@@ -59,6 +59,17 @@
       color: #000000;
     }
 
+    /* Botão menu hamburguer */
+    .menu-toggle {
+      display: none;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      color: var(--preto);
+      cursor: pointer;
+      user-select: none;
+    }
+
     nav {
       display: flex;
       gap: 20px;
@@ -66,7 +77,7 @@
     }
 
     nav a {
-      color: #000000; /* links pretos no header */
+      color: #000000;
       font-weight: 600;
       padding: 8px 12px;
       border-radius: 4px;
@@ -86,8 +97,6 @@
       max-width: 200px;
       height: auto;
       user-select: none;
-      width: 90%; /* para ajustar no celular */
-      max-width: 200px;
     }
 
     main {
@@ -105,7 +114,7 @@
       font-size: 2.5rem;
       text-align: center;
       margin-bottom: 30px;
-      color: var(--amarelo); /* destaque amarelo */
+      color: var(--amarelo);
       text-shadow: 1px 1px 3px #000000;
     }
 
@@ -143,7 +152,7 @@
       outline: none;
       transition: background-color 0.3s ease;
       font-weight: 700;
-      color: #000000; /* texto preto */
+      color: #000000;
       margin-top: 10px;
       width: 100%;
       text-align: left;
@@ -234,7 +243,7 @@
       padding: 12px;
       font-weight: 700;
       font-size: 1.1rem;
-      color: #000000; /* texto preto */
+      color: #000000;
       border-radius: 5px;
       cursor: pointer;
       transition: background-color 0.3s ease;
@@ -253,96 +262,49 @@
     }
 
     /* Responsividade */
-
-    /* Ajustes para telas entre 601px e 900px */
     @media (max-width: 900px) {
       main { padding: 0 12px; }
     }
 
-    /* Ajustes para telas até 600px (celulares) */
     @media (max-width: 600px) {
       header {
-        justify-content: center;
-        gap: 15px;
-        flex-direction: column; /* empilha logo e menu */
-        padding: 15px 10px;
-      }
-      header .logo {
-        font-size: 2rem;
-        margin-bottom: 10px;
-      }
-      nav {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-        align-items: center;
-      }
-      nav a {
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-        font-size: 1.1rem;
-      }
-      h1 {
-        font-size: 1.8rem;
-      }
-      /* Ajusta logo centralizada */
-      .logo-centralizada img {
-        max-width: 150px;
-        width: 80%;
-      }
-      /* Ajusta o formulário para ocupar quase toda a largura */
-      #contato form {
-        max-width: 90%;
-      }
-      /* Ajuste geral de fontes para melhor visual no celular */
-      body {
-        font-size: 16px;
-      }
-      /* Accordion tamanho fonte e padding */
-      .accordion {
-        font-size: 1rem;
-        padding: 12px;
-      }
-      .panel {
-        font-size: 0.9rem;
-        padding: 0 12px 12px 12px;
-      }
-      /* Tabela: quebra em bloco para facilitar leitura no celular */
-      .plans-table, .plans-table thead, .plans-table tbody, .plans-table th, .plans-table td, .plans-table tr {
-        display: block;
-        width: 100%;
-      }
-      .plans-table thead tr {
-        display: none; /* Esconde cabeçalho da tabela */
-      }
-      .plans-table tbody tr {
-        margin-bottom: 20px;
-        border: 1px solid var(--amarelo);
-        border-radius: 8px;
-        padding: 10px;
-        background-color: #111;
-      }
-      .plans-table tbody td {
-        padding-left: 50%;
+        justify-content: space-between;
+        gap: 0;
         position: relative;
-        border: none;
-        border-bottom: 1px solid #555;
-        text-align: left;
-        color: #ddd;
       }
-      .plans-table tbody td:last-child {
-        border-bottom: 0;
-      }
-      .plans-table tbody td::before {
+
+      nav {
+        display: none;
+        flex-direction: column;
+        background-color: var(--amarelo);
         position: absolute;
-        top: 12px;
-        left: 12px;
-        width: 45%;
-        white-space: nowrap;
-        font-weight: 700;
-        color: var(--amarelo);
-        content: attr(data-label);
+        top: 60px;
+        right: 20px;
+        width: 200px;
+        border-radius: 4px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+        z-index: 10;
+      }
+
+      nav a {
+        color: #000;
+        padding: 12px 15px;
+        border-bottom: 1px solid #ccc;
+      }
+      nav a:last-child {
+        border-bottom: none;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      nav.active {
+        display: flex;
+      }
+
+      h1 {
+        font-size: 2rem;
       }
     }
   </style>
@@ -351,6 +313,7 @@
 
 <header>
   <div class="logo">RONDA</div>
+  <button class="menu-toggle" aria-label="Abrir menu">&#9776;</button>
   <nav>
     <a href="#bemvindo">Bem-vindo</a>
     <a href="#sobre">Sobre</a>
@@ -360,7 +323,6 @@
   </nav>
 </header>
 
-<!-- Logo centralizada logo abaixo do cabeçalho -->
 <div class="logo-centralizada">
   <img src="logo.png" alt="Logo Ronda Segurança Eletrônica" />
 </div>
@@ -497,7 +459,6 @@
       <p><em>Cuidamos do seu patrimônio, para que você cuide do que importa.</em></p>
     </div>
 
-    <!-- === Planos Personalizados como Acordeon === -->
     <button class="accordion">Planos Personalizados</button>
     <div class="panel">
       <p>Segurança feita sob medida para você! Escolha um dos pacotes básicos abaixo e, se desejar, adicione ou ajuste serviços conforme sua necessidade.</p>
@@ -512,100 +473,77 @@
         </thead>
         <tbody>
           <tr>
-            <td data-label="Pacote">1 - Monitoramento + Suporte Técnico</td>
-            <td data-label="Serviços">Monitoramento 24h via central, Atendimento emergencial, Suporte técnico remoto</td>
-            <td data-label="Valor">R$ 00,00</td>
+            <td>1 - Monitoramento + Suporte Técnico</td>
+            <td>Monitoramento 24h via central, Atendimento emergencial, Suporte técnico remoto</td>
+            <td>R$ 00,00</td>
           </tr>
           <tr>
-            <td data-label="Pacote">2 - Rondas + Monitoramento</td>
-            <td data-label="Serviços">Rondas presenciais com viatura, Monitoramento 24h via central, Aplicativo para acompanhamento</td>
-            <td data-label="Valor">R$ 00,00</td>
+            <td>2 - Rondas + Monitoramento</td>
+            <td>Rondas com viatura, Monitoramento 24h, Atendimento emergencial</td>
+            <td>R$ 00,00</td>
           </tr>
           <tr>
-            <td data-label="Pacote">3 - Rondas + Suporte Técnico</td>
-            <td data-label="Serviços">Rondas frequentes, Suporte técnico remoto e atendimento emergencial</td>
-            <td data-label="Valor">R$ 00,00</td>
+            <td>3 - Portaria + Zeladoria</td>
+            <td>Serviço presencial para controle de acesso e manutenção</td>
+            <td>R$ 00,00</td>
           </tr>
           <tr>
-            <td data-label="Pacote">4 - Só Monitoramento</td>
-            <td data-label="Serviços">Monitoramento 24h via central, Atendimento emergencial, Suporte técnico agendável</td>
-            <td data-label="Valor">R$ 00,00</td>
-          </tr>
-          <tr>
-            <td data-label="Pacote">5 - Só Ronda</td>
-            <td data-label="Serviços">Rondas presenciais com viatura, Inspeção visual das instalações, Relatórios de rondas</td>
-            <td data-label="Valor">R$ 00,00</td>
-          </tr>
-          <tr>
-            <td data-label="Pacote">6 - Monitoramento de Alarmes (aviso)</td>
-            <td data-label="Serviços">Instalação da central (se necessário), Testes e manutenção básica, Suporte técnico agendável</td>
-            <td data-label="Valor">R$ 00,00</td>
+            <td>4 - Eventos</td>
+            <td>Segurança para festas, eventos e escolas</td>
+            <td>R$ 00,00</td>
           </tr>
         </tbody>
       </table>
 
-      <p class="plans-note">Obs: Este pacote pode ser incluído junto com outros, tendo valor reduzido e somado ao total do plano escolhido.</p>
-
-      <p style="margin-top:15px; font-weight:700; color:#ddd;">
-        Quer algo diferente? Fale com a gente! Criamos um plano sob medida para você. Atendimento rápido e sem burocracia.
-      </p>
+      <p id="planos-personalizados" class="plans-note">* Os valores são fixos e sem taxas extras adicionais.</p>
     </div>
-    <!-- === fim Planos Personalizados === -->
-
   </section>
 
   <section id="contato">
     <h2>Contato</h2>
-    <form id="formContato" action="#" method="POST">
-      <label for="nome">Nome completo</label>
-      <input type="text" id="nome" name="nome" placeholder="Seu nome" required />
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" required />
 
-      <label for="email">Email</label>
-      <input type="email" id="email" name="email" placeholder="seu@email.com" required />
+      <label for="email">E-mail:</label>
+      <input type="email" id="email" name="email" required />
 
-      <label for="mensagem">Mensagem</label>
-      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
 
       <button type="submit">Enviar</button>
     </form>
-
-    <p style="text-align:center; color:#ccc; margin-top:14px;">
-      Ou entre em contato direto:
-      <br><strong>Email:</strong> <a href="mailto:contato@rondaseguranca.com.br">contato@rondaseguranca.com.br</a>
-      &nbsp;|&nbsp;
-      <strong>Telefone:</strong> <a href="tel:+550000000000">(00) 0000-0000</a>
-    </p>
   </section>
 </main>
 
 <footer>
-  <p>© 2025 Ronda Segurança Eletrônica. Todos os direitos reservados.</p>
+  &copy; 2025 Ronda Segurança Eletrônica. Todos os direitos reservados.
 </footer>
 
 <script>
-  // Accordion para serviços e planos
-  const acc = document.querySelectorAll(".accordion");
-  acc.forEach(button => {
-    button.addEventListener("click", () => {
-      const panel = button.nextElementSibling;
-      const isOpen = panel.style.display === "block";
-      // Fecha todos os painéis
-      document.querySelectorAll(".panel").forEach(p => p.style.display = "none");
-      if (!isOpen) {
+  // Função para os accordions
+  const accordions = document.querySelectorAll(".accordion");
+  accordions.forEach(acc => {
+    acc.addEventListener("click", () => {
+      // Alterna a visibilidade do painel
+      acc.classList.toggle("active");
+      const panel = acc.nextElementSibling;
+      if(panel.style.display === "block") {
+        panel.style.display = "none";
+      } else {
         panel.style.display = "block";
       }
     });
   });
 
-  // Placeholder para enviar formulário (ajuste conforme backend)
-  document.getElementById('formContato').addEventListener('submit', function(e) {
-    e.preventDefault();
-    alert('Mensagem enviada! Entraremos em contato em breve.');
-    this.reset();
+  // Menu hamburguer
+  const menuToggle = document.querySelector('.menu-toggle');
+  const nav = document.querySelector('nav');
+
+  menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
   });
 </script>
 
 </body>
 </html>
-
-
