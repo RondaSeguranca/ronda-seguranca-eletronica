@@ -31,6 +31,7 @@
     }
 
     body {
+      padding-top: 60px; /* ou o valor da altura do seu header */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--fundo); /* fundo preto */
       color: var(--texto); /* texto branco */
@@ -52,7 +53,12 @@
       align-items: center;
       justify-content: space-between;
       flex-wrap: wrap;
-      position: relative;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+
     }
 
     header .logo {
@@ -708,6 +714,7 @@
 
 </body>
 </html>
+
 
 
 
