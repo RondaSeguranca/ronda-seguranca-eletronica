@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ronda Segurança Eletrônica</title>
 
   <style>
@@ -31,26 +31,20 @@
     }
 
     body {
-      padding-top: 60px; /* altura do header fixo */
+      padding-top: 70px; /* altura do header */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--fundo);
       color: var(--texto);
       line-height: 1.6;
-      font-size: 16px;
     }
 
     a {
       color: var(--amarelo);
       text-decoration: none;
-      transition: color 0.3s ease;
     }
+    a:hover { text-decoration: underline; }
 
-    a:hover {
-      color: var(--vermelho);
-      text-decoration: underline;
-    }
-
-    /* Cabeçalho fixo */
+    /* Header */
     header {
       background-color: var(--amarelo);
       color: #000;
@@ -64,31 +58,14 @@
       left: 0;
       width: 100%;
       z-index: 1000;
-      transition: background-color 0.3s ease;
-    }
-
-    /* Logo */
-    header .logo {
-      font-weight: 900;
-      font-size: 1.8rem;
-      letter-spacing: 3px;
-      font-family: 'Arial Black', Gadget, sans-serif;
-      user-select: none;
-      color: #000;
-      transition: transform 0.3s ease;
-      cursor: pointer;
-    }
-
-    header .logo:hover {
-      transform: scale(1.05);
     }
 
     header .logo img {
       height: 50px;
       width: auto;
+      user-select: none;
     }
 
-    /* Menu normal (desktop) */
     nav {
       display: flex;
       gap: 20px;
@@ -100,7 +77,7 @@
       font-weight: 600;
       padding: 8px 12px;
       border-radius: 4px;
-      transition: background-color 0.3s ease, color 0.3s ease;
+      transition: background-color 0.3s ease;
     }
 
     nav a:hover {
@@ -108,7 +85,6 @@
       color: #fff;
     }
 
-    /* Menu Hamburguer */
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -129,124 +105,26 @@
     .menu-toggle.active span:nth-child(1) {
       transform: rotate(45deg) translate(5px, 5px);
     }
-
     .menu-toggle.active span:nth-child(2) {
       opacity: 0;
     }
-
     .menu-toggle.active span:nth-child(3) {
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    /* Responsividade para mobile */
-    @media (max-width: 600px) {
-      nav {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: var(--amarelo);
-        flex-direction: column;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.35s ease-out;
-        border-top: 1px solid var(--vermelho);
-        z-index: 10;
-      }
-
-      nav.open {
-        max-height: 500px;
-        transition: max-height 0.5s ease-in;
-      }
-
-      nav a {
-        padding: 12px 20px;
-        border-bottom: 1px solid var(--vermelho);
-        width: 100%;
-        text-align: center;
-        font-size: 1.1rem;
-      }
-
-      .menu-toggle {
-        display: flex;
-      }
-
-      .logo-centralizada img {
-        max-width: 150px;
-        width: 80%;
-      }
-
-      #contato form {
-        max-width: 90%;
-      }
-
-      .accordion {
-        font-size: 1rem;
-        padding: 12px;
-      }
-
-      .panel {
-        font-size: 0.9rem;
-        padding: 0 12px 12px 12px;
-        margin-bottom: 15px;
-      }
-
-      .plans-table, .plans-table thead, .plans-table tbody,
-      .plans-table th, .plans-table td, .plans-table tr {
-        display: block;
-        width: 100%;
-      }
-
-      .plans-table thead tr {
-        display: none;
-      }
-
-      .plans-table tbody tr {
-        margin-bottom: 20px;
-        border: 1px solid var(--amarelo);
-        border-radius: 8px;
-        padding: 10px;
-        background-color: #111;
-      }
-
-      .plans-table tbody td {
-        padding-left: 50%;
-        position: relative;
-        border: none;
-        border-bottom: 1px solid #555;
-        text-align: left;
-        color: #ddd;
-      }
-
-      .plans-table tbody td:last-child {
-        border-bottom: 0;
-      }
-
-      .plans-table tbody td::before {
-        position: absolute;
-        top: 12px;
-        left: 12px;
-        width: 45%;
-        white-space: nowrap;
-        font-weight: 700;
-        color: var(--amarelo);
-        content: attr(data-label);
-      }
-    }
-
-    /* Logo centralizada */
+    /* Logo centralizada abaixo do header */
     .logo-centralizada {
       text-align: center;
       margin: 20px 0;
     }
-
     .logo-centralizada img {
       max-width: 200px;
       height: auto;
-      user-select: none;
       width: 90%;
+      user-select: none;
     }
 
+    /* Main */
     main {
       max-width: 980px;
       margin: 30px auto;
@@ -263,14 +141,14 @@
       text-align: center;
       margin-bottom: 30px;
       color: var(--amarelo);
-      text-shadow: 1px 1px 3px #000;
+      text-shadow: 1px 1px 3px #000000;
     }
 
     section {
       margin-bottom: 40px;
     }
 
-    /* Accordion */
+    /* Serviços accordion */
     .accordion {
       cursor: pointer;
       padding: 15px;
@@ -287,18 +165,15 @@
       user-select: none;
       font-size: 1.1rem;
     }
-
-    .accordion:hover {
-      background-color: #e6c900;
-    }
+    .accordion:hover { background-color: #e6c900; }
 
     .panel {
       background-color: var(--panel-bg);
       overflow: hidden;
       max-height: 0;
       opacity: 0;
-      transition: max-height 0.5s ease, opacity 0.5s ease;
-      border-left: 5px solid #fff;
+      transition: max-height 0.4s ease, opacity 0.4s ease;
+      border-left: 5px solid #ffffff;
       border-radius: 0 0 4px 4px;
       color: #ddd;
       line-height: 1.4;
@@ -307,7 +182,6 @@
       padding: 0 15px;
       margin-bottom: 10px;
     }
-
     .panel.open {
       max-height: 6000px;
       opacity: 1;
@@ -315,30 +189,71 @@
       margin-bottom: 20px;
     }
 
-    .panel ul {
-      margin-top: 8px;
-      margin-left: 20px;
-      list-style: disc;
+    /* Planos tabela */
+    .plans-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 15px;
+      font-size: 0.98rem;
+    }
+    .plans-table th, .plans-table td {
+      padding: 10px;
+      border: 1px solid #ffffff22;
+      vertical-align: top;
+    }
+    .plans-table thead th {
+      background-color: var(--amarelo);
+      color: #000;
+      text-align: left;
+    }
+    .plans-table tbody td {
+      background-color: #0f0f0f;
+      color: #eee;
+    }
+    .plans-note {
+      margin-top: 10px;
+      font-style: italic;
+      color: #ccc;
     }
 
-    /* Pacotes */
-    .pacote-box {
-      background-color: var(--preto);
+    /* Contato */
+    #contato form {
+      max-width: 500px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    #contato label {
+      font-weight: 600;
+      color: #fff;
+    }
+    #contato input, #contato textarea {
+      padding: 10px;
+      font-size: 1rem;
       border: 2px solid var(--amarelo);
-      border-radius: 10px;
-      padding: 15px 20px;
-      margin-bottom: 15px;
-      color: var(--amarelo);
+      border-radius: 5px;
+      background-color: #000;
+      color: #fff;
+      transition: border-color 0.3s ease;
     }
-
-    .pacote-box h3 {
-      margin-top: 0;
-      margin-bottom: 8px;
+    #contato input:focus, #contato textarea:focus {
+      border-color: var(--vermelho);
+      outline: none;
     }
-
-    .pacote-box p {
-      margin: 4px 0;
+    #contato button {
+      background-color: var(--amarelo);
+      border: none;
+      padding: 12px;
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #000;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
     }
+    #contato button:hover { background-color: var(--vermelho); color: #fff; }
 
     /* Footer */
     footer {
@@ -349,9 +264,53 @@
       font-size: 0.9rem;
       user-select: none;
     }
+
+    /* Responsividade */
+    @media (max-width: 900px) {
+      main { padding: 0 12px; }
+    }
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 10px;
+      }
+      nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: var(--amarelo);
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease-out;
+        border-top: 1px solid var(--vermelho);
+        z-index: 10;
+      }
+      nav.open {
+        max-height: 500px;
+        transition: max-height 0.5s ease-in;
+      }
+      nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid var(--vermelho);
+        width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+      .menu-toggle {
+        display: flex;
+      }
+      .logo-centralizada img {
+        max-width: 150px;
+        width: 80%;
+      }
+      #contato form {
+        max-width: 90%;
+      }
+    }
+
   </style>
 </head>
-
 <body>
 
 <header>
@@ -359,7 +318,7 @@
     <img src="logo.png" alt="Ronda Segurança Eletrônica">
   </div>
 
-  <div class="menu-toggle" id="menuToggle" aria-label="Menu Hamburguer" role="button" tabindex="0">
+  <div class="menu-toggle" id="menuToggle" tabindex="0">
     <span></span>
     <span></span>
     <span></span>
@@ -379,9 +338,96 @@
 </div>
 
 <main>
-  <!-- Aqui entram todas as seções: Bem-vindo, Sobre, Serviços, Planos, Contato -->
-  <!-- Mantendo exatamente o conteúdo do seu código original -->
-  <!-- ... resto do conteúdo como no código enviado pelo usuário ... -->
+
+  <!-- Bem-vindo -->
+  <section id="bemvindo">
+    <h1>Bem-vindo à Ronda Segurança Eletrônica</h1>
+    <p>Protegendo você, sua família e seu patrimônio com confiança, tradição e tecnologia.</p>
+  </section>
+
+  <!-- Sobre -->
+  <section id="sobre">
+    <h2>Sobre a Ronda Segurança Eletrônica</h2>
+    <p>A Ronda Segurança Eletrônica é uma empresa familiar com 30 anos de história, que começou com o sogro da atual dona e foi passando de geração em geração até chegar ao time dedicado de hoje.</p>
+    <p>Com uma equipe especializada e equipamentos de alta tecnologia, oferecemos serviços que vão desde monitoramento eletrônico até rondas presenciais, garantindo respostas rápidas e eficazes.</p>
+    <p>Nossa missão é proporcionar tranquilidade e confiança, com atendimento humanizado e soluções feitas sob medida para cada cliente.</p>
+    <p>Aqui, segurança é compromisso, responsabilidade e cuidado de verdade — do nosso time para o seu.</p>
+    <p><strong><em>Nós somos família, nós somos segurança, nós somos RONDA.</em></strong></p>
+  </section>
+
+  <!-- Serviços -->
+  <section id="servicos">
+    <h2>Serviços</h2>
+
+    <button class="accordion">Monitoramento de Alarmes</button>
+    <div class="panel">
+      Nosso sistema monitora continuamente seus alarmes, garantindo que qualquer sinal de alerta seja detectado imediatamente. Com atendimento rápido, acionamos as medidas necessárias para proteger você e seu patrimônio 24 horas por dia.
+    </div>
+
+    <button class="accordion">Monitoramento de Imagens</button>
+    <div class="panel">
+      Utilizamos tecnologia avançada para acompanhar as câmeras instaladas em sua propriedade em tempo real, identificando situações suspeitas e fornecendo provas visuais para maior segurança.
+    </div>
+
+    <button class="accordion">Portaria e Zeladoria</button>
+    <div class="panel">
+      Serviços de portaria e zeladoria, garantindo controle de acesso eficiente e manutenção da ordem nas suas instalações.
+    </div>
+
+    <button class="accordion">Instalação de Câmeras e Alarmes</button>
+    <div class="panel">
+      Realizamos instalação de equipamentos modernos e confiáveis, personalizados para as necessidades do seu imóvel.
+    </div>
+
+    <button class="accordion">Serviços de Proteção Presencial a Eventos</button>
+    <div class="panel">
+      Proteção presencial em eventos sociais, festas, ambientes escolares e mais. Garantimos prevenção de riscos e resposta rápida.
+    </div>
+  </section>
+
+  <!-- Planos -->
+  <section id="planos">
+    <h2>Planos de Segurança</h2>
+
+    <button class="accordion">Plano Básico</button>
+    <div class="panel">
+      Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo.
+    </div>
+
+    <button class="accordion">Plano Essencial</button>
+    <div class="panel">
+      Inclui monitoramento eletrônico e rondas periódicas para garantir proteção constante do imóvel.
+    </div>
+
+    <button class="accordion">Plano Periódico</button>
+    <div class="panel">
+      Proteção temporária e flexível para quem viaja ou precisa de segurança por períodos específicos.
+    </div>
+
+    <button class="accordion">Planos Personalizados</button>
+    <div class="panel">
+      Segurança feita sob medida. Escolha pacotes básicos ou personalize serviços conforme sua necessidade.
+    </div>
+
+  </section>
+
+  <!-- Contato -->
+  <section id="contato">
+    <h2>Contato</h2>
+    <form>
+      <label for="nome">Nome:</label>
+      <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+
+      <label for="mensagem">Mensagem:</label>
+      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </section>
+
 </main>
 
 <footer>
@@ -389,6 +435,7 @@
 </footer>
 
 <script>
+  // Menu toggle mobile
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
 
@@ -397,35 +444,17 @@
     navMenu.classList.toggle('open');
   });
 
-  menuToggle.addEventListener('keydown', e => {
-    if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      menuToggle.click();
-    }
-  });
-
-  // Accordion funcionalidade
+  // Accordion serviços
   const accordions = document.querySelectorAll('.accordion');
-
   accordions.forEach(acc => {
-    acc.addEventListener('click', function () {
-      this.classList.toggle('active');
-      const panel = this.nextElementSibling;
-      if (panel.classList.contains('open')) {
-        panel.classList.remove('open');
-      } else {
-        panel.classList.add('open');
-      }
-    });
-  });
+    acc.addEventListener('click', () => {
+      const panel = acc.nextElementSibling;
+      const isOpen = panel.classList.contains('open');
 
-  // Scroll suave para links internos
-  document.querySelectorAll('nav a[href^="#"]').forEach(link => {
-    link.addEventListener('click', e => {
-      e.preventDefault();
-      const target = document.querySelector(link.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth' });
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('open'));
+
+      if (!isOpen) {
+        panel.classList.add('open');
       }
     });
   });
