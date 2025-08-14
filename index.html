@@ -6,7 +6,11 @@
   <title>Ronda Segurança Eletrônica</title>
   <style>
     /* Reset básico */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
     :root {
       --amarelo: #FFD700;
@@ -15,18 +19,21 @@
       --texto: #ffffff;
     }
 
-    html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--preto);
       color: var(--texto);
       line-height: 1.6;
-      padding-top: 50px;
+      padding-top: 60px;
     }
 
-    a { color: var(--amarelo); text-decoration: none; }
-    a:hover { text-decoration: underline; }
+    a {
+      color: var(--amarelo);
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
 
     /* Header */
     header {
@@ -34,129 +41,69 @@
       color: #000;
       padding: 10px 20px;
       display: flex;
-      align-items: center;
       justify-content: space-between;
+      align-items: center;
       position: fixed;
       top: 0;
-      left: 0;
       width: 100%;
       z-index: 1000;
-      font-weight: 700;
-      font-size: 1.3rem;
-      
+    }
+
+    header h1 {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #000;
     }
 
     nav {
       display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
+      gap: 15px;
     }
 
     nav a {
       color: #000;
       font-weight: 600;
-      padding: 8px 12px;
+      padding: 5px 10px;
       border-radius: 4px;
-      transition: background-color 0.3s ease;
-      text-tranform: none;
     }
+
     nav a:hover {
       background-color: var(--vermelho);
       color: #fff;
     }
 
-    .menu-toggle {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 28px;
-      height: 22px;
-      cursor: pointer;
-    }
-    .menu-toggle span {
-      display: block;
-      height: 3.5px;
-      background: #000;
-      border-radius: 3px;
-      transition: 0.3s;
-    }
-    .menu-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
-    .menu-toggle.active span:nth-child(2) { opacity: 0; }
-    .menu-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
-
-    @media (max-width: 600px) {
-      nav {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: var(--amarelo);
-        flex-direction: column;
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.35s ease-out;
-        border-top: 1px solid var(--vermelho);
-        z-index: 10;
-      }
-      nav.open { max-height: 500px; transition: max-height 0.5s ease-in; }
-      nav a {
-        padding: 12px 20px;
-        border-bottom: 1px solid var(--vermelho);
-        width: 100%;
-        text-align: center;
-        font-size: 1.1rem;
-      }
-      .menu-toggle { display: flex; }
+    main {
+      max-width: 980px;
+      margin: 30px auto;
+      padding: 0 15px;
     }
 
-    main { max-width: 980px; margin: 30px auto; padding: 0 15px; }
-
-    h1, h2, h3 { color: var(--texto); margin-bottom: 10px; }
-    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 30px; color: var(--amarelo); text-shadow: 1px 1px 3px #000; }
-    section { margin-bottom: 40px; }
-
-    /* Bem-vindo */
-    #bemvindo p { font-size: 1.15rem; text-align: center; max-width: 700px; margin: 0 auto; color: #fff; }
-
-    /* Sobre */
-    #sobre p { margin-bottom: 15px; font-size: 1rem; color: #ddd; }
-    #sobre strong { font-weight: 700; color: #fff; }
-
-    /* Accordion */
-    .accordion {
-      cursor: pointer;
-      padding: 15px;
-      background-color: var(--amarelo);
-      border: none;
-      outline: none;
-      transition: background-color 0.3s ease;
-      font-weight: 700;
-      color: #000;
-      margin-top: 10px;
-      width: 100%;
-      text-align: left;
-      border-radius: 4px;
-      user-select: none;
-      font-size: 1.1rem;
+    section {
+      margin-bottom: 40px;
     }
 
+    h1, h2, h3 {
+      color: var(--amarelo);
+      margin-bottom: 15px;
+    }
+
+    p, li {
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    ul {
+      margin-left: 20px;
+      margin-bottom: 10px;
+    }
+
+    /* Serviços e Planos */
     .panel {
       background-color: var(--preto);
-      overflow: hidden;
-      max-height: 0;
-      transition: max-height 0.5s ease, padding 0.5s ease;
-      border-left: 2px solid var(--amarelo);
-      border-right: 2px solid var(--amarelo);
-      border-bottom: 2px solid var(--amarelo);
-      border-radius: 0 0 10px 10px;
-      padding: 0 20px;
-    }
-
-    .panel.open { 
-      max-height: 3000px; 
-      opacity: 1; 
-      padding: 15px; 
-      margin-bottom: 20px; 
+      padding: 15px 20px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: 2px solid var(--amarelo);
     }
 
     /* Pacotes dentro de Planos Personalizados */
@@ -167,71 +114,35 @@
       padding: 15px 20px;
       margin-bottom: 15px;
       color: var(--amarelo);
-      position: relative;
     }
 
-    .pacote-box::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background-color: #fff;
-      border-radius: 2px;
+    .pacote-box h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
     }
 
-    .pacote-box h3 { margin-top: 0; margin-bottom: 8px; }
-    .pacote-box p, .pacote-box li { margin: 4px 0; }
-
-    /* Contato */
-    #contato form { max-width: 500px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
-    #contato label { font-weight: 600; color: #fff; }
-    #contato input, #contato textarea {
-      padding: 10px; font-size: 1rem;
-      border: 2px solid var(--amarelo);
-      border-radius: 5px;
-      resize: vertical;
-      background-color: #000;
-      color: #fff;
-      transition: border-color 0.3s ease;
+    .pacote-box ul {
+      padding-left: 20px;
     }
-    #contato input:focus, #contato textarea:focus { border-color: var(--vermelho); outline: none; }
-    #contato button {
-      background-color: var(--amarelo);
-      border: none;
-      padding: 12px;
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #000;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-      user-select: none;
+
+    .pacote-box li {
+      margin-bottom: 5px;
     }
-    #contato button:hover { background-color: var(--vermelho); color: #fff; }
-    #contato .contato-direto { text-align: center; color: #ccc; margin-top: 14px; }
 
-    footer { background-color: var(--preto); color: var(--amarelo); text-align: center; padding: 15px 10px; font-size: 0.9rem; user-select: none; }
-
-    @media (max-width: 600px) {
-      h1 { font-size: 1.8rem; }
-      body { font-size: 16px; }
-      .accordion { font-size: 1rem; padding: 12px; }
-      .panel { font-size: 0.9rem; padding: 0 12px 12px 12px; margin-bottom: 15px; }
+    footer {
+      background-color: var(--preto);
+      color: var(--amarelo);
+      text-align: center;
+      padding: 15px 10px;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="menu-toggle" id="menuToggle" aria-label="Menu Hamburguer" role="button" tabindex="0">
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <nav id="navMenu">
+  <h1>RONDA</h1>
+  <nav>
     <a href="#bemvindo">Bem-vindo</a>
     <a href="#sobre">Sobre</a>
     <a href="#servicos">Serviços</a>
@@ -241,204 +152,138 @@
 </header>
 
 <main>
-  <!-- Bem-vindo -->
   <section id="bemvindo">
-    <h1>Bem-vindo à Ronda Segurança Eletrônica</h1>
+    <h2>Bem-vindo à Ronda Segurança Eletrônica</h2>
     <p>Protegendo você, sua família e seu patrimônio com confiança, tradição e tecnologia.</p>
   </section>
 
-  <!-- Sobre -->
   <section id="sobre">
     <h2>Sobre a Ronda Segurança Eletrônica</h2>
-    <p>A Ronda Segurança Eletrônica é uma empresa familiar com mais de 30 anos de história, que começou com o sogro da atual dona e foi passando de geração em geração até chegar ao time dedicado de hoje.</p>
-    <p>Com uma equipe especializada e equipamentos de alta tecnologia, oferecemos serviços que vão desde monitoramento eletrônico até rondas presenciais, garantindo respostas rápidas e eficazes.</p>
-    <p>Nossa missão é proporcionar tranquilidade e confiança, com atendimento humanizado e soluções feitas sob medida para cada cliente.</p>
-    <p>Aqui, segurança é compromisso, responsabilidade e cuidado de verdade — do nosso time para o seu.</p>
+    <p>A Ronda Segurança Eletrônica é uma empresa familiar com mais de 30 anos de história.</p>
+    <p>Com equipe especializada e equipamentos de alta tecnologia, oferecemos monitoramento eletrônico e rondas presenciais.</p>
     <p><strong>Nós somos família, nós somos segurança, nós somos RONDA.</strong></p>
   </section>
 
-  <!-- Serviços -->
   <section id="servicos">
     <h2>Serviços</h2>
-
-    <button class="accordion">Monitoramento de Alarmes</button>
-    <div class="panel"><p>Nosso sistema monitora continuamente seus alarmes, garantindo que qualquer sinal de alerta seja detectado imediatamente. Com atendimento rápido, acionamos as medidas necessárias para proteger você e seu patrimônio 24 horas por dia.</p></div>
-
-    <button class="accordion">Monitoramento de Imagens</button>
-    <div class="panel"><p>Utilizamos tecnologia avançada para acompanhar as câmeras instaladas em sua propriedade em tempo real. Isso permite identificar situações suspeitas com agilidade e fornecer provas visuais para maior segurança e tranquilidade.</p></div>
-
-    <button class="accordion">Portaria e Zeladoria</button>
-    <div class="panel"><p>Oferecemos serviços profissionais de portaria e zeladoria, garantindo controle de acesso eficiente e manutenção da ordem nas suas instalações. Nossa equipe é treinada para atuar com cordialidade e segurança, protegendo moradores, funcionários e visitantes.</p></div>
-
-    <button class="accordion">Instalação de Câmeras e Alarmes</button>
-    <div class="panel"><p>Realizamos a instalação de equipamentos modernos e confiáveis...</p></div>
-
-    <button class="accordion">Serviços de Proteção Presencial a Eventos Sociais, Festas e Segurança Escolar</button>
-    <div class="panel"><p>Realizamos a instalação de equipamentos modernos e confiáveis, personalizados para as necessidades do seu imóvel. Nossa equipe especializada garante a configuração correta e a integração dos sistemas para máxima eficiência.</p></div>
+    <div class="panel">
+      <h3>Monitoramento de Alarmes</h3>
+      <p>Nosso sistema monitora continuamente seus alarmes, garantindo resposta rápida e proteção 24 horas.</p>
+    </div>
+    <div class="panel">
+      <h3>Monitoramento de Imagens</h3>
+      <p>Acompanhamento em tempo real das câmeras instaladas, com identificação rápida de situações suspeitas.</p>
+    </div>
+    <div class="panel">
+      <h3>Portaria e Zeladoria</h3>
+      <p>Controle de acesso eficiente e manutenção das instalações por profissionais treinados.</p>
+    </div>
+    <div class="panel">
+      <h3>Instalação de Câmeras e Alarmes</h3>
+      <p>Instalação de equipamentos modernos, configurados corretamente para máxima eficiência.</p>
+    </div>
+    <div class="panel">
+      <h3>Serviços de Proteção Presencial</h3>
+      <p>Proteção para eventos sociais, festas, escolas e outros locais, com equipe treinada.</p>
+    </div>
   </section>
 
-  <!-- Planos -->
   <section id="planos">
     <h2>Planos de Segurança</h2>
 
-    <button class="accordion">Plano Básico</button>
     <div class="panel">
-      <p><strong>Realizamos a instalação de equipamentos modernos e confiáveis, personalizados para as necessidades do seu imóvel. Nossa equipe especializada garante a configuração correta e a integração dos sistemas para máxima eficiência.</strong></p>
+      <h3>Plano Básico</h3>
+      <p>Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo.</p>
       <ul>
         <li>Monitoramento 24h via central</li>
         <li>Atendimento emergencial</li>
         <li>Suporte técnico remoto</li>
         <li>Aplicativo para acompanhamento em tempo real</li>
       </ul>
-      <p><strong>Benefícios</strong></p>
-      <ul>
-        <li>Segurança garantida dia e noite</li>
-        <li>Viaturas de prontidão na sua região</li>
-        <li>Controle total na palma da mão</li>
-      </ul>
       <p><strong>R$ 00,00/mês</strong></p>
     </div>
 
-    <button class="accordion">Plano Essencial</button>
     <div class="panel">
-      <p><strong>Ideal para quem busca uma segurança completa...</strong></p>
+      <h3>Plano Essencial</h3>
+      <p>Segurança completa com monitoramento eletrônico e rondas periódicas.</p>
       <ul>
         <li>Monitoramento 24h via central de controle</li>
+        <li>Atendimento emergencial rápido</li>
         <li>Rondas presenciais com viatura</li>
         <li>Suporte técnico remoto</li>
+        <li>Central de alarmes opcional (+ R$00,00/mês)</li>
       </ul>
       <p><strong>R$ 00,00/mês</strong></p>
     </div>
 
-    <button class="accordion">Plano Premium</button>
     <div class="panel">
-      <p><strong>Para quem deseja a máxima segurança...</strong></p>
+      <h3>Plano Premium</h3>
+      <p>Máxima segurança com atendimento personalizado e cobertura completa.</p>
       <ul>
         <li>Monitoramento 24h</li>
+        <li>Atendimento emergencial prioritário</li>
         <li>Rondas frequentes com viatura</li>
         <li>Suporte técnico presencial e remoto</li>
+        <li>Acompanhamento via app</li>
+        <li>Relatórios mensais e consultoria de segurança</li>
+        <li>Central de alarmes inclusa</li>
       </ul>
       <p><strong>R$ 00,00/mês</strong></p>
     </div>
 
-    <button class="accordion">Plano Periódico</button>
     <div class="panel">
-      <p><strong>Proteção temporária e flexível...</strong></p>
-      <ul>
-        <li>Monitoramento 24h durante o período contratado</li>
-        <li>Rondas presenciais com viatura</li>
-      </ul>
-      <p><strong>R$ 00,00 por dia (mín. 3 dias)</strong></p>
-    </div>
-
-    <button class="accordion">Plano Eventos</button>
-    <div class="panel">
-      <p><strong>Segurança especializada para festas e eventos...</strong></p>
-      <ul>
-        <li>Equipe treinada para controle de acesso</li>
-        <li>Monitoramento 24h</li>
-      </ul>
-      <p><strong>R$ 00,00</strong></p>
-    </div>
-
-    <button class="accordion">Plano Residencial/Empresarial</button>
-    <div class="panel">
-      <p><strong>Para proteção contínua de casas ou empresas...</strong></p>
-      <ul>
-        <li>Monitoramento 24h</li>
-        <li>Rondas periódicas</li>
-        <li>Suporte técnico remoto</li>
-      </ul>
-      <p><strong>R$ 00,00/mês</strong></p>
-    </div>
-
-    <button class="accordion">Plano Personalizado</button>
-    <div class="panel">
-      <p><strong>Escolha os serviços que deseja:</strong></p>
+      <h3>Planos Personalizados</h3>
+      <p>Segurança feita sob medida para você! Escolha um dos pacotes abaixo:</p>
 
       <div class="pacote-box">
-        <h3>Pacote Básico</h3>
+        <h3>Pacote 1 - Monitoramento de Imagens</h3>
         <ul>
           <li>Monitoramento 24h via central</li>
-          <li>Suporte remoto</li>
+          <li>Suporte técnico agendável</li>
         </ul>
-        <p>R$ 00,00/mês</p>
+        <p><strong>R$ 00,00</strong></p>
       </div>
 
       <div class="pacote-box">
-        <h3>Pacote Essencial</h3>
+        <h3>Pacote 2 - Monitoramento de Alarmes</h3>
         <ul>
-          <li>Rondas com viatura</li>
-          <li>Monitoramento 24h</li>
-          <li>Suporte remoto e presencial</li>
+          <li>Monitoramento 24h via central</li>
+          <li>Instalação da central (caso necessário)</li>
+          <li>Testes e manutenção básica</li>
+          <li>Suporte técnico agendável</li>
         </ul>
-        <p>R$ 00,00/mês</p>
+        <p><strong>R$ 00,00</strong></p>
       </div>
 
       <div class="pacote-box">
-        <h3>Pacote Premium</h3>
+        <h3>Pacote 3 - Ronda</h3>
         <ul>
-          <li>Rondas constantes com viatura</li>
-          <li>Monitoramento 24h</li>
-          <li>Suporte técnico presencial</li>
-          <li>Controle de acesso e eventos</li>
+          <li>Rondas presenciais com viatura</li>
+          <li>Deslocamento de viatura quando solicitado</li>
         </ul>
-        <p>R$ 00,00/mês</p>
+        <p><strong>R$ 00,00</strong></p>
+      </div>
+
+      <div class="pacote-box">
+        <h3>Pacote 4 - Portaria</h3>
+        <ul>
+          <li>Controle de acesso e portaria profissional</li>
+          <li>Pequenas manutenções e supervisão do local</li>
+        </ul>
+        <p><strong>R$ 00,00</strong></p>
       </div>
     </div>
-
   </section>
 
-  <!-- Contato -->
   <section id="contato">
     <h2>Contato</h2>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" required>
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-      <label for="mensagem">Mensagem:</label>
-      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-      <button type="submit">Enviar</button>
-    </form>
-    <p class="contato-direto">Ou entre em contato diretamente pelo WhatsApp: (00) 00000-0000</p>
+    <p>Email: contato@ronda.com | Telefone: (00) 0000-0000</p>
   </section>
-
 </main>
 
 <footer>
   &copy; 2025 Ronda Segurança Eletrônica. Todos os direitos reservados.
 </footer>
 
-<script>
-  // Accordion
-  const accordions = document.querySelectorAll('.accordion');
-  accordions.forEach(acc => {
-    acc.addEventListener('click', () => {
-      acc.classList.toggle('active');
-      const panel = acc.nextElementSibling;
-      if(panel.style.maxHeight) {
-        panel.style.maxHeight = null;
-        panel.style.padding = '0 20px';
-      } else {
-        panel.style.maxHeight = panel.scrollHeight + "px";
-        panel.style.padding = '15px 20px';
-      }
-    });
-  });
-
-  // Menu Mobile
-  const menuToggle = document.getElementById('menuToggle');
-  const navMenu = document.getElementById('navMenu');
-
-  menuToggle.addEventListener('click', () => {
-    navMenu.classList.toggle('open');
-    menuToggle.classList.toggle('active');
-  });
-</script>
-
 </body>
 </html>
-
-
-
