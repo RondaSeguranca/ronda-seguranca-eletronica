@@ -43,10 +43,13 @@
       z-index: 1000;
       font-weight: 700;
       font-size: 1.3rem;
-      text-transform: uppercase;
+      
     }
 
-    header .logo-centralizada { font-size: 1.5rem; font-weight: 900; }
+    header .logo-centralizada { 
+      font-size: 1.5rem; 
+      font-weight: 900; 
+    }
 
     nav {
       display: flex;
@@ -60,6 +63,7 @@
       padding: 8px 12px;
       border-radius: 4px;
       transition: background-color 0.3s ease;
+      text-tranform: none;
     }
     nav a:hover {
       background-color: var(--vermelho);
@@ -153,7 +157,12 @@
       padding: 0 20px;
     }
 
-    .panel.open { max-height: 3000px; opacity: 1; padding: 15px; margin-bottom: 20px; }
+    .panel.open { 
+      max-height: 3000px; 
+      opacity: 1; 
+      padding: 15px; 
+      margin-bottom: 20px; 
+    }
 
     /* Pacotes dentro de Planos Personalizados */
     .pacote-box {
@@ -221,7 +230,10 @@
 <body>
 
 <header>
-  <div class="logo-centralizada">RONDA</div>
+  <div class="logo-centralizada"> 
+    <img src="logo.png" alt="Logo Ronda Segurança Eletrônica"/> 
+    <span>ronda</span>
+  </div>
 
   <div class="menu-toggle" id="menuToggle" aria-label="Menu Hamburguer" role="button" tabindex="0">
     <span></span>
@@ -428,3 +440,4 @@
 
 </body>
 </html>
+
