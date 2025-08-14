@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ronda Segurança Eletrônica</title>
-
   <style>
     /* Reset básico */
     * {
@@ -31,7 +30,7 @@
     }
 
     body {
-      padding-top: 70px; /* altura do header */
+      padding-top: 60px; /* altura do header */
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: var(--fundo);
       color: var(--texto);
@@ -44,7 +43,7 @@
     }
     a:hover { text-decoration: underline; }
 
-    /* Header */
+    /* Cabeçalho */
     header {
       background-color: var(--amarelo);
       color: #000;
@@ -60,10 +59,13 @@
       z-index: 1000;
     }
 
-    header .logo img {
-      height: 50px;
-      width: auto;
+    header .logo {
+      font-weight: 900;
+      font-size: 1.8rem;
+      letter-spacing: 3px;
+      font-family: 'Arial Black', Gadget, sans-serif;
       user-select: none;
+      color: #000;
     }
 
     nav {
@@ -112,7 +114,40 @@
       transform: rotate(-45deg) translate(6px, -6px);
     }
 
-    /* Logo centralizada abaixo do header */
+    @media (max-width: 600px) {
+      nav {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: var(--amarelo);
+        flex-direction: column;
+        width: 100%;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.35s ease-out;
+        border-top: 1px solid var(--vermelho);
+        z-index: 10;
+      }
+
+      nav.open {
+        max-height: 500px;
+        transition: max-height 0.5s ease-in;
+      }
+
+      nav a {
+        padding: 12px 20px;
+        border-bottom: 1px solid var(--vermelho);
+        width: 100%;
+        text-align: center;
+        font-size: 1.1rem;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+    }
+
+    /* Logo centralizada */
     .logo-centralizada {
       text-align: center;
       margin: 20px 0;
@@ -120,11 +155,10 @@
     .logo-centralizada img {
       max-width: 200px;
       height: auto;
-      width: 90%;
       user-select: none;
+      width: 90%;
     }
 
-    /* Main */
     main {
       max-width: 980px;
       margin: 30px auto;
@@ -148,7 +182,25 @@
       margin-bottom: 40px;
     }
 
-    /* Serviços accordion */
+    #bemvindo p {
+      font-size: 1.15rem;
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto;
+      color: #ffffff;
+    }
+
+    #sobre p {
+      margin-bottom: 15px;
+      font-size: 1rem;
+      color: #ddd;
+    }
+
+    #sobre strong {
+      font-weight: 700;
+      color: #fff;
+    }
+
     .accordion {
       cursor: pointer;
       padding: 15px;
@@ -189,7 +241,12 @@
       margin-bottom: 20px;
     }
 
-    /* Planos tabela */
+    .panel ul {
+      margin-top: 8px;
+      margin-left: 20px;
+      list-style: disc;
+    }
+
     .plans-table {
       width: 100%;
       border-collapse: collapse;
@@ -210,13 +267,13 @@
       background-color: #0f0f0f;
       color: #eee;
     }
+
     .plans-note {
       margin-top: 10px;
       font-style: italic;
       color: #ccc;
     }
 
-    /* Contato */
     #contato form {
       max-width: 500px;
       margin: 0 auto;
@@ -224,23 +281,28 @@
       flex-direction: column;
       gap: 15px;
     }
+
     #contato label {
       font-weight: 600;
       color: #fff;
     }
+
     #contato input, #contato textarea {
       padding: 10px;
       font-size: 1rem;
       border: 2px solid var(--amarelo);
       border-radius: 5px;
+      resize: vertical;
       background-color: #000;
       color: #fff;
       transition: border-color 0.3s ease;
     }
+
     #contato input:focus, #contato textarea:focus {
       border-color: var(--vermelho);
       outline: none;
     }
+
     #contato button {
       background-color: var(--amarelo);
       border: none;
@@ -255,7 +317,6 @@
     }
     #contato button:hover { background-color: var(--vermelho); color: #fff; }
 
-    /* Footer */
     footer {
       background-color: var(--preto);
       color: var(--amarelo);
@@ -269,61 +330,77 @@
     @media (max-width: 900px) {
       main { padding: 0 12px; }
     }
+
     @media (max-width: 600px) {
       header {
         padding: 15px 10px;
       }
       nav {
-        position: absolute;
-        top: 100%;
-        right: 0;
-        background-color: var(--amarelo);
-        flex-direction: column;
         width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.35s ease-out;
-        border-top: 1px solid var(--vermelho);
-        z-index: 10;
+        align-items: center;
       }
-      nav.open {
-        max-height: 500px;
-        transition: max-height 0.5s ease-in;
-      }
-      nav a {
-        padding: 12px 20px;
-        border-bottom: 1px solid var(--vermelho);
-        width: 100%;
-        text-align: center;
-        font-size: 1.1rem;
-      }
-      .menu-toggle {
-        display: flex;
-      }
+      h1 { font-size: 1.8rem; }
       .logo-centralizada img {
         max-width: 150px;
         width: 80%;
       }
-      #contato form {
-        max-width: 90%;
+      #contato form { max-width: 90%; }
+      body { font-size: 16px; }
+      .accordion { font-size: 1rem; padding: 12px; }
+      .panel { font-size: 0.9rem; padding: 0 12px 12px 12px; margin-bottom: 15px; }
+      .plans-table, .plans-table thead, .plans-table tbody, .plans-table th, .plans-table td, .plans-table tr {
+        display: block; width: 100%;
+      }
+      .plans-table thead tr { display: none; }
+      .plans-table tbody tr {
+        margin-bottom: 20px;
+        border: 1px solid var(--amarelo);
+        border-radius: 8px;
+        padding: 10px;
+        background-color: #111;
+      }
+      .plans-table tbody td {
+        padding-left: 50%;
+        position: relative;
+        border: none;
+        border-bottom: 1px solid #555;
+        text-align: left;
+        color: #ddd;
+      }
+      .plans-table tbody td:last-child { border-bottom: 0; }
+      .plans-table tbody td::before {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 45%;
+        white-space: nowrap;
+        font-weight: 700;
+        color: var(--amarelo);
+        content: attr(data-label);
       }
     }
 
+    .pacote-box {
+      background-color: var(--preto);
+      border: 2px solid var(--amarelo);
+      border-radius: 10px;
+      padding: 15px 20px;
+      margin-bottom: 15px;
+      color: var(--amarelo);
+    }
+    .pacote-box h3 { margin-top: 0; margin-bottom: 8px; }
+    .pacote-box p { margin: 4px 0; }
   </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">
-    <img src="logo.png" alt="Ronda Segurança Eletrônica">
-  </div>
-
-  <div class="menu-toggle" id="menuToggle" tabindex="0">
+  <div class="logo">RONDA</div>
+  <div class="menu-toggle" id="menuToggle" aria-label="Menu Hamburguer" role="button" tabindex="0">
     <span></span>
     <span></span>
     <span></span>
   </div>
-
   <nav id="navMenu">
     <a href="#bemvindo">Bem-vindo</a>
     <a href="#sobre">Sobre</a>
@@ -334,129 +411,116 @@
 </header>
 
 <div class="logo-centralizada">
-  <img src="logo.png" alt="Logo Ronda Segurança Eletrônica">
+  <img src="logo.png" alt="Logo Ronda Segurança Eletrônica" />
 </div>
 
 <main>
-
-  <!-- Bem-vindo -->
   <section id="bemvindo">
     <h1>Bem-vindo à Ronda Segurança Eletrônica</h1>
     <p>Protegendo você, sua família e seu patrimônio com confiança, tradição e tecnologia.</p>
   </section>
 
-  <!-- Sobre -->
   <section id="sobre">
     <h2>Sobre a Ronda Segurança Eletrônica</h2>
-    <p>A Ronda Segurança Eletrônica é uma empresa familiar com 30 anos de história, que começou com o sogro da atual dona e foi passando de geração em geração até chegar ao time dedicado de hoje.</p>
-    <p>Com uma equipe especializada e equipamentos de alta tecnologia, oferecemos serviços que vão desde monitoramento eletrônico até rondas presenciais, garantindo respostas rápidas e eficazes.</p>
-    <p>Nossa missão é proporcionar tranquilidade e confiança, com atendimento humanizado e soluções feitas sob medida para cada cliente.</p>
-    <p>Aqui, segurança é compromisso, responsabilidade e cuidado de verdade — do nosso time para o seu.</p>
+    <p>A Ronda Segurança Eletrônica é uma empresa familiar com 30 anos de história...</p>
     <p><strong><em>Nós somos família, nós somos segurança, nós somos RONDA.</em></strong></p>
   </section>
 
-  <!-- Serviços -->
   <section id="servicos">
     <h2>Serviços</h2>
 
     <button class="accordion">Monitoramento de Alarmes</button>
-    <div class="panel">
-      Nosso sistema monitora continuamente seus alarmes, garantindo que qualquer sinal de alerta seja detectado imediatamente. Com atendimento rápido, acionamos as medidas necessárias para proteger você e seu patrimônio 24 horas por dia.
-    </div>
+    <div class="panel"><p>Nosso sistema monitora continuamente seus alarmes...</p></div>
 
     <button class="accordion">Monitoramento de Imagens</button>
-    <div class="panel">
-      Utilizamos tecnologia avançada para acompanhar as câmeras instaladas em sua propriedade em tempo real, identificando situações suspeitas e fornecendo provas visuais para maior segurança.
-    </div>
+    <div class="panel"><p>Utilizamos tecnologia avançada para acompanhar as câmeras...</p></div>
 
     <button class="accordion">Portaria e Zeladoria</button>
-    <div class="panel">
-      Serviços de portaria e zeladoria, garantindo controle de acesso eficiente e manutenção da ordem nas suas instalações.
-    </div>
+    <div class="panel"><p>Oferecemos serviços profissionais de portaria e zeladoria...</p></div>
 
     <button class="accordion">Instalação de Câmeras e Alarmes</button>
-    <div class="panel">
-      Realizamos instalação de equipamentos modernos e confiáveis, personalizados para as necessidades do seu imóvel.
-    </div>
+    <div class="panel"><p>Realizamos a instalação de equipamentos modernos...</p></div>
 
-    <button class="accordion">Serviços de Proteção Presencial a Eventos</button>
-    <div class="panel">
-      Proteção presencial em eventos sociais, festas, ambientes escolares e mais. Garantimos prevenção de riscos e resposta rápida.
-    </div>
+    <button class="accordion">Serviços de Proteção Presencial a Eventos Sociais, Festas e Segurança Escolar, e mais</button>
+    <div class="panel"><p>Nossa equipe está preparada para oferecer proteção presencial...</p></div>
   </section>
 
-  <!-- Planos -->
   <section id="planos">
-    <h2>Planos de Segurança</h2>
+    <h2>Planos de Contrato</h2>
 
-    <button class="accordion">Plano Básico</button>
-    <div class="panel">
-      Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo.
+    <div class="pacote-box">
+      <h3>Plano Básico</h3>
+      <p>R$ 99,90/mês</p>
+      <ul>
+        <li>Monitoramento de alarmes</li>
+        <li>Atendimento remoto 24/7</li>
+      </ul>
     </div>
 
-    <button class="accordion">Plano Essencial</button>
-    <div class="panel">
-      Inclui monitoramento eletrônico e rondas periódicas para garantir proteção constante do imóvel.
+    <div class="pacote-box">
+      <h3>Plano Intermediário</h3>
+      <p>R$ 179,90/mês</p>
+      <ul>
+        <li>Monitoramento de alarmes e câmeras</li>
+        <li>Rondas presenciais periódicas</li>
+      </ul>
     </div>
 
-    <button class="accordion">Plano Periódico</button>
-    <div class="panel">
-      Proteção temporária e flexível para quem viaja ou precisa de segurança por períodos específicos.
+    <div class="pacote-box">
+      <h3>Plano Avançado</h3>
+      <p>R$ 299,90/mês</p>
+      <ul>
+        <li>Todos os serviços anteriores</li>
+        <li>Atendimento personalizado e suporte VIP</li>
+        <li>Proteção presencial para eventos</li>
+      </ul>
     </div>
-
-    <button class="accordion">Planos Personalizados</button>
-    <div class="panel">
-      Segurança feita sob medida. Escolha pacotes básicos ou personalize serviços conforme sua necessidade.
-    </div>
-
   </section>
 
-  <!-- Contato -->
   <section id="contato">
     <h2>Contato</h2>
-    <form>
-      <label for="nome">Nome:</label>
-      <input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+    <form action="#" method="POST">
+      <label for="nome">Nome</label>
+      <input type="text" id="nome" name="nome" required>
 
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required>
 
-      <label for="mensagem">Mensagem:</label>
-      <textarea id="mensagem" name="mensagem" rows="5" placeholder="Escreva sua mensagem aqui..." required></textarea>
+      <label for="telefone">Telefone</label>
+      <input type="tel" id="telefone" name="telefone">
+
+      <label for="mensagem">Mensagem</label>
+      <textarea id="mensagem" name="mensagem" rows="5"></textarea>
 
       <button type="submit">Enviar</button>
     </form>
-  </section>
 
+    <p style="text-align:center; margin-top:15px;">Outras formas de contato: <br>
+      Email: contato@ronda.com.br <br>
+      WhatsApp: (XX) XXXXX-XXXX
+    </p>
+  </section>
 </main>
 
 <footer>
-  &copy; 2025 Ronda Segurança Eletrônica. Todos os direitos reservados.
+  &copy; 2025 Ronda Segurança Eletrônica - Todos os direitos reservados
 </footer>
 
 <script>
-  // Menu toggle mobile
+  const accordions = document.querySelectorAll('.accordion');
+  accordions.forEach(acc => {
+    acc.addEventListener('click', () => {
+      const panel = acc.nextElementSibling;
+      panel.classList.toggle('open');
+    });
+  });
+
   const menuToggle = document.getElementById('menuToggle');
   const navMenu = document.getElementById('navMenu');
 
   menuToggle.addEventListener('click', () => {
     menuToggle.classList.toggle('active');
     navMenu.classList.toggle('open');
-  });
-
-  // Accordion serviços
-  const accordions = document.querySelectorAll('.accordion');
-  accordions.forEach(acc => {
-    acc.addEventListener('click', () => {
-      const panel = acc.nextElementSibling;
-      const isOpen = panel.classList.contains('open');
-
-      document.querySelectorAll('.panel').forEach(p => p.classList.remove('open'));
-
-      if (!isOpen) {
-        panel.classList.add('open');
-      }
-    });
   });
 </script>
 
