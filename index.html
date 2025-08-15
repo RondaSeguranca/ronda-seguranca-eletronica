@@ -16,6 +16,7 @@
       font-family: Arial, sans-serif;
       background-color: #000;
       color: #fff;
+      line-height: 1.6;
     }
 
     a {
@@ -41,13 +42,12 @@
       font-size: 1.5em;
     }
 
-    /* Menu */
     nav {
-      display: none;
+      display: flex;
+      gap: 20px;
     }
 
     nav a {
-      margin-left: 20px;
       color: #000;
       font-weight: bold;
     }
@@ -58,28 +58,18 @@
       background: none;
       border: none;
       color: #000;
-    }
-
-    /* Menu visível no clique */
-    nav.active {
-      display: flex;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background-color: #FFD700;
-      padding: 10px;
-      border-radius: 5px;
-    }
-
-    nav.active a {
-      margin: 10px 0;
+      display: none;
     }
 
     /* Seção Inicial */
     .inicio {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
       text-align: center;
-      padding: 120px 20px 60px;
+      padding: 150px 20px 60px;
+      min-height: 80vh;
     }
 
     .inicio img {
@@ -96,50 +86,44 @@
     .inicio p {
       font-size: 1.2em;
       max-width: 600px;
-      margin: 0 auto;
       color: #fff;
     }
 
     /* Seção Sobre */
     .sobre {
       padding: 60px 20px;
-      max-width: 800px;
+      max-width: 900px;
       margin: 0 auto;
-      text-align: center;
+      text-align: justify;
     }
 
     .sobre h2 {
       font-size: 2em;
       color: #FFD700;
       margin-bottom: 20px;
+      text-align: center;
     }
 
-    .sobre p {
-      margin-bottom: 20px;
+    /* Serviços */
+    #servicos {
+      padding: 60px 20px;
+      max-width: 1000px;
+      margin: 0 auto;
     }
 
-    .sobre .slogan {
-      font-weight: bold;
-      color: #FF0000;
-    }
-
-    /* Acordeons */
-    .accordion-btn {
-      background-color: #000;
+    #servicos h2 {
+      text-align: center;
       color: #FFD700;
-      cursor: pointer;
-      padding: 15px;
-      width: 100%;
-      text-align: left;
-      border: none;
-      outline: none;
-      font-size: 1.1em;
-      margin-bottom: 5px;
-      transition: background-color 0.3s;
+      margin-bottom: 30px;
     }
 
-    .accordion-btn:hover {
-      background-color: #333;
+    .servico-box {
+      background-color: #FFD700;
+      border-radius: 15px;
+      padding: 20px;
+      margin-bottom: 20px;
+      color: #000;
+      cursor: pointer;
     }
 
     .accordion-content {
@@ -147,29 +131,36 @@
       color: #fff;
       padding: 15px;
       display: none;
+      margin-bottom: 10px;
+      border-radius: 10px;
     }
 
-    /* Seção Serviços e Planos */
-    section {
+    /* Seção Planos */
+    #planos {
       padding: 60px 20px;
       max-width: 900px;
       margin: 0 auto;
-      text-align: left;
     }
 
-    section h2 {
-      font-size: 2em;
+    #planos h2 {
       text-align: center;
       color: #FFD700;
       margin-bottom: 30px;
     }
 
-    /* Seção Contato */
+    /* Contato */
+    .contato {
+      padding: 60px 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      text-align: center;
+    }
+
     .contato form {
       display: flex;
       flex-direction: column;
-      gap: 15px;
-      margin-bottom: 40px;
+      gap: 12px;
+      margin-bottom: 20px;
     }
 
     .contato label {
@@ -187,11 +178,6 @@
       color: #fff;
     }
 
-    .contato input:focus,
-    .contato textarea:focus {
-      outline: 2px solid #FF0000;
-    }
-
     .contato button {
       padding: 12px;
       background-color: #FFD700;
@@ -207,9 +193,10 @@
       background-color: #FFC107;
     }
 
-    .outras-formas p {
-      margin: 5px 0;
+    .outras-formas {
+      margin-top: 20px;
       color: #fff;
+      font-weight: bold;
     }
 
     .outras-formas a {
@@ -220,19 +207,35 @@
       color: #FF0000;
     }
 
+    /* Rodapé */
+    footer {
+      text-align:center;
+      padding:20px;
+      background:#111;
+      color:#fff;
+    }
+
     /* Responsivo */
-    @media(min-width: 768px){
+    @media(max-width: 768px) {
       nav {
-        display: flex !important;
-        flex-direction: row;
-        position: static;
-        background: none;
-        padding: 0;
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: #FFD700;
+        padding: 10px;
+        border-radius: 5px;
       }
       .menu-btn {
-        display: none;
+        display: block;
+      }
+      nav.active {
+        display: flex;
       }
     }
+
   </style>
 </head>
 <body>
@@ -263,33 +266,34 @@
     <p>A Ronda Segurança Eletrônica é uma empresa familiar com mais de 30 anos de história, que começou com o sogro da atual dona e foi passando de geração em geração até chegar ao time dedicado de hoje.</p>
     <p>Com uma equipe especializada e equipamentos de alta tecnologia, oferecemos serviços que vão desde monitoramento eletrônico até rondas presenciais, garantindo respostas rápidas e eficazes.</p>
     <p>Nossa missão é proporcionar tranquilidade e confiança, com atendimento humanizado e soluções feitas sob medida para cada cliente.</p>
-    <p class="slogan">Nós somos família, nós somos segurança, nós somos RONDA.</p>
+    <p>Nós somos família, nós somos segurança, nós somos RONDA.</p>
   </section>
 
   <!-- Seção Serviços -->
   <section id="servicos">
     <h2>Serviços Prestados:</h2>
-    <button class="accordion-btn">Monitoramento de Alarmes</button>
+
+    <div class="servico-box">Monitoramento de Alarmes</div>
     <div class="accordion-content">
       <p>Nosso sistema monitora continuamente seus alarmes, garantindo que qualquer sinal de alerta seja detectado imediatamente. Com atendimento rápido, acionamos as medidas necessárias para proteger você e seu patrimônio 24 horas por dia.</p>
     </div>
 
-    <button class="accordion-btn">Monitoramento de Imagens</button>
+    <div class="servico-box">Monitoramento de Imagens</div>
     <div class="accordion-content">
       <p>Utilizamos tecnologia avançada para acompanhar as câmeras instaladas em sua propriedade em tempo real. Isso permite identificar situações suspeitas com agilidade e fornecer provas visuais para maior segurança e tranquilidade.</p>
     </div>
 
-    <button class="accordion-btn">Portaria e Zeladoria</button>
+    <div class="servico-box">Portaria e Zeladoria</div>
     <div class="accordion-content">
       <p>Oferecemos serviços profissionais de portaria e zeladoria, garantindo controle de acesso eficiente e manutenção da ordem nas suas instalações. Nossa equipe é treinada para atuar com cordialidade e segurança, protegendo moradores, funcionários e visitantes.</p>
     </div>
 
-    <button class="accordion-btn">Instalação de Câmeras e Alarmes</button>
+    <div class="servico-box">Instalação de Câmeras e Alarmes</div>
     <div class="accordion-content">
       <p>Realizamos a instalação de equipamentos modernos e confiáveis, personalizados para as necessidades do seu imóvel. Nossa equipe especializada garante a configuração correta e a integração dos sistemas para máxima eficiência.</p>
     </div>
 
-    <button class="accordion-btn">Proteção Presencial</button>
+    <div class="servico-box">Proteção Presencial</div>
     <div class="accordion-content">
       <p>Nossa equipe está preparada para atuar em residências, empresas, escolas, eventos e outras necessidades de segurança presencial. Realizamos rondas periódicas, controle de acesso, vigilância preventiva e suporte imediato, garantindo proteção completa e tranquilidade em qualquer situação.</p>
     </div>
@@ -299,7 +303,7 @@
   <section id="planos">
     <h2>Planos:</h2>
 
-    <button class="accordion-btn">Plano Básico</button>
+    <div class="servico-box">Plano Básico</div>
     <div class="accordion-content">
       <ul>
         <li>Monitoramento 24h via central</li>
@@ -310,7 +314,7 @@
       <p>R$ 00,00/mês</p>
     </div>
 
-    <button class="accordion-btn">Plano Essencial</button>
+    <div class="servico-box">Plano Essencial</div>
     <div class="accordion-content">
       <ul>
         <li>Monitoramento 24h via central de controle</li>
@@ -322,7 +326,7 @@
       <p>R$ 00,00/mês</p>
     </div>
 
-    <button class="accordion-btn">Plano Premium</button>
+    <div class="servico-box">Plano Premium</div>
     <div class="accordion-content">
       <ul>
         <li>Monitoramento 24h</li>
@@ -334,7 +338,7 @@
       <p>R$ 00,00/mês</p>
     </div>
 
-    <button class="accordion-btn">Plano Periódico</button>
+    <div class="servico-box">Plano Periódico</div>
     <div class="accordion-content">
       <ul>
         <li>Monitoramento 24h durante o período contratado</li>
@@ -344,16 +348,16 @@
       <p>R$ 00,00/dia (mínimo 3 dias)</p>
     </div>
 
-    <button class="accordion-btn">Plano Personalizado</button>
+    <div class="servico-box">Plano Personalizado</div>
     <div class="accordion-content">
       <ul>
-        <li><strong>Pacote 1 - Monitoramento de Imagens:</strong> Monitoramento 24h via central, suporte técnico agendável. R$ 00,00</li>
-        <li><strong>Pacote 2 - Monitoramento de Alarmes:</strong> Monitoramento 24h, instalação da central, testes e manutenção básica, suporte técnico agendável. R$ 00,00</li>
-        <li><strong>Pacote 3 - Ronda:</strong> Rondas presenciais com viatura em horários programados, deslocamento quando solicitado. R$ 00,00</li>
-        <li><strong>Pacote 4 - Portaria:</strong> Controle de acesso e portaria profissional, pequenas manutenções e supervisão do local, atendimento cordial. R$ 00,00</li>
-        <li><strong>Pacote 5 - Zeladoria:</strong> Manutenção e limpeza básica das áreas comuns, pequenos reparos, supervisão do ambiente. R$ 00,00</li>
-        <li><strong>Pacote 6 - Limpeza:</strong> Limpeza diária, coleta e descarte de lixo, higienização de banheiros e áreas comuns. R$ 00,00</li>
-        <li><strong>Pacote 7 - Suporte Técnico:</strong> Atendimento remoto, manutenção preventiva e corretiva, atualização e configuração de sistemas. R$ 00,00</li>
+        <li>Pacote 1 - Monitoramento de Imagens: Monitoramento 24h via central, suporte técnico agendável. R$ 00,00</li>
+        <li>Pacote 2 - Monitoramento de Alarmes: Monitoramento 24h, instalação da central, testes e manutenção básica, suporte técnico agendável. R$ 00,00</li>
+        <li>Pacote 3 - Ronda: Rondas presenciais com viatura em horários programados, deslocamento quando solicitado. R$ 00,00</li>
+        <li>Pacote 4 - Portaria: Controle de acesso e portaria profissional, pequenas manutenções e supervisão do local, atendimento cordial. R$ 00,00</li>
+        <li>Pacote 5 - Zeladoria: Manutenção e limpeza básica, pequenos reparos, supervisão do ambiente. R$ 00,00</li>
+        <li>Pacote 6 - Limpeza: Limpeza diária, coleta e descarte de lixo, higienização de banheiros e áreas comuns. R$ 00,00</li>
+        <li>Pacote 7 - Suporte Técnico: Atendimento remoto, manutenção preventiva e corretiva, atualização e configuração de sistemas. R$ 00,00</li>
       </ul>
       <p>Fale com a gente! Criamos um plano sob medida para você.</p>
     </div>
@@ -376,23 +380,27 @@
     </form>
 
     <div class="outras-formas">
-      <p>Email: <a href="mailto:notafiscalronda@gmail.com">notafiscalronda@gmail.com</a></p>
-      <p>Telefone: <a href="tel:+555195369298">51 9536-9298</a></p>
-      <p>Instagram: <a href="https://instagram.com/gruporonda" target="_blank">@gruporonda</a></p>
+      <p>Ou Entre em Contato Por:</p>
+      <p>notafiscalronda@gmail.com | 55195369298 | @gruporonda</p>
     </div>
   </section>
 
   <!-- Rodapé -->
-  <footer style="text-align:center; padding:20px; background:#111; color:#fff;">
+  <footer>
     © 2025 Ronda Segurança Eletrônica. Todos os direitos reservados.
   </footer>
 
   <script>
-    // Acordeons gerais
-    const accordionBtns = document.querySelectorAll('.accordion-btn');
-    accordionBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        const content = btn.nextElementSibling;
+    // Acordeons - apenas 1 aberto por vez
+    const boxes = document.querySelectorAll('.servico-box');
+    boxes.forEach(box => {
+      box.addEventListener('click', () => {
+        const content = box.nextElementSibling;
+        // fechar todos
+        document.querySelectorAll('.accordion-content').forEach(c => {
+          if(c !== content) c.style.display = 'none';
+        });
+        // alternar o clicado
         content.style.display = content.style.display === "block" ? "none" : "block";
       });
     });
