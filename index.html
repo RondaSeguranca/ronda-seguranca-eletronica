@@ -1,354 +1,388 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ronda Segurança Eletrônica</title>
-  <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ronda Segurança Eletrônica</title>
+<style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #000;
-      color: #fff;
-      line-height: 1.8;
+        margin: 0;
+        font-family: Arial, sans-serif;
+        color: #000;
     }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
+    /* Cabeçalho */
     header {
-      background-color: #FFD700;
-      padding: 15px 20px;
+        background-color: #FFD700;
+        padding: 15px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
     }
-
     header h1 {
-      color: #000;
-      font-size: 2em;
+        margin: 0;
+        font-size: 1.8em;
+        font-weight: bold;
+    }
+    /* Menu hamburguer (temporário oculto) */
+    nav {
+        display: none;
     }
 
-    /* Seção Inicial */
+    /* Seção inicial */
     .inicio {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      justify-content: center;
-      text-align: left;
-      padding: 120px 20px 60px;
+        text-align: center;
+        padding: 60px 20px;
     }
-
     .inicio img {
-      max-width: 200px;
-      margin-bottom: 20px;
+        max-width: 200px;
+        height: auto;
+        margin-bottom: 20px;
     }
-
     .inicio h2 {
-      font-size: 2.5em;
-      color: #FFD700;
-      margin-bottom: 15px;
+        font-size: 2em;
+        margin-bottom: 15px;
     }
-
     .inicio p {
-      font-size: 1.2em;
-      max-width: 700px;
-      text-align: justify;
-      color: #fff;
+        font-size: 1.2em;
+        max-width: 700px;
+        margin: 0 auto;
     }
 
-    /* Seção Sobre */
-    .sobre {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-      text-align: justify;
+    /* Seções Justificadas à esquerda */
+    section {
+        padding: 40px 20px;
+        text-align: justify;
+        max-width: 900px;
+        margin: 0 auto;
     }
-
-    .sobre h2 {
-      font-size: 2.5em;
-      color: #FFD700;
-      margin-bottom: 20px;
+    section h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
     }
 
     /* Serviços */
-    #servicos {
-      padding: 60px 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+    .servicos {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
     }
-
-    #servicos h2 {
-      font-size: 2.5em;
-      color: #FFD700;
-      margin-bottom: 30px;
-    }
-
     .servico-box {
-      background-color: #FFD700;
-      border-radius: 15px;
-      padding: 20px;
-      margin-bottom: 15px;
-      color: #000;
-      font-weight: bold;
-      cursor: pointer;
-      font-size: 1.2em;
-      transition: background-color 0.3s;
+        background-color: #FFD700;
+        border-radius: 15px;
+        padding: 20px;
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.2em;
+        transition: background-color 0.3s;
     }
-
     .servico-box:hover {
-      background-color: #FFC107; /* amarelo um pouco mais escuro */
+        background-color: #FFC107;
     }
-    .accordion-content {
-      background-color: #111;
-      color: #fff;
-      padding: 20px;
-      display: none;
-      margin-bottom: 15px;
-      border-radius: 10px;
-      font-size: 1em;
+    .servico-text {
+        margin-top: 10px;
+        display: none;
     }
 
-    /* Seção Planos */
-    #planos {
-      padding: 60px 20px;
-      max-width: 900px;
-      margin: 0 auto;
+    /* Acordeon */
+    .acordeon {
+        border: 1px solid #000;
+        border-radius: 10px;
+        margin-bottom: 15px;
+        padding: 10px;
     }
-
-    #planos h2 {
-      font-size: 2.5em;
-      color: #FFD700;
-      margin-bottom: 30px;
+    .acordeon-header {
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+    .acordeon-body {
+        display: none;
+        margin-top: 10px;
     }
 
     /* Pacotes Personalizáveis */
     .pacote {
-      background-color: #111;
-      border: 2px solid #FFD700;
-      border-radius: 10px;
-      padding: 15px;
-      margin-bottom: 10px;
+        background-color: #000;
+        border: 2px solid #FFD700;
+        border-radius: 10px;
+        padding: 15px;
+        margin-bottom: 15px;
+        color: #FFF;
     }
 
     /* Contato */
-    .contato {
-      padding: 60px 20px;
-      max-width: 600px;
-      margin: 0 auto;
-      text-align: left;
-    }
-
-    .contato h2 {
-      font-size: 2.5em;
-      color: #FFD700;
-      margin-bottom: 20px;
-    }
-
     .contato form {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+        max-width: 500px;
+        margin: 0 auto 20px;
     }
-
-    .contato label {
-      font-weight: bold;
-      color: #FFD700;
+    .contato input, .contato textarea {
+        padding: 10px;
+        font-size: 1em;
     }
-
-    .contato input,
-    .contato textarea {
-      padding: 10px;
-      border: 1px solid #FFD700;
-      border-radius: 5px;
-      background-color: #111;
-      color: #fff;
-    }
-
     .contato button {
-      padding: 12px;
-      background-color: #FFD700;
-      color: #000;
-      font-weight: bold;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s;
+        padding: 10px;
+        font-size: 1em;
+        background-color: #FFD700;
+        border: none;
+        cursor: pointer;
     }
-
-    .contato button:hover {
-      background-color: #FFC107;
+    .contato-info {
+        text-align: center;
+        margin-top: 20px;
+        font-weight: bold;
     }
-
-    .outras-formas {
-      margin-top: 20px;
-      color: #fff;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    footer {
-      text-align:center;
-      padding:20px;
-      background:#111;
-      color:#fff;
-    }
-
-  </style>
+</style>
 </head>
 <body>
 
-  <!-- Cabeçalho -->
-  <header>
+<header>
     <h1>RONDA</h1>
-  </header>
+</header>
 
-  <!-- Seção Inicial -->
-  <section class="inicio" id="inicio">
-    <img src="logo.png" alt="Logo da Ronda">
+<div class="inicio">
+    <img src="logo.png" alt="Logo Ronda">
     <h2>Bem-Vindo à Ronda Segurança Eletrônica</h2>
     <p>Protegendo você, sua família e seu patrimônio com confiança, tradição e tecnologia.</p>
-  </section>
+</div>
 
-  <!-- Seção Sobre -->
-  <section class="sobre" id="sobre">
+<section>
     <h2>Sobre a Ronda</h2>
-    <p>A Ronda Segurança Eletrônica é uma empresa familiar com mais de 30 anos de história, que começou com o sogro da atual dona e foi passando de geração em geração até chegar ao time dedicado de hoje.</p>
-    <p>Com uma equipe especializada e equipamentos de alta tecnologia, oferecemos serviços que vão desde monitoramento eletrônico até rondas presenciais, garantindo respostas rápidas e eficazes.</p>
-    <p>Nossa missão é proporcionar tranquilidade e confiança, com atendimento humanizado e soluções feitas sob medida para cada cliente.</p>
-    <p>Nós somos família, nós somos segurança, nós somos RONDA.</p>
-  </section>
+    <p>A Ronda Segurança Eletrônica é uma empresa familiar com mais de 30 anos de história, que começou com o sogro da atual dona e foi passando de geração em geração até chegar ao time dedicado de hoje.
+    Com uma equipe especializada e equipamentos de alta tecnologia, oferecemos serviços que vão desde monitoramento eletrônico até rondas presenciais, garantindo respostas rápidas e eficazes.
+    Nossa missão é proporcionar tranquilidade e confiança, com atendimento humanizado e soluções feitas sob medida para cada cliente.
+    Aqui, segurança é compromisso, responsabilidade e cuidado de verdade — do nosso time para o seu.</p>
+    <p><strong>Nós somos família, nós somos segurança, nós somos RONDA.</strong></p>
+</section>
 
-  <!-- Seção Serviços -->
-  <section id="servicos">
-    <h2>Serviços Prestados:</h2>
+<section>
+    <h2>Serviços Prestados</h2>
+    <div class="servicos">
+        <div class="servico-box">Monitoramento de Alarmes
+            <div class="servico-text">Nosso sistema monitora continuamente seus alarmes, garantindo que qualquer sinal de alerta seja detectado imediatamente. Com atendimento rápido, acionamos as medidas necessárias para proteger você e seu patrimônio 24 horas por dia.</div>
+        </div>
+        <div class="servico-box">Monitoramento de Imagens
+            <div class="servico-text">Utilizamos tecnologia avançada para acompanhar as câmeras instaladas em sua propriedade em tempo real. Isso permite identificar situações suspeitas com agilidade e fornecer provas visuais para maior segurança e tranquilidade.</div>
+        </div>
+        <div class="servico-box">Portaria e Zeladoria
+            <div class="servico-text">Oferecemos serviços profissionais de portaria e zeladoria, garantindo controle de acesso eficiente e manutenção da ordem nas suas instalações. Nossa equipe é treinada para atuar com cordialidade e segurança, protegendo moradores, funcionários e visitantes.</div>
+        </div>
+        <div class="servico-box">Instalação de Câmeras e Alarmes
+            <div class="servico-text">Realizamos a instalação de equipamentos modernos e confiáveis, personalizados para as necessidades do seu imóvel. Nossa equipe especializada garante a configuração correta e a integração dos sistemas para máxima eficiência.</div>
+        </div>
+        <div class="servico-box">Proteção Presencial
+            <div class="servico-text">Nossa equipe está preparada para atuar em residências, empresas, escolas, eventos e outras necessidades de segurança presencial. Realizamos rondas periódicas, controle de acesso, vigilância preventiva e suporte imediato, garantindo proteção completa e tranquilidade em qualquer situação.</div>
+        </div>
+    </div>
+</section>
 
-    <div class="servico-box">Monitoramento de Alarmes</div>
-    <div class="accordion-content">
-      Nosso sistema monitora continuamente seus alarmes, garantindo que qualquer sinal de alerta seja detectado imediatamente. Com atendimento rápido, acionamos as medidas necessárias para proteger você e seu patrimônio 24 horas por dia.
+<section>
+    <h2>Planos</h2>
+
+    <!-- Plano Básico -->
+    <div class="acordeon">
+        <div class="acordeon-header">Plano Básico</div>
+        <div class="acordeon-body">
+            <p>Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo, garantindo segurança eficiente e controle pelo cliente.</p>
+            <p><strong>Serviços incluídos:</strong><br>
+            Monitoramento 24h via central<br>
+            Atendimento emergencial<br>
+            Suporte técnico remoto<br>
+            Aplicativo para acompanhamento em tempo real</p>
+            <p><strong>Benefícios:</strong><br>
+            Segurança garantida dia e noite<br>
+            Viaturas de prontidão na sua região<br>
+            Controle total na palma da mão</p>
+            <p>R$ 00,00/mês</p>
+            <p>Sua segurança não pode esperar. Escolha quem está sempre por perto.</p>
+        </div>
     </div>
 
-    <div class="servico-box">Monitoramento de Imagens</div>
-    <div class="accordion-content">
-      Utilizamos tecnologia avançada para acompanhar as câmeras instaladas em sua propriedade em tempo real. Isso permite identificar situações suspeitas com agilidade e fornecer provas visuais para maior segurança e tranquilidade.
+    <!-- Plano Essencial -->
+    <div class="acordeon">
+        <div class="acordeon-header">Plano Essencial</div>
+        <div class="acordeon-body">
+            <p>Ideal para quem busca uma segurança completa com ótimo custo-benefício. Inclui monitoramento eletrônico e rondas periódicas para garantir proteção constante do seu imóvel.</p>
+            <p><strong>Serviços incluídos:</strong><br>
+            Monitoramento 24h via central de controle<br>
+            Atendimento emergencial rápido<br>
+            Rondas presenciais com viatura, em horários pré-definidos<br>
+            Suporte técnico remoto<br>
+            Aplicativo para acompanhamento em tempo real<br>
+            Central de alarmes opcional (+ R$00,00/mês)</p>
+            <p>R$ 00,00/mês</p>
+            <p>Sua casa protegida, sua mente em paz.</p>
+        </div>
     </div>
 
-    <div class="servico-box">Portaria e Zeladoria</div>
-    <div class="accordion-content">
-      Oferecemos serviços profissionais de portaria e zeladoria, garantindo controle de acesso eficiente e manutenção da ordem nas suas instalações. Nossa equipe é treinada para atuar com cordialidade e segurança, protegendo moradores, funcionários e visitantes.
+    <!-- Plano Premium -->
+    <div class="acordeon">
+        <div class="acordeon-header">Plano Premium</div>
+        <div class="acordeon-body">
+            <p>Para quem deseja a máxima segurança com atendimento personalizado e cobertura completa, incluindo monitoramento eletrônico e rondas frequentes com viaturas.</p>
+            <p><strong>Serviços incluídos:</strong><br>
+            Monitoramento 24h<br>
+            Atendimento emergencial prioritário<br>
+            Rondas frequentes com viatura<br>
+            Suporte técnico presencial e remoto<br>
+            Acompanhamento em tempo real via app<br>
+            Relatórios mensais<br>
+            Consultoria de segurança<br>
+            Central de alarmes inclusa (monitoramento)</p>
+            <p>R$ 00,00/mês</p>
+            <p>A segurança que cuida do que é seu, mesmo quando você não está.</p>
+        </div>
     </div>
 
-    <div class="servico-box">Instalação de Câmeras e Alarmes</div>
-    <div class="accordion-content">
-      Realizamos a instalação de equipamentos modernos e confiáveis, personalizados para as necessidades do seu imóvel. Nossa equipe especializada garante a configuração correta e a integração dos sistemas para máxima eficiência.
+    <!-- Plano Periódico -->
+    <div class="acordeon">
+        <div class="acordeon-header">Plano Periódico</div>
+        <div class="acordeon-body">
+            <p>Proteção temporária e flexível para quem viaja, sai de férias ou precisa de segurança por períodos específicos, com ativação e desativação conforme sua necessidade.</p>
+            <p><strong>Serviços incluídos:</strong><br>
+            Monitoramento 24h durante o período contratado<br>
+            Atendimento emergencial prioritário<br>
+            Rondas presenciais com viatura, com maior frequência e horários variados<br>
+            Inspeção visual das instalações durante as rondas<br>
+            Aviso imediato para o cliente sobre qualquer movimentação suspeita<br>
+            Suporte técnico remoto e atendimento presencial emergencial, se necessário<br>
+            Relatórios detalhados ao final do período contratado<br>
+            Central de alarmes incluída</p>
+            <p>R$ 00,00 por dia (com mínimo de 3 dias)</p>
+            <p>Monitoramos. Atuamos. Protegemos.</p>
+        </div>
     </div>
 
-    <div class="servico-box">Proteção Presencial</div>
-    <div class="accordion-content">
-      Nossa equipe está preparada para atuar em residências, empresas, escolas, eventos e outras necessidades de segurança presencial. Realizamos rondas periódicas, controle de acesso, vigilância preventiva e suporte imediato, garantindo proteção completa e tranquilidade em qualquer situação.
-    </div>
-  </section>
-
-  <!-- Seção Planos -->
-  <section id="planos">
-    <h2>Planos:</h2>
-
-    <div class="servico-box">Plano Básico</div>
-    <div class="accordion-content">
-      Monitoramento 24h via central<br>
-      Atendimento emergencial<br>
-      Suporte técnico remoto<br>
-      Aplicativo para acompanhamento em tempo real<br>
-      R$ 00,00/mês
+    <!-- Plano Eventos -->
+    <div class="acordeon">
+        <div class="acordeon-header">Plano Eventos</div>
+        <div class="acordeon-body">
+            <p>Segurança especializada para festas, eventos e escolas, com equipe treinada para controle de acesso e ronda preventiva, garantindo proteção eficiente para todos os envolvidos.</p>
+            <p><strong>Serviços incluídos:</strong><br>
+            Equipe treinada para controle de acesso e ronda<br>
+            Monitoramento 24h e atendimento rápido<br>
+            Suporte dedicado e acompanhamento pelo app<br>
+            Preço fixo, sem taxas extras</p>
+            <p>Este é um plano mensal com valor fixo, sem cobranças adicionais por festa ou evento. O custo inclui o plano base, acrescido apenas do valor referente à contratação dos guardas, que varia conforme a quantidade necessária para cada serviço.</p>
+            <p>R$ 00,00</p>
+            <p>Cuidamos do seu patrimônio, para que você cuide do que importa.</p>
+        </div>
     </div>
 
-    <div class="servico-box">Plano Essencial</div>
-    <div class="accordion-content">
-      Monitoramento 24h via central de controle<br>
-      Atendimento emergencial rápido<br>
-      Rondas presenciais com viatura, em horários pré-definidos<br>
-      Suporte técnico remoto<br>
-      Aplicativo para acompanhamento em tempo real<br>
-      R$ 00,00/mês
+    <!-- Plano Residencial/Empresarial -->
+    <div class="acordeon">
+        <div class="acordeon-header">Plano Residencial/Empresarial</div>
+        <div class="acordeon-body">
+            <p>Ideal para condomínios, empresas e residências que buscam um serviço completo e integrado, com portaria, zeladoria e limpeza, garantindo segurança, organização e conforto para todos os usuários e colaboradores.</p>
+            <p><strong>Serviços incluídos:</strong><br>
+            Portaria profissional com controle de acesso 24h, garantindo segurança e bom atendimento<br>
+            Zeladoria com manutenção preventiva e cuidados gerais nas instalações<br>
+            Limpeza regular para manter o ambiente sempre limpo, agradável e organizado</p>
+            <p>R$ 00,00/mês</p>
+            <p>Ambientes protegidos, organizados e bem cuidados para seu bem-estar e produtividade.</p>
+        </div>
     </div>
 
-    <div class="servico-box">Plano Premium</div>
-    <div class="accordion-content">
-      Monitoramento 24h<br>
-      Atendimento emergencial prioritário<br>
-      Rondas frequentes com viatura<br>
-      Suporte técnico presencial e remoto<br>
-      Acompanhamento em tempo real via app<br>
-      R$ 00,00/mês
+    <!-- Pacotes Personalizáveis -->
+    <div class="acordeon">
+        <div class="acordeon-header">Pacotes Personalizáveis</div>
+        <div class="acordeon-body">
+            <div class="pacote">
+                <strong>Pacote 1 - Monitoramento de Imagens</strong><br>
+                Monitoramento 24h via central<br>
+                Suporte técnico agendável<br>
+                R$ 00,00
+            </div>
+            <div class="pacote">
+                <strong>Pacote 2 - Monitoramento de Alarmes</strong><br>
+                Monitoramento 24h via central<br>
+                Instalação da central (caso necessário)<br>
+                Testes e manutenção básica<br>
+                Suporte técnico agendável<br>
+                R$ 00,00
+            </div>
+            <div class="pacote">
+                <strong>Pacote 3 - Ronda</strong><br>
+                Rondas presenciais com viatura em horários programados<br>
+                Deslocamento de Viatura quando solicitado<br>
+                R$ 00,00
+            </div>
+            <div class="pacote">
+                <strong>Pacote 4 - Portaria</strong><br>
+                Controle de acesso e portaria profissional<br>
+                Pequenas manutenções e supervisão do local<br>
+                Atendimento cordial e vigilância constante<br>
+                R$ 00,00
+            </div>
+            <div class="pacote">
+                <strong>Pacote 5 - Zeladoria</strong><br>
+                Manutenção e limpeza básica das áreas comuns<br>
+                Pequenos reparos e cuidados gerais<br>
+                Supervisão e organização do ambiente<br>
+                R$ 00,00
+            </div>
+            <div class="pacote">
+                <strong>Pacote 6 - Limpeza</strong><br>
+                Limpeza diária das áreas internas e externas<br>
+                Coleta e descarte de lixo<br>
+                Higienização de banheiros e espaços comuns<br>
+                R$ 00,00
+            </div>
+            <div class="pacote">
+                <strong>Pacote 7 - Suporte Técnico</strong><br>
+                Atendimento remoto para resolução de problemas<br>
+                Manutenção preventiva e corretiva de equipamentos<br>
+                Atualização e configuração de sistemas<br>
+                R$ 00,00<br>
+                <em>OBS: Já incluso nos pacotes de Monitoramento de Imagens e Alarmes.</em>
+            </div>
+        </div>
     </div>
 
-    <div class="servico-box">Plano Periódico</div>
-    <div class="accordion-content">
-      Monitoramento 24h durante o período contratado<br>
-      Rondas presenciais com viatura<br>
-      Suporte técnico remoto e presencial emergencial<br>
-      R$ 00,00/dia (mínimo 3 dias)
-    </div>
+</section>
 
-    <div class="servico-box">Pacotes Personalizáveis</div>
-    <div class="accordion-content">
-      <div class="pacote">Pacote 1 - Monitoramento de Imagens: Monitoramento 24h via central, suporte técnico agendável. R$ 00,00</div>
-      <div class="pacote">Pacote 2 - Monitoramento de Alarmes: Monitoramento 24h, instalação da central, testes e manutenção básica, suporte técnico agendável. R$ 00,00</div>
-      <div class="pacote">Pacote 3 - Ronda: Rondas presenciais com viatura em horários programados, deslocamento quando solicitado. R$ 00,00</div>
-      <div class="pacote">Pacote 4 - Portaria: Controle de acesso e portaria profissional, pequenas manutenções e supervisão do local, atendimento cordial. R$ 00,00</div>
-      <div class="pacote">Pacote 5 - Zeladoria: Manutenção e limpeza básica, pequenos reparos, supervisão do ambiente. R$ 00,00</div>
-      <div class="pacote">Pacote 6 - Limpeza: Limpeza diária, coleta e descarte de lixo, higienização de banheiros e áreas comuns. R$ 00,00</div>
-      <div class="pacote">Pacote 7 - Suporte Técnico: Atendimento remoto, manutenção preventiva e corretiva, atualização e configuração de sistemas. R$ 00,00</div>
-    </div>
-  </section>
-
-  <!-- Contato -->
-  <section class="contato" id="contato">
+<section class="contato">
     <h2>Contato</h2>
     <form>
-      <label for="nome">Nome Completo:</label>
-      <input type="text" id="nome" name="nome" required>
-
-      <label for="email">Email:</label>
-      <input type="email" id="email" name="email" required>
-
-      <label for="mensagem">Mensagem:</label>
-      <textarea id="mensagem" name="mensagem" rows="5" required></textarea>
-
-      <button type="submit">Enviar</button>
+        <input type="text" placeholder="Nome completo" required>
+        <input type="email" placeholder="Email" required>
+        <textarea placeholder="Mensagem" rows="5" required></textarea>
+        <button type="submit">Enviar</button>
     </form>
-
-    <div class="outras-formas">
-      <p>Ou Entre em Contato Por:</p>
-      <p>notafiscalronda@gmail.com | 55195369298 | @gruporonda</p>
+    <div class="contato-info">
+        Ou Entre em Contato Por:<br>
+        notafiscalronda@gmail.com | 55195369298 | @gruporonda
     </div>
-  </section>
+</section>
 
-  <footer>
-    © 2025 Ronda Segurança Eletrônica. Todos os direitos reservados.
-  </footer>
-
-  <script>
-    // Acordeons - apenas 1 aberto por vez
-    const boxes = document.querySelectorAll('.servico-box');
-    boxes.forEach(box => {
-      box.addEventListener('click', () => {
-        const content = box.nextElementSibling;
-        // fechar todos
-        document.querySelectorAll('.accordion-content').forEach(c => {
-          if(c !== content) c.style.display = 'none';
+<script>
+    // Serviços toggle
+    const servicos = document.querySelectorAll('.servico-box');
+    servicos.forEach(s => {
+        s.addEventListener('click', () => {
+            const text = s.querySelector('.servico-text');
+            text.style.display = text.style.display === 'block' ? 'none' : 'block';
         });
-        // alternar o clicado
-        content.style.display = content.style.display === "block" ? "none" : "block";
-      });
     });
-  </script>
+
+    // Acordeons
+    const acordeons = document.querySelectorAll('.acordeon');
+    acordeons.forEach(a => {
+        const header = a.querySelector('.acordeon-header');
+        header.addEventListener('click', () => {
+            const body = a.querySelector('.acordeon-body');
+            if (body.style.display === 'block') {
+                body.style.display = 'none';
+            } else {
+                // fecha todos os outros
+                acordeons.forEach(ac => ac.querySelector('.acordeon-body').style.display = 'none');
+                body.style.display = 'block';
+            }
+        });
+    });
+</script>
+
 </body>
 </html>
-
