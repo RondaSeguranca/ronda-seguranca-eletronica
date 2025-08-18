@@ -68,36 +68,36 @@
     }
 
     /* Acordeon geral */
-    .acordeon {
-        background-color: #eead2d;
-        color: black;
-        cursor: pointer;
-        padding: 10px 15px;
-        width: 100%;
-        text-align: center;
-        border: none;
-        outline: none;
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 0; /* sem margem para encaixar no conteúdo */
-        border-radius: 8px 8px 0 0; /* só topo arredondado */
-        transition: background-color 0.3s;
+   .acordeon {
+       background-color: #cc9900; /* amarelo queimado */
+       color: #000;
+       cursor: pointer;
+       padding: 15px;
+       width: 100%;
+       text-align: left;
+       border: none;
+       outline: none;
+       font-size: 18px;
+       font-weight: bold;
+       margin-bottom: 0; /* retiramos espaço extra */
+       border-top-left-radius: 8px;
+       border-top-right-radius: 8px;
     }
-
+    
     .acordeon:hover {
         background-color: #d49c1f; /* amarelo queimado mais escuro */
     }
 
     .acordeon-body {
-        background-color: #000;
-        border: 2px solid #eead2d;
-        border-top: none; /* remove borda superior para encaixar no acordeon */
-        display: none;
-        padding: 15px;
-        line-height: 1.4;
-        border-radius: 0 0 8px 8px; /* só bordas de baixo arredondadas */
-        margin-bottom: 15px;
-    }
+       background-color: #000;
+       border: 2px solid #cc9900;
+       border-top: none; /* para "encaixar" com o título */
+       border-bottom-left-radius: 8px;
+       border-bottom-right-radius: 8px;
+       display: none;
+       padding: 15px;
+       margin-bottom: 15px; /* espaço entre os acordeons */
+   }
 
     .acordeon-body ul {
         list-style-type: disc;
@@ -393,4 +393,5 @@
 
 </body>
 </html>
+
 
