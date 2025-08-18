@@ -81,9 +81,8 @@ nav a {
     font-size: 18px;
     text-align: justify;
     line-height: 1.5;
-    padding: 0; /* remove padding extra */
 }
-
+  
 /* ===== SECTIONS ===== */
 section {
     padding: 40px 20px;
@@ -187,57 +186,19 @@ section p {
     font-size: 16px;
 }
 
-/* ===== RESPONSIVIDADE MOBILE ===== */
 @media (max-width: 768px) {
-    .container {
-        padding: 0 10px;
-        max-width: 100%;
-    }
-
     .logo-section img {
-        max-width: 150px;
+        max-width: 150px; /* diminui logo no celular */
     }
 
     .logo-section h1 {
-        font-size: 28px;
+        font-size: 28px; /* ajusta título */
     }
 
     .logo-section p {
-        font-size: 16px;
-    }
-
-    section h2 {
-        font-size: 28px;
-    }
-
-    section p {
-        font-size: 16px;
-    }
-
-    .acordeon {
-        font-size: 16px;
-        padding: 12px;
-    }
-
-    .acordeon-body {
-        padding: 12px;
-    }
-
-    .pacote {
-        padding: 12px;
-    }
-
-    nav {
-        flex-direction: column;
-        display: none;
-    }
-
-    .menu-toggle {
-        display: flex;
-    }
-
-    .menu-toggle.active + nav {
-        display: flex;
+        font-size: 16px; /* texto menor e legível no mobile */
+        margin: 10px 0; /* garante espaço vertical */
+        text-align: justify;
     }
 }
 </style>
@@ -509,3 +470,4 @@ function toggleMenu() {
 
 </body>
 </html>
+
