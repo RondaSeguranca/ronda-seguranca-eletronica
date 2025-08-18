@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -67,37 +68,34 @@
         margin-bottom: 10px;
     }
 
-    /* Acordeon geral */
-   .acordeon {
-       background-color: #cc9900; /* amarelo queimado */
-       color: #000;
-       cursor: pointer;
-       padding: 15px;
-       width: 100%;
-       text-align: left;
-       border: none;
-       outline: none;
-       font-size: 18px;
-       font-weight: bold;
-       margin-bottom: 0; /* retiramos espaço extra */
-       border-top-left-radius: 8px;
-       border-top-right-radius: 8px;
-    }
-    
+ .acordeon {
+    background-color: #cc9900; /* amarelo queimado */
+    color: #000;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px; /* espaço entre acordeons */
+    border-radius: 8px; /* todas as bordas arredondadas */
+}
+
+.acordeon-body {
+    background-color: #000;
+    border: 2px solid #cc9900; /* borda amarela */
+    border-radius: 0 0 8px 8px; /* arredondamento só na parte inferior */
+    border-top: 2px solid #cc9900; /* mantém borda superior igual ao acordeon */
+    margin-top: -12px; /* “encaixa” no acordeon, sem espaço */
+    display: none;
+    padding: 15px;
+    margin-bottom: 15px;
+}
     .acordeon:hover {
         background-color: #d49c1f; /* amarelo queimado mais escuro */
     }
-
-    .acordeon-body {
-       background-color: #000;
-       border: 2px solid #cc9900;
-       border-top: none; /* para "encaixar" com o título */
-       border-bottom-left-radius: 8px;
-       border-bottom-right-radius: 8px;
-       display: none;
-       padding: 15px;
-       margin-bottom: 15px; /* espaço entre os acordeons */
-   }
 
     .acordeon-body ul {
         list-style-type: disc;
@@ -109,7 +107,7 @@
     .pacote {
         background-color: #000;
         border: 2px solid #eead2d;
-        border-radius: 10px;
+        border-radius: 8px;
         padding: 15px;
         margin-bottom: 15px;
     }
@@ -244,120 +242,121 @@
             <p>R$ 00,00/mês</p>
         </div>
 
-        <button class="acordeon">Plano Premium</button>
-        <div class="acordeon-body">
-            <p>Para quem deseja a máxima segurança com atendimento personalizado e cobertura completa, incluindo monitoramento eletrônico e rondas frequentes com viaturas.</p>
-            <ul>
-                <li>Monitoramento 24h</li>
-                <li>Atendimento emergencial prioritário</li>
-                <li>Rondas frequentes com viatura</li>
-                <li>Suporte técnico presencial e remoto</li>
-                <li>Acompanhamento em tempo real via app</li>
-                <li>Relatórios mensais</li>
-                <li>Consultoria de segurança</li>
-                <li>Central de alarmes inclusa (monitoramento)</li>
-            </ul>
-            <p>R$ 00,00/mês</p>
-        </div>
+<button class="acordeon">Plano Premium</button>
+<div class="acordeon-body">
+    <p>Para quem deseja a máxima segurança com atendimento personalizado e cobertura completa, incluindo monitoramento eletrônico e rondas frequentes com viaturas.</p>
+    <ul>
+        <li>Monitoramento 24h</li>
+        <li>Atendimento emergencial prioritário</li>
+        <li>Rondas frequentes com viatura</li>
+        <li>Suporte técnico presencial e remoto</li>
+        <li>Acompanhamento em tempo real via app</li>
+        <li>Relatórios mensais</li>
+        <li>Consultoria de segurança</li>
+        <li>Central de alarmes inclusa (monitoramento)</li>
+    </ul>
+    <p>R$ 00,00/mês</p>
+</div>
 
-        <button class="acordeon">Plano Periódico</button>
-        <div class="acordeon-body">
-            <p>Proteção temporária e flexível para quem viaja, sai de férias ou precisa de segurança por períodos específicos, com ativação e desativação conforme sua necessidade.</p>
-            <ul>
-                <li>Monitoramento 24h durante o período contratado</li>
-                <li>Atendimento emergencial prioritário</li>
-                <li>Rondas presenciais com viatura, com maior frequência e horários variados</li>
-                <li>Inspeção visual das instalações durante as rondas</li>
-                <li>Aviso imediato para o cliente sobre qualquer movimentação suspeita</li>
-                <li>Suporte técnico remoto e atendimento presencial emergencial, se necessário</li>
-                <li>Relatórios detalhados ao final do período contratado</li>
-                <li>Central de alarmes incluída</li>
-            </ul>
-            <p>R$ 00,00 por dia/(com mínimo de 3 dias)</p>
-        </div>
+<button class="acordeon">Plano Periódico</button>
+<div class="acordeon-body">
+    <p>Proteção temporária e flexível para quem viaja, sai de férias ou precisa de segurança por períodos específicos, com ativação e desativação conforme sua necessidade.</p>
+    <ul>
+        <li>Monitoramento 24h durante o período contratado</li>
+        <li>Atendimento emergencial prioritário</li>
+        <li>Rondas presenciais com viatura, com maior frequência e horários variados</li>
+        <li>Inspeção visual das instalações durante as rondas</li>
+        <li>Aviso imediato para o cliente sobre qualquer movimentação suspeita</li>
+        <li>Suporte técnico remoto e atendimento presencial emergencial, se necessário</li>
+        <li>Relatórios detalhados ao final do período contratado</li>
+        <li>Central de alarmes incluída</li>
+    </ul>
+    <p>R$ 00,00 por dia/(com mínimo de 3 dias)</p>
+</div>
 
-        <button class="acordeon">Plano Eventos</button>
-        <div class="acordeon-body">
-            <p>Segurança especializada para festas, eventos e escolas, com equipe treinada para controle de acesso e ronda preventiva, garantindo proteção eficiente para todos os envolvidos.</p>
-            <ul>
-                <li>Equipe treinada para controle de acesso e ronda</li>
-                <li>Monitoramento 24h e atendimento rápido</li>
-                <li>Suporte dedicado e acompanhamento pelo app</li>
-                <li>Preço fixo, sem taxas extras</li>
-            </ul>
-            <p>R$ 00,00</p>
-        </div>
+<button class="acordeon">Plano Eventos</button>
+<div class="acordeon-body">
+    <p>Segurança especializada para festas, eventos e escolas, com equipe treinada para controle de acesso e ronda preventiva, garantindo proteção eficiente para todos os envolvidos.</p>
+    <ul>
+        <li>Equipe treinada para controle de acesso e ronda</li>
+        <li>Monitoramento 24h e atendimento rápido</li>
+        <li>Suporte dedicado e acompanhamento pelo app</li>
+        <li>Preço fixo, sem taxas extras</li>
+    </ul>
+    <p>R$ 00,00</p>
+</div>
 
-        <button class="acordeon">Plano Residencial/Empresarial</button>
-        <div class="acordeon-body">
-            <p>Ideal para condomínios, empresas e residências que buscam um serviço completo e integrado, com portaria, zeladoria e limpeza, garantindo segurança, organização e conforto para todos os usuários e colaboradores.</p>
-            <ul>
-                <li>Portaria profissional com controle de acesso 24h</li>
-                <li>Zeladoria com manutenção preventiva e cuidados gerais nas instalações</li>
-                <li>Limpeza regular para manter o ambiente sempre limpo, agradável e organizado</li>
-            </ul>
-            <p>R$ 00,00/mês</p>
-        </div>
+<button class="acordeon">Plano Residencial/Empresarial</button>
+<div class="acordeon-body">
+    <p>Ideal para condomínios, empresas e residências que buscam um serviço completo e integrado, com portaria, zeladoria e limpeza, garantindo segurança, organização e conforto para todos os usuários e colaboradores.</p>
+    <ul>
+        <li>Portaria profissional com controle de acesso 24h</li>
+        <li>Zeladoria com manutenção preventiva e cuidados gerais nas instalações</li>
+        <li>Limpeza regular para manter o ambiente sempre limpo, agradável e organizado</li>
+    </ul>
+    <p>R$ 00,00/mês</p>
+</div>
 
-        <!-- Pacotes Personalizáveis -->
-        <button class="acordeon">Pacotes Personalizáveis</button>
-        <div class="acordeon-body">
-            <div class="pacote">
-                <p><strong>Pacote 1 - Monitoramento de Imagens</strong></p>
-                <p>Monitoramento 24h via central</p>
-                <p>Suporte técnico agendável</p>
-                <p>R$ 00,00</p>
-            </div>
+<!-- Pacotes Personalizáveis -->
+<button class="acordeon">Pacotes Personalizáveis</button>
+<div class="acordeon-body">
+    <div class="pacote">
+        <p><strong>Pacote 1 - Monitoramento de Imagens</strong></p>
+        <p>Monitoramento 24h via central</p>
+        <p>Suporte técnico agendável</p>
+        <p>R$ 00,00</p>
+    </div>
 
-            <div class="pacote">
-                <p><strong>Pacote 2 - Monitoramento de Alarmes</strong></p>
-                <p>Monitoramento 24h via central</p>
-                <p>Instalação da central (caso necessário)</p>
-                <p>Testes e manutenção básica</p>
-                <p>Suporte técnico agendável</p>
-                <p>R$ 00,00</p>
-            </div>
+    <div class="pacote">
+        <p><strong>Pacote 2 - Monitoramento de Alarmes</strong></p>
+        <p>Monitoramento 24h via central</p>
+        <p>Instalação da central (caso necessário)</p>
+        <p>Testes e manutenção básica</p>
+        <p>Suporte técnico agendável</p>
+        <p>R$ 00,00</p>
+    </div>
 
-            <div class="pacote">
-                <p><strong>Pacote 3 - Ronda</strong></p>
-                <p>Rondas presenciais com viatura em horários programados</p>
-                <p>Deslocamento de Viatura quando Solicitado</p>
-                <p>R$ 00,00</p>
-            </div>
+    <div class="pacote">
+        <p><strong>Pacote 3 - Ronda</strong></p>
+        <p>Rondas presenciais com viatura em horários programados</p>
+        <p>Deslocamento de Viatura quando solicitado</p>
+        <p>R$ 00,00</p>
+    </div>
 
-            <div class="pacote">
-                <p><strong>Pacote 4 - Portaria</strong></p>
-                <p>Controle de acesso e portaria profissional</p>
-                <p>Pequenas manutenções e supervisão do local</p>
-                <p>Atendimento cordial e vigilância constante</p>
-                <p>R$ 00,00</p>
-            </div>
+    <div class="pacote">
+        <p><strong>Pacote 4 - Portaria</strong></p>
+        <p>Controle de acesso e portaria profissional</p>
+        <p>Pequenas manutenções e supervisão do local</p>
+        <p>Atendimento cordial e vigilância constante</p>
+        <p>R$ 00,00</p>
+    </div>
 
-            <div class="pacote">
-                <p><strong>Pacote 5 - Zeladoria</strong></p>
-                <p>Manutenção e limpeza básica das áreas comuns</p>
-                <p>Pequenos reparos e cuidados gerais</p>
-                <p>Supervisão e organização do ambiente</p>
-                <p>R$ 00,00</p>
-            </div>
+    <div class="pacote">
+        <p><strong>Pacote 5 - Zeladoria</strong></p>
+        <p>Manutenção e limpeza básica das áreas comuns</p>
+        <p>Pequenos reparos e cuidados gerais</p>
+        <p>Supervisão e organização do ambiente</p>
+        <p>R$ 00,00</p>
+    </div>
 
-            <div class="pacote">
-                <p><strong>Pacote 6 - Limpeza</strong></p>
-                <p>Limpeza diária das áreas internas e externas</p>
-                <p>Coleta e descarte de lixo</p>
-                <p>Higienização de banheiros e espaços comuns</p>
-                <p>R$ 00,00</p>
-            </div>
+    <div class="pacote">
+        <p><strong>Pacote 6 - Limpeza</strong></p>
+        <p>Limpeza diária das áreas internas e externas</p>
+        <p>Coleta e descarte de lixo</p>
+        <p>Higienização de banheiros e espaços comuns</p>
+        <p>R$ 00,00</p>
+    </div>
 
-            <div class="pacote">
-                <p><strong>Pacote 7 - Suporte Técnico</strong></p>
-                <p>Atendimento remoto para resolução de problemas</p>
-                <p>Manutenção preventiva e corretiva de equipamentos</p>
-                <p>Atualização e configuração de sistemas</p>
-                <p>R$ 00,00</p>
-                <p>OBS: Já incluso nos pacotes de monitoramento de Imagens e Alarmes.</p>
-            </div>
-        </div>
+    <div class="pacote">
+        <p><strong>Pacote 7 - Suporte Técnico</strong></p>
+        <p>Atendimento remoto para resolução de problemas</p>
+        <p>Manutenção preventiva e corretiva de equipamentos</p>
+        <p>Atualização e configuração de sistemas</p>
+        <p>R$ 00,00</p>
+        <p>OBS: Já incluso nos pacotes de monitoramento de Imagens e Alarmes.</p>
+    </div>
+</div>
+
     </section>
 
     <!-- === CONTATO === -->
@@ -393,5 +392,3 @@
 
 </body>
 </html>
-
-
