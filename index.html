@@ -16,6 +16,7 @@
         background-color: black; 
         color: white;            
         font-family: Arial, sans-serif;
+        font-size: 16px; /* tamanho padrão para todo o site */
     }
 
     /* ===== CONTAINER ===== */
@@ -33,7 +34,6 @@
         justify-content: space-between;
         align-items: center;
         font-weight: bold;
-        font-size: 24px;
         color: #000;
         position: relative;
     }
@@ -43,13 +43,13 @@
         display: none;
         flex-direction: column;
         cursor: pointer;
+        gap: 5px;
     }
 
     .menu-toggle span {
         height: 3px;
         width: 25px;
         background: black;
-        margin-bottom: 5px;
         border-radius: 3px;
     }
 
@@ -75,17 +75,18 @@
         height: auto;
     }
 
-    .logo-section h1 {
-        margin-top: 20px;
-        font-size: 36px;
-        color: #f5c422;
-    }
-
-    .logo-section p {
-        margin-top: 10px;
-        font-size: 20px;
-        line-height: 1.5;
-        text-align: justify;
+    .logo-section h1,
+    .logo-section p,
+    section h2,
+    section p,
+    .acordeon,
+    .acordeon-body,
+    .pacote,
+    .contato form input,
+    .contato form textarea,
+    .contato form button,
+    .contato-info {
+        font-size: 16px; /* tudo com mesmo tamanho de fonte */
     }
 
     /* ===== SECTIONS ===== */
@@ -94,7 +95,6 @@
     }
 
     section h2 {
-        font-size: 36px;
         margin-bottom: 20px;
         color: #f5c422;
         text-align: left;
@@ -116,7 +116,6 @@
         text-align: left;
         border: none;
         outline: none;
-        font-size: 20px;
         font-weight: bold;
         margin-bottom: 5px;
         border-radius: 8px;
@@ -149,7 +148,7 @@
         border-radius: 8px;
         padding: 15px;
         margin-bottom: 15px;
-        text-aling: left;
+        text-align: left;
     }
 
     .pacote p {
@@ -189,7 +188,6 @@
     .contato-info {
         text-align: center;
         margin-top: 20px;
-        font-size: 20px;
     }
 
     /* ===== RESPONSIVIDADE MOBILE ===== */
@@ -203,38 +201,10 @@
             max-width: 150px;
         }
 
-        .logo-section h1 {
-            font-size: 28px;
-        }
-
-        .logo-section p {
-            font-size: 16px;
-        }
-
-        section h2 {
-            font-size: 28px;
-        }
-
-        section p {
-            font-size: 16px;
-        }
-
-        .acordeon {
-            font-size: 16px;
-            padding: 12px;
-        }
-
-        .acordeon-body {
-            padding: 12px;
-        }
-
-        .pacote {
-            padding: 12px;
-        }
-
         nav {
             flex-direction: column;
             display: none;
+            gap: 10px;
         }
 
         .menu-toggle {
@@ -251,7 +221,7 @@
 
 <header>
     RONDA
-    <div class="menu-toggle" onclick="toggleMenu()">
+    <div class="menu-toggle" onclick="toggleMenu(this)">
         <span></span>
         <span></span>
         <span></span>
@@ -266,8 +236,7 @@
 </header>
 
 <div class="container">
-
-    <div class="logo-section" id="bemvindo">
+  <div class="logo-section" id="bemvindo">
         <img src="logo.png" alt="Logo Ronda">
         <h1>Bem-Vindo à Ronda Segurança Eletrônica</h1>
         <p>Aqui, sua segurança é a nossa maior preocupação. Com tecnologia moderna e uma equipe sempre pronta, cuidamos da proteção da sua casa, empresa e família 24 horas por dia. Oferecemos desde sistemas de monitoramento até rondas presenciais, tudo pensado para você se sentir tranquilo e seguro. Estamos aqui para ajudar, com atendimento rápido e planos que realmente fazem sentido para você.</p>
@@ -528,7 +497,7 @@
     </div>
 </section>
 
-    <script>
+   <script>
     // ACORDEONS
     const acordeons = document.querySelectorAll('.acordeon');
     acordeons.forEach((ac) => {
@@ -542,14 +511,17 @@
     });
 
     // MENU HAMBURGUER
-    function toggleMenu() {
+    function toggleMenu(el) {
         const nav = document.getElementById('nav-menu');
-        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+        el.classList.toggle('active'); 
+        if (nav.style.display === 'flex') {
+            nav.style.display = 'none';
+        } else {
+            nav.style.display = 'flex';
+        }
     }
 </script>
 
 </body>
 </html>
-
-
 
