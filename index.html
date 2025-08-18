@@ -69,62 +69,60 @@
 
     /* Acordeon geral */
     .acordeon {
-        background-color: #eead2d; /* amarelo queimado */
+        background-color: #eead2d;
         color: black;
         cursor: pointer;
-        padding: 15px;
+        padding: 10px 15px;
         width: 100%;
-        text-align: left;
+        text-align: center;
         border: none;
         outline: none;
         font-size: 18px;
         font-weight: bold;
-        margin-bottom: 5px;
+        margin-bottom: 0; /* sem margem para encaixar no conteúdo */
+        border-radius: 8px 8px 0 0; /* só topo arredondado */
         transition: background-color 0.3s;
-        border-radius: 8px;
     }
 
     .acordeon:hover {
-        background-color: #d19e23; /* amarelo queimado mais escuro */
+        background-color: #d49c1f; /* amarelo queimado mais escuro */
     }
 
     .acordeon-body {
+        background-color: #000;
+        border: 2px solid #eead2d;
+        border-top: none; /* remove borda superior para encaixar no acordeon */
         display: none;
         padding: 15px;
         line-height: 1.4;
-        background-color: black; /* quadrado preto */
-        border: 2px solid #eead2d; /* borda amarela */
-        border-radius: 10px;
+        border-radius: 0 0 8px 8px; /* só bordas de baixo arredondadas */
         margin-bottom: 15px;
     }
 
-    .acordeon-body p {
-        margin-bottom: 8px; /* espaçamento mais compacto */
-    }
-
     .acordeon-body ul {
-        margin-left: 25px; 
-        margin-bottom: 8px; /* espaçamento menor */
+        list-style-type: disc;
+        margin-left: 30px;
+        text-align: left;
     }
 
     /* Pacotes Personalizáveis */
     .pacote {
         background-color: #000;
-        border: 2px solid #ffa900;
+        border: 2px solid #eead2d;
         border-radius: 10px;
         padding: 15px;
         margin-bottom: 15px;
     }
 
     .pacote p {
-        margin-bottom: 8px;
+        margin-bottom: 5px;
     }
 
     /* Contato */
     .contato form {
         background-color: black; 
-        border: none; /* removido o quadrado amarelo */
-        padding: 0; 
+        padding: 20px;
+        border-radius: 10px;
         max-width: 600px;
         margin: 0 auto; 
     }
@@ -183,6 +181,7 @@
     <!-- === SERVIÇOS === -->
     <section>
         <h2>Serviços Prestados</h2>
+
         <button class="acordeon">Monitoramento de Alarmes</button>
         <div class="acordeon-body">
             <p>Nosso sistema monitora continuamente seus alarmes, garantindo que qualquer sinal de alerta seja detectado imediatamente. Com atendimento rápido, acionamos as medidas necessárias para proteger você e seu patrimônio 24 horas por dia.</p>
@@ -213,11 +212,9 @@
     <section>
         <h2>Planos</h2>
 
-        <!-- Plano Básico -->
         <button class="acordeon">Plano Básico</button>
         <div class="acordeon-body">
             <p>Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo, garantindo segurança eficiente e controle pelo cliente.</p>
-            <p>Serviços incluídos:</p>
             <ul>
                 <li>Monitoramento 24h via central</li>
                 <li>Atendimento emergencial</li>
@@ -233,11 +230,9 @@
             <p>R$ 00,00/mês</p>
         </div>
 
-        <!-- Plano Essencial -->
         <button class="acordeon">Plano Essencial</button>
         <div class="acordeon-body">
             <p>Ideal para quem busca uma segurança completa com ótimo custo-benefício. Inclui monitoramento eletrônico e rondas periódicas para garantir proteção constante do seu imóvel.</p>
-            <p>Serviços incluídos:</p>
             <ul>
                 <li>Monitoramento 24h via central de controle</li>
                 <li>Atendimento emergencial rápido</li>
@@ -249,11 +244,9 @@
             <p>R$ 00,00/mês</p>
         </div>
 
-        <!-- Plano Premium -->
         <button class="acordeon">Plano Premium</button>
         <div class="acordeon-body">
             <p>Para quem deseja a máxima segurança com atendimento personalizado e cobertura completa, incluindo monitoramento eletrônico e rondas frequentes com viaturas.</p>
-            <p>Serviços incluídos:</p>
             <ul>
                 <li>Monitoramento 24h</li>
                 <li>Atendimento emergencial prioritário</li>
@@ -267,11 +260,9 @@
             <p>R$ 00,00/mês</p>
         </div>
 
-        <!-- Plano Periódico -->
         <button class="acordeon">Plano Periódico</button>
         <div class="acordeon-body">
             <p>Proteção temporária e flexível para quem viaja, sai de férias ou precisa de segurança por períodos específicos, com ativação e desativação conforme sua necessidade.</p>
-            <p>Serviços incluídos:</p>
             <ul>
                 <li>Monitoramento 24h durante o período contratado</li>
                 <li>Atendimento emergencial prioritário</li>
@@ -282,31 +273,26 @@
                 <li>Relatórios detalhados ao final do período contratado</li>
                 <li>Central de alarmes incluída</li>
             </ul>
-            <p>R$ 00,00 por dia (com mínimo de 3 dias)</p>
+            <p>R$ 00,00 por dia/(com mínimo de 3 dias)</p>
         </div>
 
-        <!-- Plano Eventos -->
         <button class="acordeon">Plano Eventos</button>
         <div class="acordeon-body">
             <p>Segurança especializada para festas, eventos e escolas, com equipe treinada para controle de acesso e ronda preventiva, garantindo proteção eficiente para todos os envolvidos.</p>
-            <p>Serviços incluídos:</p>
             <ul>
                 <li>Equipe treinada para controle de acesso e ronda</li>
                 <li>Monitoramento 24h e atendimento rápido</li>
                 <li>Suporte dedicado e acompanhamento pelo app</li>
                 <li>Preço fixo, sem taxas extras</li>
             </ul>
-            <p>Este é um plano mensal com valor fixo, sem cobranças adicionais por festa ou evento. O custo inclui o plano base, acrescido apenas do valor referente à contratação dos guardas, que varia conforme a quantidade necessária para cada serviço.</p>
             <p>R$ 00,00</p>
         </div>
 
-        <!-- Plano Residencial/Empresarial -->
         <button class="acordeon">Plano Residencial/Empresarial</button>
         <div class="acordeon-body">
             <p>Ideal para condomínios, empresas e residências que buscam um serviço completo e integrado, com portaria, zeladoria e limpeza, garantindo segurança, organização e conforto para todos os usuários e colaboradores.</p>
-            <p>Serviços incluídos:</p>
             <ul>
-                <li>Portaria profissional com controle de acesso 24h, garantindo segurança e bom atendimento</li>
+                <li>Portaria profissional com controle de acesso 24h</li>
                 <li>Zeladoria com manutenção preventiva e cuidados gerais nas instalações</li>
                 <li>Limpeza regular para manter o ambiente sempre limpo, agradável e organizado</li>
             </ul>
@@ -372,7 +358,6 @@
                 <p>OBS: Já incluso nos pacotes de monitoramento de Imagens e Alarmes.</p>
             </div>
         </div>
-
     </section>
 
     <!-- === CONTATO === -->
