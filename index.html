@@ -5,216 +5,262 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ronda Segurança Eletrônica</title>
 <style>
-    /* ===== RESET ===== */
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
+/* ===== RESET ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-    body {
-        background-color: black; 
-        color: white;            
-        font-family: Arial, sans-serif;
-        font-size: 16px; /* tamanho padrão para todo o site */
-    }
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+}
 
-    /* ===== CONTAINER ===== */
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 0 40px; /* margem lateral desktop */
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: #f5c422;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #000;
+    position: relative;
+}
+
+/* ===== MENU HAMBURGUER ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background: black;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* ===== LOGO ===== */
+.logo-section {
+    text-align: center;
+    margin: 50px 0;
+}
+
+.logo-section img {
+    max-width: 200px;
+    height: auto;
+}
+
+.logo-section h1 {
+    font-size: 36px; /* título Bem-Vindo */
+    font-weight: bold;
+    color: #f5c422;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.logo-section p {
+    font-size: 20px; /* textos uniformes */
+    line-height: 1.6;
+    text-align: justify;
+    margin-top: 10px;
+}
+
+/* ===== SECTIONS ===== */
+section {
+    padding: 40px 0;
+}
+
+section h2 {
+    font-size: 36px; /* títulos de seção */
+    font-weight: bold;
+    color: #f5c422;
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+section p {
+    font-size: 20px; /* textos uniformes */
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+/* ===== ACORDEONS ===== */
+.acordeon {
+    background-color: #f5c422;
+    color: #000;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 20px; /* textos uniformes */
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
+
+.acordeon:hover {
+    background-color: #d49c1f;
+}
+
+.acordeon-body {
+    background-color: #000;
+    border: 2px solid #f5c422;
+    border-radius: 0 0 8px 8px;
+    display: none;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.acordeon-body p {
+    font-size: 20px; /* textos uniformes */
+    line-height: 1.6;
+    text-align: justify;
+}
+
+.acordeon-body ul {
+    list-style-type: disc;
+    margin-left: 30px;
+    text-align: left;
+}
+
+/* ===== PACOTES ===== */
+.pacote {
+    background-color: #000;
+    border: 2px solid #f5c422;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.pacote p {
+    font-size: 20px; /* textos uniformes */
+    line-height: 1.6;
+    text-align: justify;
+    margin-bottom: 5px;
+}
+
+/* ===== CONTATO ===== */
+.contato form {
+    background-color: black;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contato form input,
+.contato form textarea {
+    background-color: black;
+    color: white;
+    border: 1px solid #f5c422;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 20px; /* textos uniformes */
+}
+
+.contato form button {
+    background-color: #f5c422;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 20px; /* textos uniformes */
+}
+
+.contato-info {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 20px; /* textos uniformes */
+}
+
+/* ===== RESPONSIVIDADE MOBILE ===== */
+@media (max-width: 768px) {
     .container {
-        max-width: 1300px;
-        margin: 0 auto;
-        padding: 0 40px; /* margem lateral desktop */
-    }
-
-    /* ===== HEADER ===== */
-    header {
-        background-color: #f5c422;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: bold;
-        color: #000;
-        position: relative;
-    }
-
-    /* ===== MENU HAMBURGUER ===== */
-    .menu-toggle {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-        gap: 5px;
-    }
-
-    .menu-toggle span {
-        height: 3px;
-        width: 25px;
-        background: black;
-        border-radius: 3px;
-    }
-
-    nav {
-        display: flex;
-        gap: 20px;
-    }
-
-    nav a {
-        color: black;
-        text-decoration: none;
-        font-weight: bold;
-    }
-
-    /* ===== LOGO ===== */
-    .logo-section {
-        text-align: center;
-        margin: 50px 0;
+        padding: 0 15px;
+        max-width: 100%;
     }
 
     .logo-section img {
-        max-width: 200px;
-        height: auto;
+        max-width: 150px;
     }
 
-    .logo-section h1,
+    .logo-section h1 {
+        font-size: 28px;
+    }
+
+    section h2 {
+        font-size: 28px;
+    }
+
     .logo-section p,
-    section h2,
     section p,
     .acordeon,
-    .acordeon-body,
-    .pacote,
+    .acordeon-body p,
+    .pacote p,
     .contato form input,
     .contato form textarea,
     .contato form button,
     .contato-info {
-        font-size: 16px; /* tudo com mesmo tamanho de fonte */
+        font-size: 16px;
     }
 
-    /* ===== SECTIONS ===== */
-    section {
-        padding: 40px 0;
-    }
-
-    section h2 {
-        margin-bottom: 20px;
-        color: #f5c422;
-        text-align: left;
-    }
-
-    section p {
-        text-align: justify;
-        line-height: 1.6;
-        margin-bottom: 10px;
-    }
-
-    /* ===== ACORDEONS ===== */
     .acordeon {
-        background-color: #f5c422;
-        color: #000;
-        cursor: pointer;
-        padding: 15px;
-        width: 100%;
-        text-align: left;
-        border: none;
-        outline: none;
-        font-weight: bold;
-        margin-bottom: 5px;
-        border-radius: 8px;
+        padding: 12px;
     }
 
     .acordeon-body {
-        background-color: #000;
-        border: 2px solid #f5c422;
-        border-radius: 0 0 8px 8px;
-        margin-top: -12px;
-        display: none;
-        padding: 15px;
-        margin-bottom: 15px;
+        padding: 12px;
     }
 
-    .acordeon:hover {
-        background-color: #d49c1f;
-    }
-
-    .acordeon-body ul {
-        list-style-type: disc;
-        margin-left: 30px;
-        text-align: left;
-    }
-
-    /* ===== PACOTES ===== */
     .pacote {
-        background-color: #000;
-        border: 2px solid #f5c422;
-        border-radius: 8px;
-        padding: 15px;
-        margin-bottom: 15px;
-        text-align: left;
+        padding: 12px;
     }
 
-    .pacote p {
-        margin-bottom: 5px;
+    nav {
+        flex-direction: column;
+        display: none;
     }
 
-    /* ===== CONTATO ===== */
-    .contato form {
-        background-color: black; 
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 600px;
-        margin: 0 auto; 
+    .menu-toggle {
+        display: flex;
     }
 
-    .contato form input,
-    .contato form textarea {
-        background-color: black;
-        color: white;
-        border: 1px solid #f5c422;
-        padding: 10px;
-        margin-bottom: 10px;
-        width: 100%;
-        border-radius: 5px;
+    .menu-toggle.active + nav {
+        display: flex;
     }
-
-    .contato form button {
-        background-color: #f5c422;
-        color: black;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-
-    .contato-info {
-        text-align: center;
-        margin-top: 20px;
-    }
-
-    /* ===== RESPONSIVIDADE MOBILE ===== */
-    @media (max-width: 768px) {
-        .container {
-            padding: 0 15px; /* margem lateral mobile */
-            max-width: 100%;
-        }
-
-        .logo-section img {
-            max-width: 150px;
-        }
-
-        nav {
-            flex-direction: column;
-            display: none;
-            gap: 10px;
-        }
-
-        .menu-toggle {
-            display: flex;
-        }
-
-        .menu-toggle.active + nav {
-            display: flex;
-        }
-    }
+}
 </style>
 </head>
 <body>
@@ -240,6 +286,7 @@
         <img src="logo.png" alt="Logo Ronda">
         <h1>Bem-Vindo à Ronda Segurança Eletrônica</h1>
         <p>Aqui, sua segurança é a nossa maior preocupação. Com tecnologia moderna e uma equipe sempre pronta, cuidamos da proteção da sua casa, empresa e família 24 horas por dia. Oferecemos desde sistemas de monitoramento até rondas presenciais, tudo pensado para você se sentir tranquilo e seguro. Estamos aqui para ajudar, com atendimento rápido e planos que realmente fazem sentido para você.</p>
+        <br>
         <p>Seja bem-vindo à Ronda — segurança de verdade, feita para você!</p>
     </div>
     <section>
@@ -286,7 +333,6 @@
     <!-- Plano Básico -->
     <button class="acordeon">Plano Básico</button>
     <div class="acordeon-body">
-        <div class="plano-titulo">Plano Básico</div>
         <div class="plano-body">
             <p>Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo, garantindo segurança eficiente e controle pelo cliente.</p>
             <br>
@@ -313,7 +359,6 @@
     <!-- Plano Essencial -->
     <button class="acordeon">Plano Essencial</button>
     <div class="acordeon-body">
-        <div class="plano-titulo">Plano Essencial</div>
         <div class="plano-body">
             <p>Ideal para quem busca uma segurança completa com ótimo custo-benefício. Inclui monitoramento eletrônico e rondas periódicas para garantir proteção constante do seu imóvel.</p>
             <br>
@@ -335,7 +380,6 @@
     <!-- Plano Premium -->
     <button class="acordeon">Plano Premium</button>
     <div class="acordeon-body">
-        <div class="plano-titulo">Plano Premium</div>
         <div class="plano-body">
             <p>Para quem deseja a máxima segurança com atendimento personalizado e cobertura completa, incluindo monitoramento eletrônico e rondas frequentes com viaturas.</p>
             <br>
@@ -359,7 +403,6 @@
     <!-- Plano Periódico -->
     <button class="acordeon">Plano Periódico</button>
     <div class="acordeon-body">
-        <div class="plano-titulo">Plano Periódico</div>
         <div class="plano-body">
             <p>Proteção temporária e flexível para quem viaja, sai de férias ou precisa de segurança por períodos específicos, com ativação e desativação conforme sua necessidade.</p>
             <br>
@@ -383,7 +426,6 @@
     <!-- Plano Eventos -->
     <button class="acordeon">Plano Eventos</button>
     <div class="acordeon-body">
-        <div class="plano-titulo">Plano Eventos</div>
         <div class="plano-body">
             <p>Segurança especializada para festas, eventos e escolas, com equipe treinada para controle de acesso e ronda preventiva, garantindo proteção eficiente para todos os envolvidos.</p>
             <br>
@@ -405,7 +447,6 @@
     <!-- Plano Residencial/Empresarial -->
     <button class="acordeon">Plano Residencial/Empresarial</button>
     <div class="acordeon-body">
-        <div class="plano-titulo">Plano Residencial/Empresarial</div>
         <div class="plano-body">
             <p>Ideal para condomínios, empresas e residências que buscam um serviço completo e integrado, com portaria, zeladoria e limpeza, garantindo segurança, organização e conforto para todos os usuários e colaboradores.</p>
             <br>
@@ -524,4 +565,5 @@
 
 </body>
 </html>
+
 
