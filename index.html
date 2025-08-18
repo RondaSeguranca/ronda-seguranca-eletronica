@@ -5,209 +5,213 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ronda Segurança Eletrônica</title>
 <style>
-    body {
-        background-color: black; 
-        color: white;            
-        font-family: Arial, sans-serif;
-        margin: 0;
-    }
+/* ===== GLOBAL ===== */
+body {
+    background-color: black; 
+    color: white;            
+    font-family: Arial, sans-serif;
+    margin: 0;
+}
 
-    /* ===== CONTAINER ===== */
-    .container {
-        padding: 0 40px; /* margem desktop */
-        max-width: 1300px;      
-        margin-left: auto;       
-        margin-right: auto;     
-    }
+.container {
+    padding: 0 40px; /* margem desktop */
+    max-width: 1300px;      
+    margin-left: auto;       
+    margin-right: auto;     
+}
 
-    /* ===== HEADER ===== */
-    header {
-        background-color: #f5c422;
-        padding: 15px 20px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: bold;
-        font-size: 24px;
-        color: #000;
-        position: relative;
-    }
+/* ===== HEADER ===== */
+header {
+    background-color: #f5c422;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 24px;
+    color: #000;
+    position: relative;
+}
 
-    /* ===== MENU HAMBURGUER ===== */
-    .menu-toggle {
-        display: none;
-        flex-direction: column;
-        cursor: pointer;
-    }
+/* ===== MENU HAMBURGUER ===== */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+}
 
-    .menu-toggle span {
-        height: 3px;
-        width: 25px;
-        background: black;
-        margin-bottom: 5px;
-        border-radius: 3px;
-    }
+.menu-toggle span {
+    height: 3px;
+    width: 25px;
+    background: black;
+    margin-bottom: 5px;
+    border-radius: 3px;
+}
 
-    nav {
-        display: flex;
-        gap: 20px;
-    }
+nav {
+    display: flex;
+    gap: 20px;
+}
 
-    nav a {
-        color: black;
-        text-decoration: none;
-        font-weight: bold;
-    }
+nav a {
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+}
 
-    /* ===== LOGO ===== */
-    .logo-section {
-        text-align: center;
-        margin: 50px 0;
-    }
+/* ===== LOGO E BEM-VINDO ===== */
+.logo-section {
+    text-align: center;
+    margin: 50px 0;
+}
 
-    .logo-section img {
-        max-width: 200px;
-        height: auto;
-    }
+.logo-section img {
+    max-width: 200px;
+    height: auto;
+}
 
-    .logo-section h1 {
-        margin-top: 20px;
-        font-size: 36px;
-        color: #f5c422;
-    }
+.logo-section h1 {
+    margin-top: 20px;
+    font-size: 36px;
+    color: #f5c422;
+}
 
-    .logo-section p {
-        margin-top: 10px;
-        font-size: 18px;
-        text-align: justify;
-        line-height: 1.5;
-    }
+.logo-section p {
+    margin-top: 10px;
+    font-size: 18px;
+    text-align: justify;
+    line-height: 1.5;
+    padding: 0; /* remove padding extra */
+}
 
-    /* ===== SECTIONS ===== */
-    section {
-        padding: 40px 20px;
-        text-align: left;
-    }
+/* ===== SECTIONS ===== */
+section {
+    padding: 40px 20px;
+    text-align: left;
+}
 
-    section h2 {
-        font-size: 36px;
-        margin-bottom: 20px;
-        color: #f5c422;
-    }
+section h2 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #f5c422;
+}
 
-    section p {
-        text-align: justify;
-        line-height: 1.6;
-        margin-bottom: 10px;
-    }
+section p {
+    text-align: justify;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
 
-    /* ===== ACORDEONS ===== */
-    .acordeon {
-        background-color: #f5c422; /* amarelo queimado */
-        color: #000;
-        cursor: pointer;
-        padding: 15px;
-        width: 100%;
-        text-align: left;
-        border: none;
-        outline: none;
-        font-size: 18px;
-        font-weight: bold;
-        margin-bottom: 5px;
-        border-radius: 8px;
-    }
+/* ===== ACORDEONS ===== */
+.acordeon {
+    background-color: #f5c422;
+    color: #000;
+    cursor: pointer;
+    padding: 15px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-radius: 8px;
+}
 
-    .acordeon-body {
-        background-color: #000;
-        border: 2px solid #f5c422;
-        border-radius: 0 0 8px 8px;
-        border-top: 2px solid #cc9900;
-        margin-top: -12px;
-        display: none;
-        padding: 15px;
-        margin-bottom: 15px;
-    }
+.acordeon-body {
+    background-color: #000;
+    border: 2px solid #f5c422;
+    border-radius: 0 0 8px 8px;
+    margin-top: -12px;
+    display: none;
+    padding: 15px;
+    margin-bottom: 15px;
+}
 
-    .acordeon:hover {
-        background-color: #d49c1f;
-    }
+.acordeon:hover {
+    background-color: #d49c1f;
+}
 
-    .acordeon-body ul {
-        list-style-type: disc;
-        margin-left: 30px;
-        text-align: left;
-    }
+.acordeon-body ul {
+    list-style-type: disc;
+    margin-left: 30px;
+    text-align: left;
+}
 
-    /* ===== PACOTES ===== */
-    .pacote {
-        background-color: #000;
-        border: 2px solid #eead2d;
-        border-radius: 8px;
-        padding: 15px;
-        margin-bottom: 15px;
-    }
+/* ===== PACOTES ===== */
+.pacote {
+    background-color: #000;
+    border: 2px solid #f5c422;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
 
-    .pacote p {
-        margin-bottom: 5px;
-    }
+.pacote p {
+    margin-bottom: 5px;
+}
 
-    /* ===== CONTATO ===== */
-    .contato form {
-        background-color: black; 
-        padding: 20px;
-        border-radius: 10px;
-        max-width: 600px;
-        margin: 0 auto; 
-    }
+/* ===== CONTATO ===== */
+.contato form {
+    background-color: black; 
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 600px;
+    margin: 0 auto; 
+}
 
-    .contato form input,
-    .contato form textarea {
-        background-color: black;
-        color: white;
-        border: 1px solid #f5c422;
-        padding: 10px;
-        margin-bottom: 10px;
-        width: 100%;
-        border-radius: 5px;
-    }
+.contato form input,
+.contato form textarea {
+    background-color: black;
+    color: white;
+    border: 1px solid #f5c422;
+    padding: 10px;
+    margin-bottom: 10px;
+    width: 100%;
+    border-radius: 5px;
+}
 
-    .contato form button {
-        background-color: #eead2d;
-        color: black;
-        border: none;
-        padding: 10px 20px;
-        cursor: pointer;
-        border-radius: 5px;
-        font-weight: bold;
-    }
+.contato form button {
+    background-color: #f5c422;
+    color: black;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-weight: bold;
+}
 
-    .contato-info {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 16px;
-    }
+.contato-info {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 16px;
+}
 
-   /* ===== RESPONSIVIDADE MOBILE ===== */
+/* ===== RESPONSIVIDADE MOBILE ===== */
 @media (max-width: 768px) {
     .container {
-        padding: 0 5px; /* menos espaçamento nas laterais */
+        padding: 0 10px;
         max-width: 100%;
     }
 
     .logo-section img {
-        max-width: 150px; /* diminui logo no celular */
+        max-width: 150px;
     }
 
     .logo-section h1 {
-        font-size: 28px; /* ajusta título */
+        font-size: 28px;
+    }
+
+    .logo-section p {
+        font-size: 16px;
     }
 
     section h2 {
-        font-size: 28px; /* títulos menores */
+        font-size: 28px;
     }
 
     section p {
-        font-size: 16px; /* texto menor e mais legível */
+        font-size: 16px;
     }
 
     .acordeon {
@@ -221,12 +225,26 @@
 
     .pacote {
         padding: 12px;
+    }
+
+    nav {
+        flex-direction: column;
+        display: none;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    .menu-toggle.active + nav {
+        display: flex;
     }
 }
 </style>
 </head>
 <body>
 
+<!-- ===== HEADER ===== -->
 <header>
     RONDA
     <div class="menu-toggle" onclick="toggleMenu()">
@@ -243,8 +261,10 @@
     </nav>
 </header>
 
+<!-- ===== CONTAINER ===== -->
 <div class="container">
 
+    <!-- ===== BEM-VINDO ===== -->
     <div class="logo-section" id="bemvindo">
         <img src="logo.png" alt="Logo Ronda">
         <h1>Bem-Vindo à Ronda Segurança Eletrônica</h1>
@@ -252,8 +272,7 @@
         <p>Seja bem-vindo à Ronda — segurança de verdade, feita para você!</p>
     </div>
 
-    <!-- === SOBRE === -->
-    <section id="sobre">
+  <section id="sobre">
         <h2>Sobre a Ronda</h2>
         <p>A Ronda Segurança Eletrônica é uma empresa familiar com mais de 30 anos de história, que começou com o sogro da atual dona e foi passando de geração em geração até chegar ao time dedicado de hoje.</p>
         <p>Com uma equipe especializada e equipamentos de alta tecnologia, oferecemos serviços que vão desde monitoramento eletrônico até rondas presenciais, garantindo respostas rápidas e eficazes.</p>
@@ -465,30 +484,28 @@
             notafiscalronda@gmail.com | 55195369298 | @gruporonda
         </div>
     </section>
-
+    
 </div> <!-- fecha container -->
 
 <script>
-    // ACORDEONS
-    const acordeons = document.querySelectorAll('.acordeon');
-    acordeons.forEach((ac) => {
-        ac.addEventListener('click', function() {
-            acordeons.forEach((other) => {
-                if (other !== ac) other.nextElementSibling.style.display = 'none';
-            });
-            const body = ac.nextElementSibling;
-            body.style.display = body.style.display === 'block' ? 'none' : 'block';
+// ACORDEONS
+const acordeons = document.querySelectorAll('.acordeon');
+acordeons.forEach((ac) => {
+    ac.addEventListener('click', function() {
+        acordeons.forEach((other) => {
+            if (other !== ac) other.nextElementSibling.style.display = 'none';
         });
+        const body = ac.nextElementSibling;
+        body.style.display = body.style.display === 'block' ? 'none' : 'block';
     });
+});
 
-    // MENU HAMBURGUER
-    function toggleMenu() {
-        const nav = document.getElementById('nav-menu');
-        nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
-    }
+// MENU HAMBURGUER
+function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+}
 </script>
 
 </body>
 </html>
-
-
