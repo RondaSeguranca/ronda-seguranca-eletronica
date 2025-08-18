@@ -69,8 +69,8 @@
 
     /* Acordeon geral */
     .acordeon {
-        background-color: #111;
-        color: #fff;
+        background-color: #eead2d; /* amarelo queimado */
+        color: black;
         cursor: pointer;
         padding: 15px;
         width: 100%;
@@ -85,40 +85,26 @@
     }
 
     .acordeon:hover {
-        background-color: #e6c200; /* amarelo mais escuro */
+        background-color: #d19e23; /* amarelo queimado mais escuro */
     }
 
     .acordeon-body {
-        background-color: #111;
         display: none;
         padding: 15px;
-        line-height: 1.6;
-    }
-
-    /* Planos */
-    .plano-titulo {
-        background-color: #eead2d;
-        color: black;
-        padding: 10px;
-        border-radius: 8px;
-        font-weight: bold;
-        font-size: 20px;
-        text-align: center;
+        line-height: 1.4;
+        background-color: black; /* quadrado preto */
+        border: 2px solid #eead2d; /* borda amarela */
+        border-radius: 10px;
         margin-bottom: 15px;
     }
 
-    .plano-body {
-        margin-bottom: 20px;
-        line-height: 1.6;
-        background-color: #eead2d;
-        padding: 15px;
-        border-radius: 8px;
+    .acordeon-body p {
+        margin-bottom: 8px; /* espaçamento mais compacto */
     }
 
-    .plano-body ul {
-        list-style-type: disc;
-        margin-left: 40px;
-        text-align: left;
+    .acordeon-body ul {
+        margin-left: 25px; 
+        margin-bottom: 8px; /* espaçamento menor */
     }
 
     /* Pacotes Personalizáveis */
@@ -230,139 +216,101 @@
         <!-- Plano Básico -->
         <button class="acordeon">Plano Básico</button>
         <div class="acordeon-body">
-            <div class="plano-titulo">Plano Básico</div>
-            <div class="plano-body">
-                <p>Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo, garantindo segurança eficiente e controle pelo cliente.</p>
-                <br>
-                <p>Serviços incluídos:</p>
-                <ul>
-                    <li>Monitoramento 24h via central</li>
-                    <li>Atendimento emergencial</li>
-                    <li>Suporte técnico remoto</li>
-                    <li>Aplicativo para acompanhamento em tempo real</li>
-                </ul>
-                <br>
-                <p>Benefícios:</p>
-                <ul>
-                    <li>Segurança garantida dia e noite</li>
-                    <li>Viaturas de prontidão na sua região</li>
-                    <li>Controle total na palma da mão</li>
-                </ul>
-                <br>
-                <p>R$ 00,00/mês</p>
-                <p>Sua segurança não pode esperar. Escolha quem está sempre por perto.</p>
-            </div>
+            <p>Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo, garantindo segurança eficiente e controle pelo cliente.</p>
+            <p>Serviços incluídos:</p>
+            <ul>
+                <li>Monitoramento 24h via central</li>
+                <li>Atendimento emergencial</li>
+                <li>Suporte técnico remoto</li>
+                <li>Aplicativo para acompanhamento em tempo real</li>
+            </ul>
+            <p>Benefícios:</p>
+            <ul>
+                <li>Segurança garantida dia e noite</li>
+                <li>Viaturas de prontidão na sua região</li>
+                <li>Controle total na palma da mão</li>
+            </ul>
+            <p>R$ 00,00/mês</p>
         </div>
 
         <!-- Plano Essencial -->
         <button class="acordeon">Plano Essencial</button>
         <div class="acordeon-body">
-            <div class="plano-titulo">Plano Essencial</div>
-            <div class="plano-body">
-                <p>Ideal para quem busca uma segurança completa com ótimo custo-benefício. Inclui monitoramento eletrônico e rondas periódicas para garantir proteção constante do seu imóvel.</p>
-                <br>
-                <p>Serviços incluídos:</p>
-                <ul>
-                    <li>Monitoramento 24h via central de controle</li>
-                    <li>Atendimento emergencial rápido</li>
-                    <li>Rondas presenciais com viatura, em horários pré-definidos</li>
-                    <li>Suporte técnico remoto</li>
-                    <li>Aplicativo para acompanhamento em tempo real</li>
-                    <li>Central de alarmes opcional (+ R$00.00/mês)</li>
-                </ul>
-                <br>
-                <p>R$ 00,00/mês</p>
-                <p>Sua casa protegida, sua mente em paz.</p>
-            </div>
+            <p>Ideal para quem busca uma segurança completa com ótimo custo-benefício. Inclui monitoramento eletrônico e rondas periódicas para garantir proteção constante do seu imóvel.</p>
+            <p>Serviços incluídos:</p>
+            <ul>
+                <li>Monitoramento 24h via central de controle</li>
+                <li>Atendimento emergencial rápido</li>
+                <li>Rondas presenciais com viatura, em horários pré-definidos</li>
+                <li>Suporte técnico remoto</li>
+                <li>Aplicativo para acompanhamento em tempo real</li>
+                <li>Central de alarmes opcional (+ R$00.00/mês)</li>
+            </ul>
+            <p>R$ 00,00/mês</p>
         </div>
 
         <!-- Plano Premium -->
         <button class="acordeon">Plano Premium</button>
         <div class="acordeon-body">
-            <div class="plano-titulo">Plano Premium</div>
-            <div class="plano-body">
-                <p>Para quem deseja a máxima segurança com atendimento personalizado e cobertura completa, incluindo monitoramento eletrônico e rondas frequentes com viaturas.</p>
-                <br>
-                <p>Serviços incluídos:</p>
-                <ul>
-                    <li>Monitoramento 24h</li>
-                    <li>Atendimento emergencial prioritário</li>
-                    <li>Rondas frequentes com viatura</li>
-                    <li>Suporte técnico presencial e remoto</li>
-                    <li>Acompanhamento em tempo real via app</li>
-                    <li>Relatórios mensais</li>
-                    <li>Consultoria de segurança</li>
-                    <li>Central de alarmes inclusa (monitoramento)</li>
-                </ul>
-                <br>
-                <p>R$ 00,00/mês</p>
-                <p>A segurança que cuida do que é seu, mesmo quando você não está.</p>
-            </div>
+            <p>Para quem deseja a máxima segurança com atendimento personalizado e cobertura completa, incluindo monitoramento eletrônico e rondas frequentes com viaturas.</p>
+            <p>Serviços incluídos:</p>
+            <ul>
+                <li>Monitoramento 24h</li>
+                <li>Atendimento emergencial prioritário</li>
+                <li>Rondas frequentes com viatura</li>
+                <li>Suporte técnico presencial e remoto</li>
+                <li>Acompanhamento em tempo real via app</li>
+                <li>Relatórios mensais</li>
+                <li>Consultoria de segurança</li>
+                <li>Central de alarmes inclusa (monitoramento)</li>
+            </ul>
+            <p>R$ 00,00/mês</p>
         </div>
 
         <!-- Plano Periódico -->
         <button class="acordeon">Plano Periódico</button>
         <div class="acordeon-body">
-            <div class="plano-titulo">Plano Periódico</div>
-            <div class="plano-body">
-                <p>Proteção temporária e flexível para quem viaja, sai de férias ou precisa de segurança por períodos específicos, com ativação e desativação conforme sua necessidade.</p>
-                <br>
-                <p>Serviços incluídos:</p>
-                <ul>
-                    <li>Monitoramento 24h durante o período contratado</li>
-                    <li>Atendimento emergencial prioritário</li>
-                    <li>Rondas presenciais com viatura, com maior frequência e horários variados</li>
-                    <li>Inspeção visual das instalações durante as rondas</li>
-                    <li>Aviso imediato para o cliente sobre qualquer movimentação suspeita</li>
-                    <li>Suporte técnico remoto e atendimento presencial emergencial, se necessário</li>
-                    <li>Relatórios detalhados ao final do período contratado</li>
-                    <li>Central de alarmes incluída</li>
-                </ul>
-                <br>
-                <p>R$ 00,00 por dia/(com mínimo de 3 dias)</p>
-                <p>Monitoramos. Atuamos. Protegemos.</p>
-            </div>
+            <p>Proteção temporária e flexível para quem viaja, sai de férias ou precisa de segurança por períodos específicos, com ativação e desativação conforme sua necessidade.</p>
+            <p>Serviços incluídos:</p>
+            <ul>
+                <li>Monitoramento 24h durante o período contratado</li>
+                <li>Atendimento emergencial prioritário</li>
+                <li>Rondas presenciais com viatura, com maior frequência e horários variados</li>
+                <li>Inspeção visual das instalações durante as rondas</li>
+                <li>Aviso imediato para o cliente sobre qualquer movimentação suspeita</li>
+                <li>Suporte técnico remoto e atendimento presencial emergencial, se necessário</li>
+                <li>Relatórios detalhados ao final do período contratado</li>
+                <li>Central de alarmes incluída</li>
+            </ul>
+            <p>R$ 00,00 por dia (com mínimo de 3 dias)</p>
         </div>
 
         <!-- Plano Eventos -->
         <button class="acordeon">Plano Eventos</button>
         <div class="acordeon-body">
-            <div class="plano-titulo">Plano Eventos</div>
-            <div class="plano-body">
-                <p>Segurança especializada para festas, eventos e escolas, com equipe treinada para controle de acesso e ronda preventiva, garantindo proteção eficiente para todos os envolvidos.</p>
-                <br>
-                <p>Serviços incluídos:</p>
-                <ul>
-                    <li>Equipe treinada para controle de acesso e ronda</li>
-                    <li>Monitoramento 24h e atendimento rápido</li>
-                    <li>Suporte dedicado e acompanhamento pelo app</li>
-                    <li>Preço fixo, sem taxas extras</li>
-                </ul>
-                <br>
-                <p>Este é um plano mensal com valor fixo, sem cobranças adicionais por festa ou evento. O custo inclui o plano base, acrescido apenas do valor referente à contratação dos guardas, que varia conforme a quantidade necessária para cada serviço.</p>
-                <br>
-                <p>R$ 00,00</p>
-                <p>Cuidamos do seu patrimônio, para que você cuide do que Importa.</p>
-            </div>
+            <p>Segurança especializada para festas, eventos e escolas, com equipe treinada para controle de acesso e ronda preventiva, garantindo proteção eficiente para todos os envolvidos.</p>
+            <p>Serviços incluídos:</p>
+            <ul>
+                <li>Equipe treinada para controle de acesso e ronda</li>
+                <li>Monitoramento 24h e atendimento rápido</li>
+                <li>Suporte dedicado e acompanhamento pelo app</li>
+                <li>Preço fixo, sem taxas extras</li>
+            </ul>
+            <p>Este é um plano mensal com valor fixo, sem cobranças adicionais por festa ou evento. O custo inclui o plano base, acrescido apenas do valor referente à contratação dos guardas, que varia conforme a quantidade necessária para cada serviço.</p>
+            <p>R$ 00,00</p>
         </div>
 
         <!-- Plano Residencial/Empresarial -->
         <button class="acordeon">Plano Residencial/Empresarial</button>
         <div class="acordeon-body">
-            <div class="plano-titulo">Plano Residencial/Empresarial</div>
-            <div class="plano-body">
-                <p>Ideal para condomínios, empresas e residências que buscam um serviço completo e integrado, com portaria, zeladoria e limpeza, garantindo segurança, organização e conforto para todos os usuários e colaboradores.</p>
-                <br>
-                <p>Serviços incluídos:</p>
-                <ul>
-                    <li>Portaria profissional com controle de acesso 24h, garantindo segurança e bom atendimento</li>
-                    <li>Zeladoria com manutenção preventiva e cuidados gerais nas instalações</li>
-                    <li>Limpeza regular para manter o ambiente sempre limpo, agradável e organizado</li>
-                </ul>
-                <br>
-                <p>R$ 00,00/mês</p>
-                <p>Ambientes protegidos, organizados e bem cuidados para seu bem-estar e produtividade.</p>
-            </div>
+            <p>Ideal para condomínios, empresas e residências que buscam um serviço completo e integrado, com portaria, zeladoria e limpeza, garantindo segurança, organização e conforto para todos os usuários e colaboradores.</p>
+            <p>Serviços incluídos:</p>
+            <ul>
+                <li>Portaria profissional com controle de acesso 24h, garantindo segurança e bom atendimento</li>
+                <li>Zeladoria com manutenção preventiva e cuidados gerais nas instalações</li>
+                <li>Limpeza regular para manter o ambiente sempre limpo, agradável e organizado</li>
+            </ul>
+            <p>R$ 00,00/mês</p>
         </div>
 
         <!-- Pacotes Personalizáveis -->
@@ -421,9 +369,10 @@
                 <p>Manutenção preventiva e corretiva de equipamentos</p>
                 <p>Atualização e configuração de sistemas</p>
                 <p>R$ 00,00</p>
+                <p>OBS: Já incluso nos pacotes de monitoramento de Imagens e Alarmes.</p>
             </div>
-
         </div>
+
     </section>
 
     <!-- === CONTATO === -->
@@ -441,15 +390,18 @@
         </div>
     </section>
 
-</div>
+</div> <!-- fecha container -->
 
 <script>
-    const acordions = document.querySelectorAll(".acordeon");
-    acordions.forEach(acc => {
-        acc.addEventListener("click", function() {
-            this.classList.toggle("active");
-            const body = this.nextElementSibling;
-            body.style.display = body.style.display === "block" ? "none" : "block";
+    const acordeons = document.querySelectorAll('.acordeon');
+
+    acordeons.forEach((ac) => {
+        ac.addEventListener('click', function() {
+            acordeons.forEach((other) => {
+                if (other !== ac) other.nextElementSibling.style.display = 'none';
+            });
+            const body = ac.nextElementSibling;
+            body.style.display = body.style.display === 'block' ? 'none' : 'block';
         });
     });
 </script>
