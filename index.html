@@ -17,6 +17,7 @@ body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
+    overflow-x: hidden;
 }
 
 html {
@@ -39,12 +40,56 @@ header {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
-/* ===== LOGO ===== */
-.logo {
-    font-size: 24px;
-    font-weight: bold;
+/* ===== LOGO SECTION ===== */
+.logo-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
+.logo-section img {
+    max-width: 200px; /* tamanho desktop */
+    height: auto;
+    margin-bottom: 15px;
+}
+
+.logo-section h1 {
+    font-size: 36px; 
+    text-align: center;
+    margin: 10px 0;
+}
+
+.logo-section p {
+    text-align: center;
+    font-size: 20px; 
+    margin: 10px 0;
+}
+
+.logo-section .highlight {
+    text-align: center;
+    font-weight: bold;
+    font-size: 36px; 
+    margin: 10px 0;
+    color: #f5c422;
+}
+
+/* ===== RESPONSIVIDADE MOBILE ===== */
+@media (max-width: 768px) {
+    .logo-section img {
+        max-width: 150px;
+    }
+
+    .logo-section h1 {
+        font-size: 28px;
+    }
+
+    .logo-section p,
+    .logo-section .highlight {
+        font-size: 16px;
+    }
+}
 /* ===== NAV DESKTOP ===== */
 nav.desktop-nav {
     display: flex;
@@ -56,7 +101,13 @@ nav.desktop-nav a {
     text-decoration: none;
     font-weight: bold;
 }
-
+    
+footer {
+    text-align: center;
+    padding: 15px;
+    font-size: 18px;
+}    
+    
 /* ===== MENU HAMBURGUER ===== */
 .menu-toggle {
     display: none; /* escondido desktop */
@@ -73,6 +124,8 @@ nav.desktop-nav a {
     background: #000;
     border-radius: 2px;
     transition: all 0.3s;
+    cursor: pointer;
+    touch-action: manipulation;
 }
 
 .menu-toggle.active span:nth-child(1) {
@@ -117,7 +170,11 @@ nav#nav-menu a {
 }
 
 nav#nav-menu a:hover {
-    color: #f5c422;
+    color: #cc9900;
+}
+    
+nav.desktop-nav a:hover {
+    color: #cc9900; 
 }
 
 /* ===== SECTIONS ===== */
@@ -157,17 +214,17 @@ section p {
 }
 
 .acordeon:hover {
-    background-color: #d49c1f;
+    background-color: #cc9900;
 }
 
 .acordeon-body {
     background-color: #000;
     border: 2px solid #cc9900; 
     border-radius: 0 0 8px 8px; 
-    display: none;
-    padding: 15px;
-    margin-bottom: 15px;
-    margin-top: -20px;
+    max-height: 0;          
+    overflow: hidden;       
+    transition: max-height 0.5s ease-out;
+    padding: 0 15px;
 }
 
 .acordeon-body p {
@@ -209,8 +266,7 @@ section p {
     margin: 0 auto;
 }
 
-.contato form input,
-.contato form textarea {
+.contato form input, .contato form textarea {
     background-color: black;
     color: white;
     border: 1px solid #f5c422;
@@ -218,12 +274,13 @@ section p {
     margin-bottom: 10px;
     width: 100%;
     border-radius: 5px;
-    font-size: 20px;
+    font-size: 16px;
     font-family: 'Press Start 2P', monospace;
+    box-sizing: border-box;
 }
 
 .contato form button {
-    background-color: #f5c422;
+    background-color: #d49c1f;
     color: black;
     border: none;
     padding: 10px 20px;
@@ -317,7 +374,7 @@ section p {
 <body>
 
 <header>
-  <div class="logo">RONDA</div>
+  <img src="logo.png" alt="Logo Ronda" class="logo">
 
   <!-- Menu ícone "três risquinhos" -->
   <div class="menu-toggle" onclick="toggleMenu()">
@@ -351,7 +408,7 @@ section p {
         <h1>Bem-Vindo à Ronda Segurança Eletrônica</h1>
         <p>Aqui, sua segurança é a nossa maior preocupação. Com tecnologia moderna e uma equipe sempre pronta, cuidamos da proteção da sua casa, empresa e família 24 horas por dia...</p>
         <br>
-        <center><p>Seja bem-vindo à Ronda — segurança de verdade, feita para você!</p></center>   
+        <p class="highlight">Seja bem-vindo à Ronda — segurança de verdade, feita para você!</p>   
     </div>
 
 <!-- SEÇÃO SOBRE -->
@@ -606,22 +663,22 @@ section p {
     </form>
     <div class="contato-info">
         Ou entre em contato por:<br>
-        <center><strong>notafiscalronda@gmail.com | +55 51 9536-9298 | @gruporonda</strong></center>
+        <strong>notafiscalronda@gmail.com | +55 51 9536-9298 | @gruporonda</strong>
     </div>
 </section>
 
 <script>
-  // ACORDEONS
-  const acordeons = document.querySelectorAll('.acordeon');
-  acordeons.forEach((ac) => {
-      ac.addEventListener('click', function() {
-          acordeons.forEach((other) => {
-              if (other !== ac) other.nextElementSibling.style.display = 'none';
-          });
-          const body = ac.nextElementSibling;
-          body.style.display = body.style.display === 'block' ? 'none' : 'block';
-      });
-  });
+
+const acordeons = document.querySelectorAll('.acordeon');
+acordeons.forEach(ac => {
+    ac.addEventListener('click', function() {
+        const body = ac.nextElementSibling;
+        const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
+    
+        // Abre o clicado se estava fechado
+        if(!isOpen) body.style.maxHeight = body.scrollHeight + 'px';
+    });
+});
 
   // MENU HAMBURGUER
   function toggleMenu() {
@@ -638,3 +695,4 @@ section p {
 
 </body>
 </html>
+
