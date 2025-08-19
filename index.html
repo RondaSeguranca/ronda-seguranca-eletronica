@@ -219,12 +219,13 @@ section p {
 
 .acordeon-body {
     background-color: #000;
-    border: 2px solid #cc9900; 
+    border: none; 
     border-radius: 0 0 8px 8px; 
     max-height: 0;          
     overflow: hidden;       
-    transition: max-height 0.5s ease-out;
+    transition: max-height 0.2s ease-out;
     padding: 0 15px;
+    margin-top: -12px;
 }
 
 .acordeon-body p {
@@ -402,7 +403,6 @@ section p {
 </header>
 
 <div class="container">
-  <div class="logo-section" id="bemvindo">
         <img src="logo.png" alt="Logo Ronda">
         <h1>Bem-Vindo à Ronda Segurança Eletrônica</h1>
         <p>Aqui, sua segurança é a nossa maior preocupação. Com tecnologia moderna e uma equipe sempre pronta, cuidamos da proteção da sua casa, empresa e família 24 horas por dia...</p>
@@ -672,13 +672,20 @@ const acordeons = document.querySelectorAll('.acordeon');
 acordeons.forEach(ac => {
     ac.addEventListener('click', function() {
         const body = ac.nextElementSibling;
-        const isOpen = body.style.maxHeight && body.style.maxHeight !== '0px';
-    
-        // Abre o clicado se estava fechado
-        if(!isOpen) body.style.maxHeight = body.scrollHeight + 'px';
+        // Se já estiver aberto, fecha
+        if(body.style.maxHeight && body.style.maxHeight !== '0px'){
+            body.style.maxHeight = null;
+        } else {
+            // Fecha todos os outros
+            acordeons.forEach(other => {
+                other.nextElementSibling.style.maxHeight = null;
+            });
+            // Abre o clicado
+            body.style.maxHeight = body.scrollHeight + 'px';
+        }
     });
 });
-
+    
   // MENU HAMBURGUER
   function toggleMenu() {
     const nav = document.getElementById('nav-menu');
@@ -694,5 +701,6 @@ acordeons.forEach(ac => {
 
 </body>
 </html>
+
 
 
