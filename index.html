@@ -17,6 +17,8 @@ body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
 html {
@@ -36,6 +38,7 @@ header {
     color: #000;
     position: relative;
     z-index: 2;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
 }
 
 /* ===== LOGO ===== */
@@ -138,6 +141,14 @@ nav#nav-menu a:hover {
     color: #f5c422;
 }
 
+nav.desktop-nav a:hover {
+    color: #000; /* preto puro para contraste */
+    background-color: #f5c422; /* destaca o link */
+    border-radius: 5px; /* opcional: arredonda os cantos do destaque */
+    padding: 5px 10px; /* dá espaço interno ao destaque */
+    transition: 0.3s; /* suaviza a transição */
+}
+    
 /* ===== SECTIONS ===== */
 section {
     padding: 40px 0;
@@ -257,6 +268,10 @@ section p {
     font-size: 20px;
 }
 
+.container {
+    margin: 20px 15px 20px 15px; /* topo 20px, direita 15px, baixo 20px, esquerda 15px */
+}
+    
 /* ===== RESPONSIVIDADE MOBILE ===== */
 @media (max-width: 768px) {
 
@@ -310,6 +325,10 @@ section p {
     }
 }
 
+.main-content {
+    padding: 20px;
+}
+    
 </style>
 </head>
 <body>
@@ -325,6 +344,7 @@ section p {
 </div>
 
 <!-- Menu links -->
+<div class="main-content">
 <nav id="nav-menu">
   <a href="#bemvindo">Bem-vindo</a>
   <a href="#sobre">Sobre</a>
@@ -332,6 +352,7 @@ section p {
   <a href="#planos">Planos</a>
   <a href="#contato">Contato</a>
 </nav>
+</div>
 </header>
 
 <div class="container">
@@ -585,6 +606,22 @@ section p {
     </div>
 </section>
 
+<section id="contato" class="contato">
+    <h2>Contato</h2>
+    <form>
+        <input type="text" placeholder="Nome completo" required>
+        <input type="email" placeholder="Email de Contato" required>
+        <textarea rows="5" placeholder="Deixe sua Mensagem Aqui" required></textarea>
+        <button type="submit">Enviar</button>
+    </form>
+    <div class="contato-info">
+        Ou entre em contato por:<br>
+        <strong>Email:</strong> notafiscalronda@gmail.com<br>
+        <strong>WhatsApp:</strong> +55 19 5369-6298<br>
+        <strong>Instagram:</strong> @gruporonda
+    </div>
+</section>
+
 <script>
 // ACORDEONS
 const acordeons = document.querySelectorAll('.acordeon');
@@ -606,3 +643,4 @@ function toggleMenu() {
 </script>
 </body>
 </html>
+
