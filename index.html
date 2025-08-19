@@ -20,7 +20,7 @@ body {
 }
 
 html {
-    scroll-behavior: smooth; /* scroll suave */
+    scroll-behavior: smooth;
 }
 
 /* ===== HEADER ===== */
@@ -40,29 +40,9 @@ header {
 }
 
 /* ===== LOGO ===== */
-.logo-section {
-    text-align: center;
-    margin: 50px 0;
-}
-
-.logo-section img {
-    max-width: 200px;
-    height: auto;
-}
-
-.logo-section h1 {
-    font-size: 36px;
+.logo {
+    font-size: 24px;
     font-weight: bold;
-    color: #f5c422;
-    text-align: center;
-    margin-top: 20px;
-}
-
-.logo-section p {
-    font-size: 20px;
-    line-height: 1.6;
-    text-align: justify;
-    margin-top: 10px;
 }
 
 /* ===== NAV DESKTOP ===== */
@@ -79,7 +59,7 @@ nav.desktop-nav a {
 
 /* ===== MENU HAMBURGUER ===== */
 .menu-toggle {
-    display: none; /* escondido no desktop */
+    display: none; /* escondido desktop */
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -105,27 +85,20 @@ nav.desktop-nav a {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
-footer {
-    text-align: center;
-    padding: 15px 0;
-    background-color: #000;
-    color: #f5c422;
-    font-size: 16px;
-}  
-    
 /* ===== NAV MOBILE ===== */
 nav#nav-menu {
+    position: absolute;
+    top: 60px; /* abaixo dos risquinhos */
+    right: 20px;
+    background-color: rgba(0,0,0,0.95);
+    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    background-color: rgba(0,0,0,0.9);
-    border-radius: 10px;
     padding: 15px;
-    position: absolute; /* fica em relação ao header */
-    top: 100%;          /* logo abaixo do menu-toggle */
-    right: 0;
     transform: scale(0);
+    transform-origin: top right;
     transition: transform 0.3s ease;
     z-index: 10;
 }
@@ -189,8 +162,8 @@ section p {
 
 .acordeon-body {
     background-color: #000;
-    border: 2px solid #cc9900;
-    border-radius: 0 0 8px 8px;
+    border: 2px solid #cc9900; 
+    border-radius: 0 0 8px 8px; 
     display: none;
     padding: 15px;
     margin-bottom: 15px;
@@ -268,11 +241,18 @@ section p {
 
 /* ===== CONTAINER ===== */
 .container {
-    margin: 15px; /* margem geral da página */
+    margin: 15px;
 }
 
 /* ===== RESPONSIVIDADE MOBILE ===== */
 @media (max-width: 768px) {
+    nav.desktop-nav {
+        display: none; /* esconde nav desktop no mobile */
+    }
+
+    .menu-toggle {
+        display: flex; /* mostra hambúrguer */
+    }
 
     .container {
         padding: 0 15px;
@@ -314,17 +294,20 @@ section p {
     .pacote {
         padding: 12px;
     }
+}
 
-    nav.desktop-nav {
-        display: none; /* esconde nav desktop */
+/* ===== ESCONDE MENU MOBILE NO DESKTOP ===== */
+@media (min-width: 769px) {
+    nav#nav-menu {
+        display: none;
     }
 
     .menu-toggle {
-        display: flex; /* mostra hambúrguer */
+        display: none;
     }
 }
 
-/* ===== CLASSES AUXILIARES ===== */
+/* ===== MAIN CONTENT ===== */
 .main-content {
     padding: 20px;
 }
@@ -334,17 +317,7 @@ section p {
 <body>
 
 <header>
-  <!-- Logo -->
   <div class="logo">RONDA</div>
-
-  <!-- Menu desktop -->
-  <nav class="desktop-nav">
-    <a href="#bemvindo">Bem-vindo</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#planos">Planos</a>
-    <a href="#contato">Contato</a>
-  </nav>
 
   <!-- Menu ícone "três risquinhos" -->
   <div class="menu-toggle" onclick="toggleMenu()">
@@ -353,13 +326,22 @@ section p {
       <span></span>
   </div>
 
-  <!-- Menu mobile -->
+  <!-- Menu links Desktop -->
+  <nav class="desktop-nav">
+      <a href="#bemvindo">Bem-vindo</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#planos">Planos</a>
+      <a href="#contato">Contato</a>
+  </nav>
+
+  <!-- Menu links Mobile -->
   <nav id="nav-menu">
-    <a href="#bemvindo">Bem-vindo</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#servicos">Serviços</a>
-    <a href="#planos">Planos</a>
-    <a href="#contato">Contato</a>
+      <a href="#bemvindo" onclick="toggleMenu()">Bem-vindo</a>
+      <a href="#sobre" onclick="toggleMenu()">Sobre</a>
+      <a href="#servicos" onclick="toggleMenu()">Serviços</a>
+      <a href="#planos" onclick="toggleMenu()">Planos</a>
+      <a href="#contato" onclick="toggleMenu()">Contato</a>
   </nav>
 </header>
 
@@ -367,7 +349,7 @@ section p {
   <div class="logo-section" id="bemvindo">
         <img src="logo.png" alt="Logo Ronda">
         <h1>Bem-Vindo à Ronda Segurança Eletrônica</h1>
-        <p>Aqui, sua segurança é a nossa maior preocupação. Com tecnologia moderna e uma equipe sempre pronta, cuidamos da proteção da sua casa, empresa e família 24 horas por dia. Oferecemos desde sistemas de monitoramento até rondas presenciais, tudo pensado para você se sentir tranquilo e seguro. Estamos aqui para ajudar, com atendimento rápido e planos que realmente fazem sentido para você.</p>
+        <p>Aqui, sua segurança é a nossa maior preocupação. Com tecnologia moderna e uma equipe sempre pronta, cuidamos da proteção da sua casa, empresa e família 24 horas por dia...</p>
         <br>
         <center><p>Seja bem-vindo à Ronda — segurança de verdade, feita para você!</p></center>   
     </div>
@@ -629,24 +611,24 @@ section p {
 </section>
 
 <script>
-// ACORDEONS
-const acordeons = document.querySelectorAll('.acordeon');
-acordeons.forEach((ac) => {
-    ac.addEventListener('click', function() {
-        acordeons.forEach((other) => {
-            if (other !== ac) other.nextElementSibling.style.display = 'none';
-        });
-        const body = ac.nextElementSibling;
-        body.style.display = body.style.display === 'block' ? 'none' : 'block';
-    });
-});
+  // ACORDEONS
+  const acordeons = document.querySelectorAll('.acordeon');
+  acordeons.forEach((ac) => {
+      ac.addEventListener('click', function() {
+          acordeons.forEach((other) => {
+              if (other !== ac) other.nextElementSibling.style.display = 'none';
+          });
+          const body = ac.nextElementSibling;
+          body.style.display = body.style.display === 'block' ? 'none' : 'block';
+      });
+  });
 
-</script>
-<script>
   // MENU HAMBURGUER
   function toggleMenu() {
     const nav = document.getElementById('nav-menu');
+    const toggle = document.querySelector('.menu-toggle');
     nav.classList.toggle('active');
+    toggle.classList.toggle('active');
   }
 </script>
 
@@ -656,6 +638,3 @@ acordeons.forEach((ac) => {
 
 </body>
 </html>
-
-
-
