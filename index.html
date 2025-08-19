@@ -4,11 +4,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ronda Segurança Eletrônica</title>
-<style>
-
 <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">    
+<style>
   
-    /* ===== RESET ===== */
+/* ===== RESET ===== */
 * {
     margin: 0;
     padding: 0;
@@ -19,12 +18,11 @@ body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
 }
+
 /* ===== HEADER ===== */
 header {
-    width: 100%; /* ocupa toda a largura */
+    width: 100%;
     background-color: #f5c422;
     padding: 15px 20px;
     display: flex;
@@ -34,29 +32,70 @@ header {
     font-size: 24px;
     color: #000;
     position: relative;
+    z-index: 2;
 }
-/* ===== CONTAINER ===== */
-.container {
-    max-width: 1300px;
-    margin: 0 auto;
-    padding: 0 40px;
-    box-sizing: border-box; /* garante que padding não aumente a largura */
-}
+
 /* ===== MENU HAMBURGUER ===== */
 .menu-toggle {
-    display: none;
+    display: none; /* padrão desktop */
     flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 22px;
     cursor: pointer;
 }
 
 .menu-toggle span {
-    height: 3px;
-    width: 25px;
-    background: black;
-    margin-bottom: 5px;
-    border-radius: 3px;
+    display: block;
+    height: 4px;
+    background: #000;
+    border-radius: 2px;
+    transition: all 0.3s;
 }
 
+/* ===== NAV MENU ===== */
+nav#nav-menu {
+    position: fixed;
+    top: 0;
+    left: -100%; /* escondido inicialmente */
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease;
+    z-index: 1;
+}
+
+nav#nav-menu a {
+    color: #fff;
+    font-size: 28px;
+    font-weight: bold;
+    text-decoration: none;
+    margin: 20px 0;
+    transition: color 0.3s;
+}
+
+nav#nav-menu a:hover {
+    color: #f5c422;
+}
+
+/* Quando o menu estiver ativo */
+nav#nav-menu.active {
+    left: 0;
+}
+
+/* ===== CONTAINER ===== */
+.container {
+    max-width: 1300px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding: 0 20px;
+}
+
+/* ===== NAV DESKTOP ===== */
 nav {
     display: flex;
     gap: 20px;
@@ -80,7 +119,7 @@ nav a {
 }
 
 .logo-section h1 {
-    font-size: 36px; /* título Bem-Vindo */
+    font-size: 36px;
     font-weight: bold;
     color: #f5c422;
     text-align: center;
@@ -88,7 +127,7 @@ nav a {
 }
 
 .logo-section p {
-    font-size: 20px; /* textos uniformes */
+    font-size: 20px;
     line-height: 1.6;
     text-align: justify;
     margin-top: 10px;
@@ -100,7 +139,7 @@ section {
 }
 
 section h2 {
-    font-size: 36px; /* títulos de seção */
+    font-size: 36px;
     font-weight: bold;
     color: #f5c422;
     text-align: left;
@@ -108,7 +147,7 @@ section h2 {
 }
 
 section p {
-    font-size: 20px; /* textos uniformes */
+    font-size: 20px;
     line-height: 1.6;
     text-align: justify;
     margin-bottom: 10px;
@@ -124,7 +163,7 @@ section p {
     text-align: left;
     border: none;
     outline: none;
-    font-size: 20px; /* textos uniformes */
+    font-size: 20px;
     font-weight: bold;
     margin-bottom: 5px;
     border-radius: 8px;
@@ -136,15 +175,17 @@ section p {
 
 .acordeon-body {
     background-color: #000;
-    border: 2px solid #f5c422;
-    border-radius: 0 0 8px 8px;
+    border: 2px solid #cc9900; 
+    border-radius: 0 0 8px 8px; 
+    border-top: 2px solid #cc9900; 
+    margin-top: -20px; 
     display: none;
     padding: 15px;
     margin-bottom: 15px;
 }
 
 .acordeon-body p {
-    font-size: 20px; /* textos uniformes */
+    font-size: 20px;
     line-height: 1.6;
     text-align: justify;
 }
@@ -154,7 +195,7 @@ section p {
     list-style-type: disc;
     margin-left: 30px;
     text-align: left;
-    font-size: 20;
+    font-size: 20px;
     line-height: 1.6;
 }
 
@@ -168,7 +209,7 @@ section p {
 }
 
 .pacote p {
-    font-size: 20px; /* textos uniformes */
+    font-size: 20px;
     line-height: 1.6;
     text-align: justify;
     margin-bottom: 5px;
@@ -192,7 +233,7 @@ section p {
     margin-bottom: 10px;
     width: 100%;
     border-radius: 5px;
-    font-size: 20px; /* textos uniformes */
+    font-size: 20px;
     font-family: 'Press Start 2P', monospace;
 }
 
@@ -204,13 +245,13 @@ section p {
     cursor: pointer;
     border-radius: 5px;
     font-weight: bold;
-    font-size: 20px; /* textos uniformes */
+    font-size: 20px;
 }
 
 .contato-info {
     text-align: center;
     margin-top: 20px;
-    font-size: 20px; /* textos uniformes */
+    font-size: 20px;
 }
 
 /* ===== RESPONSIVIDADE MOBILE ===== */
@@ -257,18 +298,14 @@ section p {
     }
 
     nav {
-        flex-direction: column;
-        display: none;
+        display: none; /* esconde nav padrão no mobile */
     }
 
     .menu-toggle {
-        display: flex;
-    }
-
-    .menu-toggle.active + nav {
-        display: flex;
+        display: flex; /* mostra hambúrguer */
     }
 }
+
 </style>
 </head>
 <body>
@@ -473,6 +510,7 @@ section p {
     <!-- Pacotes Personalizáveis -->
     <button class="acordeon">Pacotes Personalizáveis</button>
     <div class="acordeon-body">
+        <p>Segurança feita sob medida para você! Escolha um dos pacotes básicos abaixo e, se desejar, adicione ou ajuste serviços conforme sua necessidade.</p>
         <div class="pacote">
             <p><strong>Pacote 1 - Monitoramento de Imagens</strong></p>
             <p>Monitoramento 24h via central</p>
@@ -526,9 +564,10 @@ section p {
             <p>Manutenção preventiva e corretiva de equipamentos</p>
             <p>Atualização e configuração de sistemas</p>
             <p>R$ 00,00</p>
+        <p>OBS: Já incluso nos pacotes de monitoramento de Imagens e Alarmes.</p>
         </div>
 
-        <p>OBS: Já incluso nos pacotes de monitoramento de Imagens e Alarmes.</p>
+        
     </div>
 </section>
 
@@ -560,19 +599,17 @@ section p {
     });
 
     // MENU HAMBURGUER
-    function toggleMenu(el) {
-        const nav = document.getElementById('nav-menu');
-        el.classList.toggle('active'); 
-        if (nav.style.display === 'flex') {
-            nav.style.display = 'none';
-        } else {
-            nav.style.display = 'flex';
-        }
+    function toggleMenu(menu) {
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('active');
+    menu.classList.toggle('open'); // opcional, para animar o hambúrguer
+      
     }
 </script>
 
 </body>
 </html>
+
 
 
 
