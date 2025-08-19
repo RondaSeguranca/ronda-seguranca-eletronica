@@ -17,8 +17,6 @@ body {
     background-color: black;
     color: white;
     font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
 }
 
 html {
@@ -38,7 +36,7 @@ header {
     color: #000;
     position: relative;
     z-index: 2;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
 
 /* ===== LOGO ===== */
@@ -81,7 +79,7 @@ nav.desktop-nav a {
 
 /* ===== MENU HAMBURGUER ===== */
 .menu-toggle {
-    display: none; /* escondido desktop */
+    display: none; /* escondido no desktop */
     flex-direction: column;
     justify-content: space-between;
     width: 30px;
@@ -109,18 +107,18 @@ nav.desktop-nav a {
 
 /* ===== NAV MOBILE ===== */
 nav#nav-menu {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(0,0,0,0.9);
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    background-color: rgba(0,0,0,0.9);
+    border-radius: 10px;
     padding: 15px;
-    transition: transform 0.3s ease;
+    position: absolute; /* fica em relação ao header */
+    top: 100%;          /* logo abaixo do menu-toggle */
+    right: 0;
     transform: scale(0);
+    transition: transform 0.3s ease;
     z-index: 10;
 }
 
@@ -133,7 +131,7 @@ nav#nav-menu a {
     font-size: 20px;
     font-weight: bold;
     text-decoration: none;
-    margin: 10px 0;
+    margin: 10px 15px;
     transition: color 0.3s;
 }
 
@@ -141,14 +139,6 @@ nav#nav-menu a:hover {
     color: #f5c422;
 }
 
-nav.desktop-nav a:hover {
-    color: #000; /* preto puro para contraste */
-    background-color: #f5c422; /* destaca o link */
-    border-radius: 5px; /* opcional: arredonda os cantos do destaque */
-    padding: 5px 10px; /* dá espaço interno ao destaque */
-    transition: 0.3s; /* suaviza a transição */
-}
-    
 /* ===== SECTIONS ===== */
 section {
     padding: 40px 0;
@@ -191,8 +181,8 @@ section p {
 
 .acordeon-body {
     background-color: #000;
-    border: 2px solid #cc9900; 
-    border-radius: 0 0 8px 8px; 
+    border: 2px solid #cc9900;
+    border-radius: 0 0 8px 8px;
     display: none;
     padding: 15px;
     margin-bottom: 15px;
@@ -268,10 +258,11 @@ section p {
     font-size: 20px;
 }
 
+/* ===== CONTAINER ===== */
 .container {
-    margin: 20px 15px 20px 15px; /* topo 20px, direita 15px, baixo 20px, esquerda 15px */
+    margin: 15px; /* margem geral da página */
 }
-    
+
 /* ===== RESPONSIVIDADE MOBILE ===== */
 @media (max-width: 768px) {
 
@@ -325,34 +316,43 @@ section p {
     }
 }
 
+/* ===== CLASSES AUXILIARES ===== */
 .main-content {
     padding: 20px;
 }
-    
+
 </style>
 </head>
 <body>
 
 <header>
-<div class="logo">RONDA</div>
+  <!-- Logo -->
+  <div class="logo">RONDA</div>
 
-<!-- Menu ícone "três pontinhos" -->
-<div class="menu-toggle" onclick="toggleMenu()">
-    <span></span>
-    <span></span>
-    <span></span>
-</div>
+  <!-- Menu desktop -->
+  <nav class="desktop-nav">
+    <a href="#bemvindo">Bem-vindo</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#planos">Planos</a>
+    <a href="#contato">Contato</a>
+  </nav>
 
-<!-- Menu links -->
-<div class="main-content">
-<nav id="nav-menu">
-  <a href="#bemvindo">Bem-vindo</a>
-  <a href="#sobre">Sobre</a>
-  <a href="#servicos">Serviços</a>
-  <a href="#planos">Planos</a>
-  <a href="#contato">Contato</a>
-</nav>
-</div>
+  <!-- Menu ícone "três risquinhos" -->
+  <div class="menu-toggle" onclick="toggleMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+
+  <!-- Menu mobile -->
+  <nav id="nav-menu">
+    <a href="#bemvindo">Bem-vindo</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#planos">Planos</a>
+    <a href="#contato">Contato</a>
+  </nav>
 </header>
 
 <div class="container">
@@ -616,9 +616,7 @@ section p {
     </form>
     <div class="contato-info">
         Ou entre em contato por:<br>
-        <strong>Email:</strong> notafiscalronda@gmail.com<br>
-        <strong>WhatsApp:</strong> +55 19 5369-6298<br>
-        <strong>Instagram:</strong> @gruporonda
+        <center><strong>notafiscalronda@gmail.com | +55 51 9536-9298 | @gruporonda</strong></center>
     </div>
 </section>
 
@@ -635,12 +633,15 @@ acordeons.forEach((ac) => {
     });
 });
 
-// MENU HAMBURGUER
-function toggleMenu() {
-  const nav = document.getElementById('nav-menu');
-  nav.classList.toggle('active');
-}
+<script>
+  // MENU HAMBURGUER
+  function toggleMenu() {
+    const nav = document.getElementById('nav-menu');
+    nav.classList.toggle('active');
+  }
+</script>
 </script>
 </body>
 </html>
+
 
