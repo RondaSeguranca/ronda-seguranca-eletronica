@@ -6,20 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Ronda Segurança Eletrônica</title>
 <style>
-* {
-    box-sizing: border-box; /* padding/border não aumentam largura */
+body {
     margin: 0;
     padding: 0;
-}
-
-body {
     background-color: #000;
     color: #fff;
     font-family: Arial, sans-serif;
-    overflow-x: hidden; /* previne rolagem horizontal */
 }
-
-/* ===== HEADER ===== */
 header {
     background-color: #000;
     color: #eead2d;
@@ -33,6 +26,7 @@ header {
     width: 100%;
     z-index: 1000;
     border-bottom: 2px solid #eead2d;
+    box-sizing: border-box;
 }
 
 header img { 
@@ -41,62 +35,61 @@ header img {
 
 html {
     scroll-behavior: smooth;
-    scroll-padding-top: 65px;
 }
 
-/* ===== NAVIGATION ===== */
 nav ul {
     list-style: none;
     display: flex;
     gap: 12px;
+    margin: 0;
+    padding: 0;
 }
-
 nav ul li a {
     text-decoration: none;
     color: #fff;
     font-size: 15px;
     font-weight: bold;
     transition: 0.3s;
-}
 
+}
 nav ul li a:hover { 
     color: #e2bc70; 
 }
 
-.nav-links {
+  .nav-links {
     display: flex;
     gap: 20px;
-}
+  }
 
-.nav-links li a {
+  .nav-links li a {
     color: #eead2d;
+    text-decoration: none;
     font-weight: bold;
-}
+  }
 
-/* Hamburger menu */
-.hamburger {
+
+  /* Hamburger menu */
+  .hamburger {
     display: none;
     flex-direction: column;
     cursor: pointer;
     gap: 5px;
-}
+  }
 
-.hamburger span {
+  .hamburger span {
     width: 25px;
     height: 3px;
     background: #eead2d;
     transition: all 0.3s ease;
-}
+  }
 
-/* ===== BANNER ===== */
 .banner {
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
     padding-top: 80px; 
-    padding-left: 15px;
-    padding-right: 15px;
+    margin: 10px;
 }
 
 .banner img.logo-banner { 
@@ -105,25 +98,27 @@ nav ul li a:hover {
 }
 
 .banner h1 { 
-    font-size: 26px; 
+    font-size: 22px; 
     margin: 5px 0; 
     color: #eead2d; 
 }
 
 .banner p { 
     font-size: 15px; 
-    max-width: 100%; /* nunca ultrapassa a tela */
-    margin-top: 10px; 
+    max-width: 700px; 
+    margin-top:10px; 
 }
 
-/* ===== CONTEÚDO ===== */
 .conteudo { 
-    padding: 20px;
+    margin: 0;          /* remove a margem que quebrava a página */
+    padding: 20px;      /* mantém o espaçamento interno */
+    text-indent: 0; 
+    box-sizing: border-box; /* garante que padding não aumente a largura total */
 }
 
-/* Seções */
 .sobre, .planos, .servicos { 
     padding-top: 20px; 
+
 }
 
 .sobre h1, .servicos h1, .planos h1 { 
@@ -151,11 +146,14 @@ nav ul li a:hover {
     cursor: pointer;
     padding: 12px 20px;
     width: 100%;
-    border: 2px solid #eead2d;
-    border-radius: 8px;
+    border: none;
     text-align: left;
+    outline: none;
     font-size: 16px;
     margin-bottom: 5px;
+    border-radius: 8px;
+    transition: 0.3s;
+    border: 2px solid #eead2d;
 }
 
 .accordion-button:hover { 
@@ -177,7 +175,6 @@ nav ul li a:hover {
     margin-top: -20px;
     margin-bottom: 20px;
 }
-
 .accordion-content.open { 
     padding: 12px 20px; 
 }
@@ -201,10 +198,9 @@ nav ul li a:hover {
     border: 2px solid #eead2d;
     border-radius: 8px;
     padding: 15px 20px;
-    margin: 20px 0 15px 0;
-    width: 100%; /* garante responsividade */
+    margin-bottom: 15px;
+    margin-top: 20px;
 }
-
 .pacote strong { 
     color: #eead2d; 
     display:block; 
@@ -214,99 +210,105 @@ nav ul li a:hover {
 .pacote ul { 
     list-style-type: disc; 
     padding-left: 20px; 
+    margin:0; 
 }
-
 .pacote p { 
     margin-top: 5px; 
     font-weight: bold; 
 }
 
-#contato {
+.footer {
+  background-color: #000;
+  color: #fff;
+  padding: 40px 20px;
   text-align: center;
-  padding: 50px 20px;
 }
 
-.contato-icons {
-  display: flex;
-  justify-content: center;
-  gap: 60px;
-  margin-top: 30px;
-}
-
-.contato-item {
+.footer-container {
+  max-width: 1200px;
+  margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 20px;
 }
 
-.contato-item p {
-  margin-top: 10px;
-  font-size: 18px;
-  color: #fff; /* texto branco */
-}
-
-.icon {
-  width: 60px;
-  height: 60px;
-  transition: transform 0.2s ease;
-}
-
-.icon:hover {
-  transform: scale(1.1);
-}
-
-a {
-    color: #fff;       /* branco */
-    text-decoration: none; /* remove sublinhado, se quiser */
-}
-
-a:hover {
-    color: #e2bc70;    /* amarelo claro ao passar o mouse, opcional */
-}
-
-#contato button {
-  padding: 10px 20px;
-  border: 2px solid #eead2d;
-  background: black;
+.footer-logo {
   color: #eead2d;
-  border-radius: 6px;
-  cursor: pointer;
-  font-size: 15px;
-  font-family: sans-serif;
-  transition: 0.3s;
-}
-
-#contato button:hover {
-  background: #eead2d;
-  color: black;
+  font-size: 26px;
   font-weight: bold;
+  margin: 0;
 }
 
-#contato h1 {
-    font-size: 26px;
-    text-align: left;
-    color: #eead2d;
-    margin-bottom: 50px ;
+.footer-nav {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-/* ===== FOOTER ===== */
-footer {
-  margin-top: 30px;
-  padding: 15px;
-  text-align: center;
-  background: black;
+.footer-nav a {
   color: #eead2d;
-  font-size: 13px;
+  text-decoration: none;
+  font-size: 15px;
+  transition: color 0.3s;
 }
 
+.footer-nav a:hover {
+  color: #eead2d;
+}
+
+/* Contatos */
+.footer-contacts {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.contact-item {
+  text-align: center;
+}
+
+.contact-icon {
+  color: #eead2d;
+  font-size: 30px;
+  text-decoration: none;
+  transition: transform 0.3s;
+}
+
+.contact-icon:hover {
+  transform: scale(1.2);
+}
+
+.contact-item p {
+  margin: 5px 0 0;
+  font-size: 14px;
+}
+
+/* Direitos autorais */
+.footer-copy {
+  margin-top: 20px;
+  font-size: 12px;
+  color: #ccc;
+}
 /* ===== RESPONSIVIDADE ===== */
 @media screen and (max-width:768px){
-    .banner h1{ font-size:18px; }
+    .banner h1{ 
+        font-size:18px; 
+    }
 
-    .sobre h1, .servicos h1, .planos h1{ font-size:22px; }
-    nav ul{ gap:8px; }
+    .sobre h1, .servicos h1, .planos h1{ 
+        font-size:22px; }
+    nav ul{ 
+        gap:8px; 
+    }
 
-    .banner p, .sobre p, .accordion-content p{ max-width:100%; }
+    .banner p, .sobre p, .accordion-content p{ 
+        max-width:90%; 
+    }
 
     .nav-links {
       position: absolute;
@@ -318,10 +320,11 @@ footer {
       border: 2px solid #eead2d;
       font-size: 15px;
       flex-direction: column;
-      width: 150px; /* maior para caber o texto */
+      width: 100px;
       transform: translateX(100%);
       transition: transform 0.3s ease;
       margin-top: -5px ;
+
     }
 
     .nav-links.active {
@@ -331,7 +334,8 @@ footer {
     .hamburger {
       display: flex;
     }
-}
+  }
+  
 
 </style>
 </head>
@@ -412,7 +416,7 @@ footer {
 <section id="planos" class="planos">
     <h1>Planos Disponíveis</h1>
     <p>Conheça nossa seleção de planos! Caso tenha dúvidas, entre em contato pelos meios no final do site.</p>
-    <br>
+
     <button class="accordion-button">Plano Inicial</button>
     <div class="accordion-content">
             <p>Perfeito para quem quer proteção inicial com monitoramento eletrônico contínuo, garantindo segurança eficiente e controle pelo cliente.</p>
@@ -567,66 +571,73 @@ footer {
 
 </section>
 
-<section id="contato">
-  <h1>Contato</h1>
-  <div class="contato-icons">
+<footer class="footer">
+  <div class="footer-container">
     
-    <!-- Instagram -->
-    <div class="contato-item">
-      <a href="https://www.instagram.com/gruporonda/" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" 
-             alt="Instagram" class="icon">
-      </a>
-      <p>@gruporonda</p>
+    <h2 class="footer-logo">RONDA</h2>
+    
+    <nav class="footer-nav">
+      <a href="#inicio">Início</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#servicos">Serviços</a>
+      <a href="#planos">Planos</a>
+      <a href="#contato">Contato</a>
+    </nav>
+    
+    <div class="footer-contacts">
+      
+      <div class="contact-item">
+        <a href="https://wa.me/555195369298" target="_blank" class="contact-icon">📱</a>
+        <p>(51) 9536-9298</p>
+      </div>
+      
+      <div class="contact-item">
+        <a href="https://instagram.com/gruporonda" target="_blank" class="contact-icon">📷</a>
+        <p>@gruporonda</p>
+      </div>
     </div>
-
-    <!-- WhatsApp -->
-    <div class="contato-item">
-      <a href="https://wa.me/555195369298" target="_blank">
-        <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" 
-             alt="WhatsApp" class="icon">
-      </a>
-      <p>(51) 9536-9298</p>
-    </div>
-
+    
+    <p class="footer-copy">
+      © 2025 Ronda Segurança Eletrônica — Todos os direitos reservados.
+    </p>
+    
   </div>
-</section>
-
-<footer>
-  <p>© 2025 Ronda Segurança Eletrônica. Todos os direitos reservados.</p>
 </footer>
 
-<script type="text/javascript">
-  // === ACCORDION ===
-  const accordions = document.querySelectorAll('.accordion-button');
-  accordions.forEach(button => {
-      button.addEventListener('click', () => {
-          const content = button.nextElementSibling;
-          document.querySelectorAll('.accordion-content').forEach(c => {
-              if(c !== content){
-                  c.style.maxHeight = null;
-                  c.classList.remove('open');
-              }
-          });
-          content.classList.toggle('open');
-          if(content.style.maxHeight){
-              content.style.maxHeight = null;
-          } else {
-              content.style.maxHeight = content.scrollHeight + "px";
-          }
-      });
-  });
+</div> 
 
-  const hamburger = document.querySelector('.hamburger');
-  const navLinks = document.querySelector('.nav-links');
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
 
-  hamburger.addEventListener('click', () => {
-      navLinks.classList.toggle('active');
-      hamburger.classList.toggle('toggle');
-  });
+<script>
 
+const accordions = document.querySelectorAll('.accordion-button');
+accordions.forEach(button => {
+    button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        document.querySelectorAll('.accordion-content').forEach(c => {
+            if(c !== content){
+                c.style.maxHeight = null;
+                c.classList.remove('open');
+            }
+        });
+        content.classList.toggle('open');
+        if(content.style.maxHeight){
+            content.style.maxHeight = null;
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+        }
+    });
+});
+
+
+const hamburger = document.querySelector('.hamburger');
+const navLinks = document.querySelector('.nav-links');
+
+hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('active');
+    hamburger.classList.toggle('toggle');
+});
 </script>
-
 
 </body>
 </html>
